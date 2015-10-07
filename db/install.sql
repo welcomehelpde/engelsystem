@@ -296,7 +296,9 @@ DROP TABLE IF EXISTS `Room`;
 CREATE TABLE IF NOT EXISTS `Room` (
   `RID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(35) NOT NULL DEFAULT '',
-  `Man` text,
+  `Location` varchar(50) NOT NULL DEFAULT '',
+  `Lat` varchar(50) NOT NULL DEFAULT '',
+  `Long` varchar(50) NOT NULL DEFAULT '',
   `FromPentabarf` char(1) NOT NULL DEFAULT 'N',
   `show` char(1) NOT NULL DEFAULT 'Y',
   `Number` int(11) DEFAULT NULL,

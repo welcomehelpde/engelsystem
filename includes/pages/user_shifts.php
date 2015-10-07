@@ -808,24 +808,54 @@ function view_user_shifts() {
   if ($user['api_key'] == "")
     User_reset_api_key($user, false);
 
+    $selected = array(
+        'room_selected' => '',
+        'type_selected' => '',
+        'filled_selected' => ''
+    );
+
+    $roomsArray = array();
+    foreach($rooms as $s) {
+        $roomsArray[$s['id']] = $s['name'];
+    }
+    foreach($_SESSION['user_shifts']['rooms'] as $sel) {
+        $selected['room_selected'] = ($selected['room_selected'] == "" ? $roomsArray[$sel] : ', '.$roomsArray[$sel]);
+    }
+    $typesArray = array();
+    foreach($types as $s) {
+        $typesArray[$s['id']] = $s['name'];
+    }
+    foreach($_SESSION['user_shifts']['types'] as $sel) {
+        $selected['type_selected'] = ($selected['type_selected'] == "" ? $typesArray[$sel] : ', '.$typesArray[$sel]);
+    }
+    $filledArray = array();
+    foreach($filled as $s) {
+        $filledArray[$s['id']] = $s['name'];
+    }
+    foreach($_SESSION['user_shifts']['filled'] as $sel) {
+        $selected['filled_selected'] = ($selected['filled_selected'] == "" ? $filledArray[$sel] : ', '.$filledArray[$sel]);
+    }
+    $templateVars = array_merge(array(
+        'title' => shifts_title(),
+        'room_select' => make_select($rooms, $_SESSION['user_shifts']['rooms'], "rooms", _("Location")),
+        'start_select' => html_select_key("start_day", "start_day", array_combine($days, $days), $_SESSION['user_shifts']['start_day']),
+        'start_selected' => $_SESSION['user_shifts']['start_day'],
+        'start_time' => $_SESSION['user_shifts']['start_time'],
+        'end_select' => html_select_key("end_day", "end_day", array_combine($days, $days), $_SESSION['user_shifts']['end_day']),
+        'end_selected' => $_SESSION['user_shifts']['end_day'],
+        'end_time' => $_SESSION['user_shifts']['end_time'],
+        'type_select' => make_select($types, $_SESSION['user_shifts']['types'], "types", _("Angeltypes")),
+        'filled_select' => make_select($filled, $_SESSION['user_shifts']['filled'], "filled", _("Occupancy")),
+        'task_notice' => '',
+        'new_style_checkbox' => '</br><label><input type="checkbox" name="new_style" value="1" ' . ($_SESSION['user_shifts']['new_style'] ? ' checked' : '') . '> ' . _("<i class='fa fa-calendar'></i> Kalenderansicht <small>  <i class='fa fa-info'></i> Deaktivieren und neu filtern für Listenansicht</small>") . '</label>',
+        'shifts_table' => msg() . $shifts_table,
+        'ical_text' => '<h2>' . _("iCal export") . '</h2><p>' . sprintf(_("Export of shown shifts. <a href=\"%s\">iCal format</a> or <a href=\"%s\">JSON format</a> available (please keep secret, otherwise <a href=\"%s\">reset the api key</a>)."), page_link_to_absolute('ical') . '&key=' . $user['api_key'], page_link_to_absolute('shifts_json_export') . '&key=' . $user['api_key'], page_link_to('user_myshifts') . '&reset') . '</p>',
+        'filter' => _("Filter")
+    ), $selected);
   return page(array(
       '<div class="col-md-12">',
       msg(),
-      template_render('../templates/user_shifts.html', array(
-          'title' => shifts_title(),
-          'room_select' => make_select($rooms, $_SESSION['user_shifts']['rooms'], "rooms", _("Location")),
-          'start_select' => html_select_key("start_day", "start_day", array_combine($days, $days), $_SESSION['user_shifts']['start_day']),
-          'start_time' => $_SESSION['user_shifts']['start_time'],
-          'end_select' => html_select_key("end_day", "end_day", array_combine($days, $days), $_SESSION['user_shifts']['end_day']),
-          'end_time' => $_SESSION['user_shifts']['end_time'],
-          'type_select' => make_select($types, $_SESSION['user_shifts']['types'], "types", _("Angeltypes")),
-          'filled_select' => make_select($filled, $_SESSION['user_shifts']['filled'], "filled", _("Occupancy")),
-          'task_notice' => '',
-          'new_style_checkbox' => '</br><label><input type="checkbox" name="new_style" value="1" ' . ($_SESSION['user_shifts']['new_style'] ? ' checked' : '') . '> ' . _("<i class='fa fa-calendar'></i> Kalenderansicht <small>  <i class='fa fa-info'></i> Deaktivieren und neu filtern für Listenansicht</small>") . '</label>',
-          'shifts_table' => msg() . $shifts_table,
-          'ical_text' => '<h2>' . _("iCal export") . '</h2><p>' . sprintf(_("Export of shown shifts. <a href=\"%s\">iCal format</a> or <a href=\"%s\">JSON format</a> available (please keep secret, otherwise <a href=\"%s\">reset the api key</a>)."), page_link_to_absolute('ical') . '&key=' . $user['api_key'], page_link_to_absolute('shifts_json_export') . '&key=' . $user['api_key'], page_link_to('user_myshifts') . '&reset') . '</p>',
-          'filter' => _("Filter")
-      )),
+      template_render('../templates/user_shifts.html', $templateVars),
       '</div>'
   ));
 }

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Helfersystem 2.0\n"
 "POT-Creation-Date: 2015-09-16 09:53+0100\n"
-"PO-Revision-Date: 2015-10-07 15:22+0200\n"
+"PO-Revision-Date: 2015-10-07 20:16+0200\n"
 "Last-Translator: Andreas Tichon <at@welcomehelp.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -828,7 +828,7 @@ msgstr "Speichern"
 
 #: includes/view/ShiftEntry_view.php:18
 msgid "Freeload comment (Only for shift coordination):"
-msgstr "Schwänzer Kommentar (Nur für die Schicht-Koordination):"
+msgstr "Versäumnis-Hinweis/Kommentar (Nur für die Schicht-Koordination):"
 
 #: includes/view/ShiftEntry_view.php:23
 msgid "Edit shift entry"

@@ -9,7 +9,10 @@ function admin_active() {
   
   $msg = "";
   $search = "";
-  $forced_count = sql_num_query("SELECT * FROM `User` WHERE `force_active`=1");
+    $queryResult = sql_query("SELECT count(*) FROM `User` WHERE `force_active`=1");
+    if ($queryResult instanceof mysqli_result) {
+        $forced_count = current($queryResult->fetch_row());
+    }
   $count = $forced_count;
   $limit = "";
   $set_active = "";
@@ -130,7 +133,6 @@ function admin_active() {
     $usr['active'] = glyph_bool($usr['Aktiv'] == 1);
     $usr['force_active'] = glyph_bool($usr['force_active'] == 1);
     $usr['tshirt'] = glyph_bool($usr['Tshirt'] == 1);
-    
     $actions = array();
     if ($usr['Aktiv'] == 0)
       $actions[] = '<a href="' . page_link_to('admin_active') . '&amp;active=' . $usr['UID'] . ($show_all_shifts ? '&amp;show_all_shifts=' : '') . '&amp;search=' . $search . '">' . _("set active") . '</a>';
@@ -181,6 +183,7 @@ function admin_active() {
           'active' => _("Active?"),
           'force_active' => _("Forced"),
           'tshirt' => _("T-shirt?"),
+          'kommentar' =>_('add. Info'),
           'actions' => "" 
       ), $matched_users),
       '<h2>' . _("Shirt statistics") . '</h2>',

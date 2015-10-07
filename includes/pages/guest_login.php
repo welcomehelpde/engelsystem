@@ -14,7 +14,7 @@ function logout_title() {
 
 // Engel registrieren
 function guest_register() {
-  global $tshirt_sizes, $enable_tshirt_size, $default_theme;
+  global $default_theme, $genders;
   
   $msg = "";
   $nick = "";
@@ -22,18 +22,15 @@ function guest_register() {
   $prename = "";
   $age = "";
   $tel = "";
-  $dect = "";
   $mobile = "";
   $mail = "";
   $email_shiftinfo = false;
-  $jabber = "";
   $hometown = "";
   $comment = "";
-  $tshirt_size = '';
   $password_hash = "";
   $selected_angel_types = array();
-  $planned_arrival_date = null;
-  
+  $gender = "none";
+
   $angel_types_source = sql_select("SELECT * FROM `AngelTypes` ORDER BY `name`");
   $angel_types = array();
   foreach ($angel_types_source as $angel_type) {
@@ -70,22 +67,6 @@ function guest_register() {
     if (isset($_REQUEST['email_shiftinfo']))
       $email_shiftinfo = true;
     
-    if (isset($_REQUEST['jabber']) && strlen(strip_request_item('jabber')) > 0) {
-      $jabber = strip_request_item('jabber');
-      if (! check_email($jabber)) {
-        $ok = false;
-        $msg .= error(_("Please check your jabber account information."), true);
-      }
-    }
-    
-    if ($enable_tshirt_size) {
-      if (isset($_REQUEST['tshirt_size']) && isset($tshirt_sizes[$_REQUEST['tshirt_size']]) && $_REQUEST['tshirt_size'] != '')
-        $tshirt_size = $_REQUEST['tshirt_size'];
-      else {
-        $ok = false;
-        $msg .= error(_("Please select your shirt size."), true);
-      }
-    }
     
     if (isset($_REQUEST['password']) && strlen($_REQUEST['password']) >= MIN_PASSWORD_LENGTH) {
       if ($_REQUEST['password'] != $_REQUEST['password2']) {
@@ -97,12 +78,6 @@ function guest_register() {
       $msg .= error(sprintf(_("Your password is too short (please use at least %s characters)."), MIN_PASSWORD_LENGTH), true);
     }
     
-    if (isset($_REQUEST['planned_arrival_date']) && DateTime::createFromFormat("Y-m-d", trim($_REQUEST['planned_arrival_date']))) {
-      $planned_arrival_date = DateTime::createFromFormat("Y-m-d", trim($_REQUEST['planned_arrival_date']))->getTimestamp();
-    } else {
-      $ok = false;
-      $msg .= error(_("Please enter your planned date of arrival."), true);
-    }
     
     $selected_angel_types = array();
     foreach ($angel_types as $angel_type_id => $angel_type_name)
@@ -118,15 +93,19 @@ function guest_register() {
       $age = strip_request_item('age');
     if (isset($_REQUEST['tel']))
       $tel = strip_request_item('tel');
-    if (isset($_REQUEST['dect']))
-      $dect = strip_request_item('dect');
     if (isset($_REQUEST['mobile']))
       $mobile = strip_request_item('mobile');
     if (isset($_REQUEST['hometown']))
       $hometown = strip_request_item('hometown');
     if (isset($_REQUEST['comment']))
       $comment = strip_request_item_nl('comment');
-    
+
+    if (isset($_REQUEST['gender'])
+        && array_key_exists($_REQUEST['gender'], $genders)) {
+        $gender = $_REQUEST['gender'];
+    }
+
+
     if ($ok) {
       sql_query("
           INSERT INTO `User` SET 
@@ -135,6 +114,7 @@ function guest_register() {
           `Vorname`='" . sql_escape($prename) . "', 
           `Name`='" . sql_escape($lastname) . "', 
           `Alter`='" . sql_escape($age) . "', 
+          `gender`='" . sql_escape($gender) . "',
           `Telefon`='" . sql_escape($tel) . "', 
           `DECT`='" . sql_escape($dect) . "', 
           `Handy`='" . sql_escape($mobile) . "', 
@@ -169,7 +149,7 @@ function guest_register() {
   }
   
   return page_with_title(register_title(), array(
-      _("By completing this form you're registering as a Chaos-Angel. This script will create you an account in the angel task sheduler."),
+      _("By completing this form you're registering as an angel. This script will create you an account in the angel task sheduler."),
       $msg,
       msg(),
       form(array(
@@ -186,10 +166,8 @@ function guest_register() {
                   )),
                   div('row', array(
                       div('col-sm-6', array(
-                          form_date('planned_arrival_date', _("Planned date of arrival") . ' ' . entry_required(), $planned_arrival_date, time()) 
                       )),
                       div('col-sm-6', array(
-                          $enable_tshirt_size ? form_select('tshirt_size', _("Shirt size") . ' ' . entry_required(), $tshirt_sizes, $tshirt_size) : '' 
                       )) 
                   )),
                   div('row', array(
@@ -206,16 +184,15 @@ function guest_register() {
               div('col-md-6', array(
                   div('row', array(
                       div('col-sm-4', array(
-                          form_text('dect', _("DECT"), $dect) 
-                      )),
-                      div('col-sm-4', array(
-                          form_text('mobile', _("Mobile"), $mobile) 
+                          form_text('mobile', _("Mobile"), $mobile)                          
                       )),
                       div('col-sm-4', array(
                           form_text('tel', _("Phone"), $tel) 
+                      )),
+                      div('col-sm-4', array(
+                          
                       )) 
                   )),
-                  form_text('jabber', _("Jabber"), $jabber),
                   div('row', array(
                       div('col-sm-6', array(
                           form_text('prename', _("First name"), $prename) 
@@ -228,15 +205,20 @@ function guest_register() {
                       div('col-sm-3', array(
                           form_text('age', _("Age"), $age) 
                       )),
-                      div('col-sm-9', array(
+                      div('col-sm-3', array(
+                          form_select('gender', _("Gender"), $genders, $gender)
+                      )),
+                      div('col-sm-6', array(
                           form_text('hometown', _("Hometown"), $hometown) 
-                      )) 
-                  )),
+                      )),
+                      div('col-sm-6', array(
+                              form_text('comment', _("Additional Information(Language / Profession)"), $comment)
+                          ))
+                      )),
                   form_info(entry_required() . ' = ' . _("Entry required!")) 
               )) 
           )),
-          // form_textarea('comment', _("Did you help at former CCC events and which tasks have you performed then?"), $comment),
-          form_submit('submit', _("Register")) 
+          form_submit('submit', _("Register"))
       )) 
   ));
 }

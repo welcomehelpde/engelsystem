@@ -4,15 +4,15 @@
  * Liste der verfügbaren Themes
  */
 $themes = array(
-    "0" => "Engelsystem light",
-    "1" => "Engelsystem dark",
-    "2" => "Engelsystem cccamp15" 
+    "0" => "light",
+    "1" => "dark",
+    "2" => "cccamp15"
 );
 
 /**
  * Display muted (grey) text.
  *
- * @param string $text          
+ * @param string $text
  */
 function mute($text) {
   return '<span class="text-muted">' . $text . '</span>';
@@ -25,7 +25,7 @@ function progress_bar($valuemin, $valuemax, $valuenow, $class = '', $content = '
 /**
  * Render glyphicon
  *
- * @param string $glyph_name          
+ * @param string $glyph_name
  */
 function glyph($glyph_name) {
   return ' <span class="glyphicon glyphicon-' . $glyph_name . '"></span> ';
@@ -34,7 +34,7 @@ function glyph($glyph_name) {
 /**
  * Renders a tick or a cross by given boolean
  *
- * @param boolean $boolean          
+ * @param boolean $boolean
  */
 function glyph_bool($boolean) {
   return '<span class="text-' . ($boolean ? 'success' : 'danger') . '">' . glyph($boolean ? 'ok' : 'remove') . '</span>';
@@ -45,6 +45,28 @@ function div($class, $content = array(), $id = "") {
   return '<div' . $id . ' class="' . $class . '">' . join("\n", $content) . '</div>';
 }
 
+/**
+ * Creates a script tag.
+ *
+ * @param $src
+ * @return string
+ */
+function scriptTag($src)
+{
+    return sprintf("<script type=\"text/javascript\" src=\"%s\"></script>", $src);
+}
+
+/**
+ * Creates a script section.
+ *
+ * @param $content
+ * @return string
+ */
+function script($content)
+{
+    return sprintf("<script type=\"text/javascript\">%s</script>", $content);
+}
+
 function heading($content, $number = 1) {
   return "<h" . $number . ">" . $content . "</h" . $number . ">";
 }
@@ -52,7 +74,7 @@ function heading($content, $number = 1) {
 /**
  * Render a toolbar.
  *
- * @param array $items          
+ * @param array $items
  * @return string
  */
 function toolbar($items = array(), $right = false) {
@@ -62,10 +84,10 @@ function toolbar($items = array(), $right = false) {
 /**
  * Render a link for a toolbar.
  *
- * @param string $href          
- * @param string $glyphicon          
- * @param string $label          
- * @param bool $selected          
+ * @param string $href
+ * @param string $glyphicon
+ * @param string $label
+ * @param bool $selected
  * @return string
  */
 function toolbar_item_link($href, $glyphicon, $label, $selected = false) {
@@ -85,15 +107,15 @@ function toolbar_dropdown($glyphicon, $label, $submenu, $class = '') {
 function toolbar_popover($glyphicon, $label, $content, $class = '') {
   $id = md5(microtime() . $glyphicon . $label);
   return '<li class="dropdown messages ' . $class . '">
-          <a id="' . $id . '" href="#">' . ($glyphicon != '' ? '<span class="glyphicon glyphicon-' . $glyphicon . '"></span> ' : '') 
+          <a id="' . $id . '" href="#">' . ($glyphicon != '' ? '<span class="glyphicon glyphicon-' . $glyphicon . '"></span> ' : '')
           . $label . ' <span class="caret"></span></a>
           <script type="text/javascript">
           $(function(){
               $("#' . $id . '").popover({
-                  trigger: "focus", 
-                  html: true, 
-                  content: "' . addslashes(join('', $content)) . '", 
-                  placement: "bottom", 
+                  trigger: "focus",
+                  html: true,
+                  content: "' . addslashes(join('', $content)) . '",
+                  placement: "bottom",
                   container: "#navbar-collapse-1"
               })
           });
@@ -160,7 +182,7 @@ function form_date($name, $label, $value, $start_date = '') {
           format: "yyyy-mm-dd",
           startDate: "' . $start_date . '"
 			  });
-      });  
+      });
     </script>
     ', $id);
 }
@@ -181,9 +203,9 @@ function form_checkboxes($name, $label, $items, $selected) {
   $html = form_element($label, '');
   foreach ($items as $key => $item)
     $html .= form_checkbox($name . '_' . $key, $item, array_search($key, $selected) !== false);
-  
+
   return $html;
-  
+
   $html = "<ul>";
   foreach ($items as $key => $item) {
     $id = $name . '_' . $key;
@@ -263,9 +285,20 @@ function form_submit($name, $label) {
 /**
  * Rendert ein Formular-Textfeld
  */
-function form_text($name, $label, $value, $disabled = false) {
+function form_text($name, $label, $value, $disabled = false, $readonly = false) {
   $disabled = $disabled ? ' disabled="disabled"' : '';
-  return form_element($label, '<input class="form-control" id="form_' . $name . '" type="text" name="' . $name . '" value="' . htmlspecialchars($value) . '" ' . $disabled . '/>', 'form_' . $name);
+  return form_element(
+      $label,
+      sprintf(
+          '<input class="form-control" id="form_%s" type="text" name="%s" value="%s" %s %s/>',
+          htmlspecialchars($name),
+          htmlspecialchars($name),
+          htmlspecialchars($value),
+          $disabled,
+          ($readonly ? 'readonly' : '')
+      ),
+      'form_' . $name
+  );
 }
 
 /**
@@ -347,17 +380,17 @@ function table($columns, $rows_raw, $data = true) {
   // If only one column is given
   if (! is_array($columns)) {
     $columns = array(
-        'col' => $columns 
+        'col' => $columns
     );
-    
+
     $rows = array();
     foreach ($rows_raw as $row)
       $rows[] = array(
-          'col' => $row 
+          'col' => $row
       );
   } else
     $rows = $rows_raw;
-  
+
   if (count($rows) == 0)
     return info(_("No data found."), true);
   $html = "";
@@ -445,7 +478,7 @@ function html_options($name, $options, $selected = "") {
   $html = "";
   foreach ($options as $value => $label)
     $html .= '<input type="radio"' . ($value == $selected ? ' checked="checked"' : '') . ' name="' . $name . '" value="' . $value . '"> ' . $label;
-  
+
   return $html;
 }
 
@@ -483,7 +516,30 @@ function ReplaceSmilies($neueckig) {
   $neueckig = str_replace(";P", "<img src=\"pic/smiles/icon_mad.gif\">", $neueckig);
   $neueckig = str_replace(";oP", "<img src=\"pic/smiles/icon_mad.gif\">", $neueckig);
   $neueckig = str_replace("?)", "<img src=\"pic/smiles/icon_question.gif\">", $neueckig);
-  
+
   return $neueckig;
 }
-?>
+
+
+/**
+ * Creates a ul-list with its items. Needs a list of labels, used for the li items.
+ *
+ * The attributes can contain the class (for the ul class) or item_class (class for li element).
+ *
+ * @param array $listItems
+ * @param $attributes
+ *
+ * @return string
+ */
+function listView($listItems, $attributes)
+{
+  $ulClass = isset($attributes['class']) ? $attributes['class'] : '';
+  $liClass = isset($attributes['item_class']) ? $attributes['item_class'] : '';
+  $list = '';
+
+  foreach ($listItems as $label) {
+    $list .= sprintf("<li class=\"%s\">%s</li>", htmlspecialchars($liClass), $label);
+  }
+
+  return sprintf("<ul class=\"%s\">%s</ul>", htmlspecialchars($ulClass), $list);
+}

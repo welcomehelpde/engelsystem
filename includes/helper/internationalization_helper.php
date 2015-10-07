@@ -4,7 +4,7 @@ $locales = array(
     'en_US.UTF-8' => "English" 
 );
 
-$default_locale = 'en_US.UTF-8';
+$default_locale = 'de_DE.UTF-8';
 
 /**
  * Return currently active locale

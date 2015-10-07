@@ -58,9 +58,10 @@ function admin_free() {
     $free_users_table[] = array(
         'name' => User_Nick_render($usr),
         'shift_state' => User_shift_state_render($usr),
-        'dect' => $usr['DECT'],
-        'jabber' => $usr['jabber'],
+        'handy' => $usr['Handy'],
+        'telefon' => $usr['Telefon'],
         'email' => $usr['email'],
+        'kommentar' => $usr['kommentar'],
         'actions' => in_array('admin_user', $privileges) ? button(page_link_to('admin_user') . '&amp;id=' . $usr['UID'], _("edit"), 'btn-xs') : '' 
     );
   }
@@ -84,9 +85,10 @@ function admin_free() {
       table(array(
           'name' => _("Nick"),
           'shift_state' => '',
-          'dect' => _("DECT"),
-          'jabber' => _("Jabber"),
+          'handy' => _("Mobile"),
+          'telefon' => _("Phone"),
           'email' => _("E-Mail"),
+          'kommentar' => _("add. Info"),
           'actions' => '' 
       ), $free_users_table) 
   ));

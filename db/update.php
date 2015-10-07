@@ -70,4 +70,3 @@ foreach($updates as $update) {
             echo "Successfully applied " . $update . " (at least partially).\n";
     }
 }
-?>

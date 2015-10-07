@@ -6909,6 +6909,180 @@ a#shifts td.collides:focus {
     transform: rotate(0deg) translateY(0px);
   }
 }
+.forecast {
+  margin-bottom: 30px;
+}
+.blocks,
+.google {
+  margin-bottom: 30px;
+}
+.job-list,
+.news {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .job-list,
+  .news {
+    float: left;
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .job-list,
+  .news {
+    float: left;
+    width: 33.33333333%;
+  }
+}
+@media (min-width: 1200px) {
+  .job-list,
+  .news {
+    float: left;
+    width: 33.33333333%;
+  }
+}
+.talks {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .talks {
+    float: left;
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .talks {
+    float: left;
+    width: 33.33333333%;
+  }
+}
+@media (min-width: 1200px) {
+  .talks {
+    float: left;
+    width: 33.33333333%;
+  }
+}
+.upcoming-shifts,
+.upcoming-night-shifts,
+.currently-working,
+.hours-worked {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  font-weight: 100;
+}
+@media (min-width: 768px) {
+  .upcoming-shifts,
+  .upcoming-night-shifts,
+  .currently-working,
+  .hours-worked {
+    float: left;
+    width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  .upcoming-shifts,
+  .upcoming-night-shifts,
+  .currently-working,
+  .hours-worked {
+    float: left;
+    width: 25%;
+  }
+}
+@media (min-width: 1200px) {
+  .upcoming-shifts,
+  .upcoming-night-shifts,
+  .currently-working,
+  .hours-worked {
+    float: left;
+    width: 25%;
+  }
+}
+.upcoming-shifts .number,
+.upcoming-night-shifts .number,
+.currently-working .number,
+.hours-worked .number {
+  font-size: 80px;
+  font-weight: 200;
+}
+.upcoming-shifts .description,
+.upcoming-night-shifts .description,
+.currently-working .description,
+.hours-worked .description {
+  font-size: 16px;
+  font-weight: bold;
+}
+.job {
+  overflow: hidden;
+}
+.job header {
+  font-size: 20px;
+}
+.job header .location {
+  margin-left: 10px;
+}
+.job .job-description {
+  font-size: 18px;
+  font-weight: 100;
+}
+.clock {
+  font-size: 70px;
+  text-align: center;
+}
+
+.news-list,
+.job-list li {
+  margin-bottom: 10px;
+}
+
+.google-container {
+  width: 100%;
+  height: 300px;
+}
+/* makes table elements in User-Edit-Form behave like bootstrap elements
+   (quick-fix! html should get refactored) */
+form.admin-user-form td {
+  clear: both;
+  padding: 0 0 15px 0;
+}
+form.admin-user-form input[type="radio"] {
+  margin-left: 15px;
+}
+form.admin-user-form input[type="radio"]:first-child {
+  margin-left: 0;
+}
+/* Shift filters */
+.selection.user-shift-filter .checkbox {
+  clear: both;
+}
+.shift-selected-filter-list {
+  margin: 0;
+  padding: 0 0 5px 0;
+  list-style: none;
+}
+.shift-selected-filter-list li {
+  position: relative;
+  padding: 0 0 0 11px;
+}
+.shift-selected-filter-list li:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: '- ';
+}
+@media all and (max-width: 768px) {
+  .selection.user-shift-filter {
+    margin-top: 25px;
+  }
+}
 .messages .text-danger {
   color: #fff;
 }

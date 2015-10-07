@@ -30,6 +30,8 @@ require_once realpath(__DIR__ . '/../includes/view/ShiftEntry_view.php');
 require_once realpath(__DIR__ . '/../includes/view/ShiftTypes_view.php');
 require_once realpath(__DIR__ . '/../includes/view/UserAngelTypes_view.php');
 require_once realpath(__DIR__ . '/../includes/view/User_view.php');
+require_once realpath(__DIR__ . '/../includes/view/Dashboard_view.php');
+require_once realpath(__DIR__ . '/../includes/view/Block_view.php');
 
 require_once realpath(__DIR__ . '/../includes/controller/angeltypes_controller.php');
 require_once realpath(__DIR__ . '/../includes/controller/rooms_controller.php');
@@ -74,7 +76,6 @@ require_once realpath(__DIR__ . '/../includes/pages/user_questions.php');
 require_once realpath(__DIR__ . '/../includes/pages/user_settings.php');
 require_once realpath(__DIR__ . '/../includes/pages/user_shifts.php');
 
-require_once realpath(__DIR__ . '/../vendor/parsedown/Parsedown.php');
 
 if (! defined('PHPUNIT_TESTSUITE')) {
   session_lifetime(24 * 60, preg_replace("/[^a-z0-9-]/", '', md5(__DIR__)));
@@ -86,5 +87,3 @@ gettext_init();
 sql_connect($config['host'], $config['user'], $config['pw'], $config['db']);
 
 load_auth();
-
-?>

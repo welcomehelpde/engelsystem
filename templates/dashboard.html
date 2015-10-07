@@ -1,0 +1,181 @@
+<div class="row forecast">
+    <div class="upcoming-shifts">
+        %number_upcoming_shifts%
+    </div>
+    <div class="upcoming-night-shifts">
+        %number_upcoming_night_shifts%
+    </div>
+    <div class="currently-working">
+        %number_currently_working%
+    </div>
+    <div class="hours-worked">
+        %number_hours_worked%
+    </div>
+</div>
+<ul class="tabs">
+        <li>
+          <input type="radio" checked name="tabs" id="tab1">
+          <label for="tab1">Infos - Wann & wo kann ich helfen?</label>
+          <div id="tab-content1" class="tab-content animated fadeIn">
+xxx FAQ? xxx
+          </div>
+        </li>
+        <li>
+          <input type="radio" name="tabs" id="tab2">
+          <label for="tab2">Standorte</label>
+          <div id="tab-content2" class="tab-content animated fadeIn">
+<div class="row google">
+    <div class="google-container" id="google-container">
+
+    </div>
+</div>
+          </div>
+        </li>
+        <li>
+          <input type="radio" name="tabs" id="tab3">
+          <label for="tab3">Über uns</label>
+          <div id="tab-content3" class="tab-content animated fadeIn">
+From the HTML markup, you can see that I have the radio button, the label and the container at the same level. There’s a reason for this. With the help of an awesome CSS sibling combinator (~) we can have one selector triggering another same-level selector without even having it nested together. 
+This allows us to have any radio button with a check triggering any container to appear so that it replicates the behavior of a normal content tab created with JavaScript. 
+          </div>
+        </li>
+</ul>
+
+<div class="row blocks">
+    <section class="job-list">
+        %my_next_jobs%
+        %jobs_currently_running%
+    </section>
+
+    <section class="job-list">
+        %jobs_now%
+        %jobs_soon%
+    </section>
+    <section class="news">
+        <div class="clock well" id="clockDisplay">hh:mm:ss</div>
+        %news%
+    </section>
+</div>
+<span id="bg_pattern" <div="" style="opacity: .9"></div></span>
+<script>
+    var LatLngList = [], marker = [], infowindow = [], map, contentHtml;
+    initEmptyCard();
+
+    showUpcomingShifts();
+
+    renderTime();
+
+    function initEmptyCard() {
+        var latitude = 51;
+        var longitude = 10;
+        var home = new google.maps.LatLng(latitude, longitude);
+        var options = {
+            center: home,
+            zoom: 5,
+            mapTypeId: google.maps.MapTypeId.HYBRID
+        };
+        map = new google.maps.Map(document.getElementById("google-container"), options);
+    }
+
+    function showUpcomingShifts() {
+        var url = "%api_shifts_link%";
+        jQuery.support.cors = true;
+        $.ajax({
+            url: url,
+            dataType: "json",
+            error: function(xhr, status, errorThrown) {
+                console.log(errorThrown+'\n'+status+'\n'+xhr.statusText);
+            },
+            success: function(o){
+                displayShifts(o);
+            }
+        });
+    }
+
+    function displayShifts(shifts) {
+        contentHtml = [];
+        for(i in shifts) {
+            var shift = shifts[i];
+            if ('' === shift.lat || '' === shift.long) {
+                continue;
+            }
+
+            var coords = new google.maps.LatLng(shift.lat, shift.long);
+            LatLngList[i] = coords;
+            if (typeof marker[shift.RID] === 'undefined') {
+                marker[shift.RID] = new google.maps.Marker({
+                    position: coords,
+                    title: shift.locationName,
+                    map: map,
+                    dragable: false
+                });
+                var html = "<section class=\"location-infowindow\">" +
+                        "    <h4>"+ shift.locationName + "</h4>" +
+                        "    <div class=\"location-content-infowindow\"></div>" +
+                        "</section>";
+                html = html + buildHTMLContent(shift);
+
+                contentHtml[shift.RID] = html;
+
+                google.maps.event.addListener(marker[shift.RID], 'click',
+                        openShiftDetails(shift.RID, marker[shift.RID])
+                );
+            } else {
+                contentHtml[shift.RID] = contentHtml[shift.RID] + "<br />" + buildHTMLContent(shift);
+            }
+        }
+
+        if (LatLngList.length != 0){
+            var bounds = new google.maps.LatLngBounds ();
+            for (var i = 0, LtLgLen = LatLngList.length; i < LtLgLen; i++) {
+                bounds.extend (LatLngList[i]);
+            }
+            map.fitBounds (bounds);
+        }
+    }
+
+    function openShiftDetails(RID, marker) {
+        return function() {
+            var infowindow = new google.maps.InfoWindow({
+                content : contentHtml[RID],
+                maxWidth: 300
+            });
+            infowindow.open(map, marker);
+        };
+    }
+
+    function buildHTMLContent(shift) {
+        var start = moment.unix(shift.start);
+        var end = moment.unix(shift.end);
+        var html = "<section class=\"shift-infowindow\">" +
+                "   <h5>" + (null === shift.title ? shift.shiftType : shift.title) + "</h5>" +
+                "   <div class=\"shift-content-infowindow\">" +
+                "       <h6>" + start.format('HH:mm DD.MM.YYYY') + " - " + end.format('HH:mm DD.MM.YYYY') + "</h6>"
+                "   </div>" +
+                "</section>";
+
+        return html;
+    }
+
+    function renderTime() {
+        var currentTime = new Date();
+        var h = currentTime.getHours();
+        var m = currentTime.getMinutes();
+        var s = currentTime.getSeconds();
+        setTimeout('renderTime()',1000);
+
+        if (s < 10){
+            s= "0" + s;
+        }
+        if (h < 10){
+            h= "0" + h;
+        }
+        if (m < 10){
+            m= "0" + m;
+        }
+        var myClock = document.getElementById('clockDisplay');
+        myClock.textContent = h + ":" + m + ":" + s + " ";
+        myClock.innerText = h + ":" + m + ":" + s + " " ;
+    }
+
+</script>

@@ -13,6 +13,18 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('ul.menu li').click(function() {
+			var current = $(this);
+			var content_box = $('#'+current.attr('data-container'));
+			$('ul.menu li').removeClass('active');
+			current.addClass('active');
+			$('.content').hide();
+			content_box.show();
+		});	
+	});	
+</script>
 %atom_link%
 </head>
 <body>

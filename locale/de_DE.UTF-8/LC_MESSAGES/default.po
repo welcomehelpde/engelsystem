@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Helfersystem 2.0\n"
 "POT-Creation-Date: 2015-09-16 09:53+0100\n"
-"PO-Revision-Date: 2015-10-07 20:16+0200\n"
+"PO-Revision-Date: 2015-10-08 03:30+0200\n"
 "Last-Translator: Andreas Tichon <at@welcomehelp.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -655,8 +655,8 @@ msgid ""
 "This angeltype is restricted by double-opt-in by a team coordinator. Please "
 "show up at the according introduction meetings."
 msgstr ""
-"Dieser Helfer-Typ muss zusätzlich von einem Team-Koordinator freigeschaltet "
-"werden. Bitte komme zu den entsprechenden Einführungstreffen."
+"Dieser Helfer-Typ muss von einem Team-Koordinator freigeschaltet werden. "
+"Bitte komme zu den entsprechenden Einführungstreffen."
 
 #: includes/view/Shifts_view.php:6
 #, php-format
@@ -828,7 +828,9 @@ msgstr "Speichern"
 
 #: includes/view/ShiftEntry_view.php:18
 msgid "Freeload comment (Only for shift coordination):"
-msgstr "Versäumnis-Hinweis/Kommentar (Nur für die Schicht-Koordination):"
+msgstr ""
+"Versäumnis-Hinweis (freiwillig und nur für die Schicht-Koordination "
+"sichtbar):"
 
 #: includes/view/ShiftEntry_view.php:23
 msgid "Edit shift entry"
@@ -1132,7 +1134,7 @@ msgstr "Hier kannst Du Deine Details ändern."
 
 #: includes/pages/user_settings.php:173 includes/pages/guest_login.php:244
 msgid "Entry required!"
-msgstr "Pflichtfeld!"
+msgstr "Pflichtfeld"
 
 #: includes/pages/user_settings.php:175 includes/pages/guest_login.php:230
 msgid "Last name"
@@ -1157,7 +1159,9 @@ msgstr "Alter"
 #: includes/pages/user_settings.php:185 includes/pages/guest_login.php:190
 #: includes/pages/admin_user.php:45
 msgid "Please send me an email if my shifts change"
-msgstr "Informiere mich per E-Mail über Änderungen an meinen Schichten"
+msgstr ""
+"Informiere mich per E-Mail über Änderungen an meinen Schichten und wichtige "
+"Neuigkeiten"
 
 #: includes/pages/user_settings.php:186 includes/pages/guest_login.php:224
 msgid "Jabber"
@@ -1169,7 +1173,7 @@ msgstr "Wohnort"
 
 #: includes/pages/user_settings.php:188 includes/pages/guest_login.php:198
 msgid "Shirt size"
-msgstr "Weste Größe"
+msgstr "Westen-Größe"
 
 #: includes/pages/user_settings.php:189
 msgid "Please visit the angeltypes page to manage your angeltypes."
@@ -1185,7 +1189,7 @@ msgstr "Altes Passwort:"
 
 #: includes/pages/user_settings.php:197
 msgid "New password:"
-msgstr "Neues Passwort:"
+msgstr "Neues Passwort (mind. 6 Zeichen):"
 
 #: includes/pages/user_settings.php:198
 msgid "Password confirmation:"
@@ -1383,7 +1387,7 @@ msgstr "Nachricht"
 
 #: includes/pages/admin_news.php:31 includes/pages/user_news.php:159
 msgid "Meeting"
-msgstr "Treffen"
+msgstr "Events"
 
 #: includes/pages/admin_news.php:35 includes/pages/admin_rooms.php:167
 msgid "Delete"
@@ -1608,7 +1612,7 @@ msgstr "News Kommentare"
 
 #: includes/pages/user_news.php:11
 msgid "Meetings"
-msgstr "Treffen"
+msgstr "Events"
 
 #: includes/pages/user_news.php:66
 msgid "Comments"
@@ -2140,8 +2144,8 @@ msgid ""
 "You don't have permission to view this page. You probably have to sign in or "
 "register in order to gain access!"
 msgstr ""
-"Bitte registriere Dich und logge Dich ein, um Zugriff zu dieser Seite zu "
-"erhalten."
+"Du hast keinen Zugriff auf diese Seite. Registriere Dich und logge Dich "
+"bitte ein, um Zugriff zu erhalten!"
 
 #: public/index.php:166
 msgid "Select all"

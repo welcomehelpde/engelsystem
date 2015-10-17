@@ -7060,55 +7060,24 @@ form.admin-user-form input[type="radio"]:first-child {
   }
 }
 	
-	#container{
-    margin: 7em auto;
-    width: 400px;
 }
-#container ul{
-    list-style: none;
-    list-style-position: outside;
-}
-#container ul.menu li{
-    float: left;
-    margin-right: 5px;
-    margin-bottom: -1px;
-}
-#container ul.menu li{
-    font-weight: 700;
-    display: block;
-    padding: 5px 10px 5px 10px;
-    background: #2f2f2f;
-    margin-bottom: -1px;
-    border: 1px solid #d0ccc9;
-    border-width: 1px 1px 1px 1px;
-    position: relative;
-    color: white;
-    cursor: pointer;
-}
-#container ul.menu li.active{
-    background: #fff;
-    top: 1px;
-    border-bottom: 0;
-    color: #5f95ef;
-}
+ /* Cookie Notice */
 
-.content{
-    margin: 0pt auto;
-    background: #efefef;
-    background: #fff;
-    border: 1px solid #d0ccc9;
-    text-align: left;
-    padding: 10px;
-    padding-bottom: 20px;
-    font-size: 11px;
-}
-.content h1{
-    line-height: 1em;
-    vertical-align: middle;
-    height: 48px;
-    padding: 10px 10px 10px 52px;
-    font-size: 32px;
-}
- 
-.tutorials{display:none;}
-.links{display:none;}
+        div.pn_notebox{
+            padding: 8px;
+            text-align: center;
+            background-color: #FCFFDE;
+            border: 1px solid #FFC457;
+        }
+        a.pn_approval{
+            background-color: #FFC457;
+            color: #fff;
+            padding: 2px 8px;
+        }
+        div.pn_approved{
+            background-color: #C9FFE6;
+            border-color: #00DE76;
+        }
+        div.pn_removed{
+            background-color: #FAE3EC;
+            border-color: #E00958;

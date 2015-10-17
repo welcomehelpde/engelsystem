@@ -1,3 +1,4 @@
+# Hallo liebe Coder!
 # Installation eines frischen Engelsystems
 
 ## Mindestvorrausetzungen (bzw. getestet unter):

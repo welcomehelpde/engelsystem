@@ -7,7 +7,7 @@
  * Webserver mit PHP-Anbindung, z.B. lighttpd, nginx oder Apache
 
 ## Vorgehen:
- * Klonen des `master` inkl. submodules in lokales Verzeichnis: `git clone --recursive https://github.com/engelsystem/engelsystem.git`
+ * Klonen des `master` inkl. submodules in lokales Verzeichnis: `git clone --recursive https://github.com/welcomehelpde/engelsystem.git`
  * Der Webserver muss Schreibrechte auf das Verzeichnis `import` bekommen, für alle anderen Dateien reichen Leserechte.
  * Der Webserver muss auf `public` als http-root zeigen.
 
@@ -19,7 +19,6 @@
 
 Das Engelsystem ist jetzt einsatzbereit.
 
-Fehler bitte auf Github melden: https://github.com/engelsystem/engelsystem/issues
+Fehler bitte auf Github melden: https://github.com/welcomehelpde/engelsystem/issues
 
 
-Hello from the muc triade branch ;)

@@ -4,6 +4,6 @@ function credits_title() {
 }
 
 function guest_credits() {
-  return template_render('../templates/guest_faq.html', array());
+  return template_render('../templates/guest_faq2.html', array());
 }
 ?>

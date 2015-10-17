@@ -57,7 +57,10 @@ if(sql_num_query("SHOW TABLES LIKE 'UserCVS'") === 1 && sql_num_query("SHOW TABL
                     (28, 'admin_shifts', 'Create shifts'),
                     (30, 'ical', 'iCal shift export'),
                     (31, 'admin_active', 'Mark angels as active and if they got a t-shirt.'),
-                    (32, 'admin_free', 'Show a list of free/unemployed angels.')
+                    (32, 'admin_free', 'Show a list of free/unemployed angels.'),
+                    (39, 'faq2', 'View FAQ'),
+                    (40, 'imprint', 'View imprint'),
+                    (41, 'privacy', 'View privacy statement')
         ");
     }
 
@@ -101,7 +104,10 @@ if(sql_num_query("SHOW TABLES LIKE 'UserCVS'") === 1 && sql_num_query("SHOW TABL
                     (109, -4, 27),
                     (135, -5, 31),
                     (134, -3, 25),
-                    (143, -5, 5);");
+                    (143, -5, 5),
+                    (260, -1, 39),
+                    (261, -1, 40),
+                    (262, -1, 41);");
     }
 
 
@@ -116,6 +122,9 @@ if(sql_num_query("SHOW TABLES LIKE 'UserCVS'") === 1 && sql_num_query("SHOW TABL
     #    "index.php" => "start",
     #    "logout.php" => "logout",
     #    "faq.php" => "faq",
+	#    "faq2.php" => "faq2",
+	#    "imprint.php" => "imprint",
+	#    "privacy.php" => "privacy",
     #    "makeuser.php" => "register",
     #    "nonpublic/index.php" => "login",
     #    "nonpublic/news.php" => "news",

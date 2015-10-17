@@ -179,7 +179,7 @@ function guest_register() {
                       )) 
                   )),
                   form_checkboxes('angel_types', _("What do you want to do?") . sprintf(" (<a href=\"%s\">%s</a>)", page_link_to('angeltypes') . '&action=about', _("Description of job types")), $angel_types, $selected_angel_types),
-                  form_info("", _("Restricted angel types need will be confirmed later by an archangel. You can change your selection in the options section.")) 
+                 //				 form_info("", _("Restricted angel types need will be confirmed later by an archangel. You can change your selection in the options section.")) 
               )),
               div('col-md-6', array(
                   div('row', array(
@@ -269,7 +269,7 @@ function guest_login() {
       $_SESSION['uid'] = $login_user['UID'];
       $_SESSION['locale'] = $login_user['Sprache'];
       
-      redirect(page_link_to('news'));
+      redirect(page_link_to('shifts'));
     }
   }
   

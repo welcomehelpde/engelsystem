@@ -91,7 +91,10 @@ INSERT INTO `GroupPrivileges` (`id`, `group_id`, `privilege_id`) VALUES
 (250, -2, 37),
 (88, -1, 1),
 (23, -1, 2),
-(24, -1, 5);
+(24, -1, 5),
+(260, -1, 39),
+(261, -1, 40),
+(262, -1, 41);
 
 -- --------------------------------------------------------
 
@@ -111,12 +114,12 @@ CREATE TABLE IF NOT EXISTS `Groups` (
 --
 
 INSERT INTO `Groups` (`Name`, `UID`) VALUES
-('6-Developer', -7),
-('5-Erzengel', -6),
-('4-Team Coordinator', -5),
-('3-Shift Coordinator', -4),
-('Shirt-Manager', -3),
-('2-Engel', -2),
+('6-Developer und Admins', -7),
+('5-Leitung', -6),
+('4-Teamleitung', -5),
+('3-Schichtleitung', -4),
+('-USER GESPERRT-', -3),
+('2-Helfer', -2),
 ('1-Gast', -1);
 
 -- --------------------------------------------------------
@@ -266,7 +269,10 @@ INSERT INTO `Privileges` (`id`, `name`, `desc`) VALUES
 (35, 'shifts_json_export', 'Export shifts in JSON format'),
 (36, 'angeltypes', 'View angeltypes'),
 (37, 'user_angeltypes', 'Join angeltypes.'),
-(38, 'shifttypes', 'Administrate shift types');
+(38, 'shifttypes', 'Administrate shift types'),
+(39, 'faq2', 'View FAQ'),
+(40, 'imprint', 'View imprint'),
+(41, 'privacy', 'View privacy statement'),;
 
 -- --------------------------------------------------------
 

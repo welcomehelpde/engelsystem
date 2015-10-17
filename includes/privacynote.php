@@ -54,7 +54,7 @@
             // check if privacy note was allready accepted, if not we show the note
             if(!isset($_SESSION[$sessionname]) OR $_SESSION[$sessionname] != 'checked'){
                 echo "<div class='pn_notebox'>\n";
-                echo "<small>Diese Website verwendet Cookies sowie Analyse-Software zur Erfassung/Auswertung der Webseiten-Nutzung. Details zu Art und Umfang der Datenerhebung findest Du in unserer <a href='".$privacypoliceurl."'>Datenschutzerkl&auml;rung</a>. Wenn Du diese Website weiterhin nutzt, stimmst Du der Verwendung von Cookies zu.</small> <a href='".newURL('pn_note=checked')."' class='pn_approval'>Bitte bestätigen!</a> \n";
+                echo "<center><small>Diese Website verwendet Cookies sowie Analyse-Software zur Erfassung/Auswertung der Webseiten-Nutzung. Details zu Art und Umfang der Datenerhebung findest Du in unserer <a href='".$privacypoliceurl."'>Datenschutzerkl&auml;rung</a>. Wenn Du diese Website weiterhin nutzt, stimmst Du der Verwendung von Cookies zu.</small> <br><a href='".newURL('pn_note=checked')."' class='pn_approval'>Bitte bestätigen!</a></center> \n";
                 echo "</div>\n";
             }
         }

@@ -56,7 +56,7 @@ function header_toolbar() {
     
     // Hinweis für Engel, die noch nicht angekommen sind
     if ($user['Gekommen'] == 0) {
-      $hints[] = error(_("You are not marked as available. Please contact the Infobus and confirm your availability."), true);
+      $hints[] = error(_("You are not marked as available. Please contact the helper staff at your arrival"), true);
       $hint_class = 'danger';
       $glyphicon = 'warning-sign';
     }

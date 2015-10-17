@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Helfersystem 2.0\n"
 "POT-Creation-Date: 2015-09-16 09:53+0100\n"
-"PO-Revision-Date: 2015-10-08 03:30+0200\n"
+"PO-Revision-Date: 2015-10-17 18:28+0200\n"
 "Last-Translator: Andreas Tichon <at@welcomehelp.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -1717,7 +1717,9 @@ msgstr "Dein Passwort ist zu kurz (mindestens %s Zeichen)."
 
 #: includes/pages/guest_login.php:171
 msgid "Angel registration successful!"
-msgstr "Helfer-Registrierung erfolgreich!"
+msgstr ""
+"Helfer-Registrierung erfolgreich! Bitte bestätige deine E-Mail Adresse und "
+"logge dich dann ein."
 
 #: includes/pages/guest_login.php:178
 msgid ""

@@ -533,7 +533,7 @@ function view_user_shifts() {
       if ($thistime % (24 * 60 * 60) == 23 * 60 * 60 && $endtime - $starttime > 24 * 60 * 60) {
         $shifts_table .= "<tr class=\"row-day\"><th class=\"row-header\">";
 		$shifts_table .= $tage[$tag];
-        $shifts_table .= date('Y-m-d<b\r />H:i', $thistime);
+        $shifts_table .= date(' Y-m-d<b\r />H:i', $thistime);
       } elseif ($thistime % (60 * 60) == 0) {
         $shifts_table .= "<tr class=\"row-hour\"><th>";
         $shifts_table .= date("H:i", $thistime);

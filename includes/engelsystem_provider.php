@@ -9,7 +9,7 @@ require_once realpath(__DIR__ . '/../includes/sys_log.php');
 require_once realpath(__DIR__ . '/../includes/sys_menu.php');
 require_once realpath(__DIR__ . '/../includes/sys_page.php');
 require_once realpath(__DIR__ . '/../includes/sys_template.php');
-
+require_once realpath(__DIR__ . '/../vendor/parsedown/Parsedown.php');
 require_once realpath(__DIR__ . '/../includes/model/AngelType_model.php');
 require_once realpath(__DIR__ . '/../includes/model/LogEntries_model.php');
 require_once realpath(__DIR__ . '/../includes/model/Message_model.php');

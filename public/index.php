@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 require_once realpath(__DIR__ . '/../includes/engelsystem_provider.php');
 require_once realpath(__DIR__ . '/../includes/privacynote.php');
 PN_ShowNotice('http://sunyque.de/?p=privacy');

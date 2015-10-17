@@ -35,26 +35,26 @@
     * @param string $privacypoliceurl full url to the site privacy police
     * @param string $sessionname name of the session var to store results
     */
-    function PN_ShowNotice($privacypoliceurl='http://www.example.com', $sessionname='pn_ckeck'){
+    function PN_ShowNotice($privacypoliceurl='?p=privacy', $sessionname='pn_ckeck'){
         // check if the user accepted the use of analytic software or removed the approval
         if(isset($_GET['pn_note']) AND $_GET['pn_note'] == 'checked'){
             // if the use approved the use of analyitcs software ... 
             $_SESSION[$sessionname] = 'checked';
           //  echo "<div class='pn_notebox pn_approved'>\n";
-          //  echo "Vielen Dank, dass Sie uns helfen unseren Service durch die Nutzung von Analyse-Software zu verbessern. Details zur Art und Umfang der Datenerhebung finden Sie in unserer <a href='".$privacypoliceurl."'>Datenschutzerkl&auml;rung</a>.\n";
+          //  echo "Vielen Dank. Details zur Art und Umfang der Datenerhebung findest Du in unserer <a href='".$privacypoliceurl."'>Datenschutzerkl&auml;rung</a>.\n";
           //  echo "</div>\n";
         }
         elseif(isset($_GET['pn_note']) AND $_GET['pn_note'] == 'removed'){
             // if the user rejected/removed the use of analytics software ...
             unset($_SESSION[$sessionname]);
             echo "<div class='pn_notebox pn_removed'>\n";
-            echo "Sie haben Ihre Genehmigung zur Nutung von Analyse-Software zur&uuml;ckgezogen.";
+            echo "Du hast Deine Genehmigung zur Nutung von Analyse-Software zur&uuml;ckgezogen.";
             echo "</div>\n";
         } else {
             // check if privacy note was allready accepted, if not we show the note
             if(!isset($_SESSION[$sessionname]) OR $_SESSION[$sessionname] != 'checked'){
                 echo "<div class='pn_notebox'>\n";
-                echo "Diese Website verwendet Cookies sowie Analyse-Software zur Erfassung und Auswertung der Webseiten-Nutzung. Details zu Art und Umfang der Datenerhebung finden Sie in unserer <a href='".$privacypoliceurl."'>Datenschutzerkl&auml;rung</a>. Wenn Sie diese Website weiterhin nutzen, stimmen Sie der Verwendung von Cookies zu. <a href='".newURL('pn_note=checked')."' class='pn_approval'>Verstanden!</a> \n";
+                echo "Diese Website verwendet Cookies sowie Analyse-Software zur Erfassung/Auswertung der Webseiten-Nutzung. Details zu Art und Umfang der Datenerhebung findest Du in unserer <a href='".$privacypoliceurl."'>Datenschutzerkl&auml;rung</a>. Wenn Du diese Website weiterhin nutzt, stimmst Du der Verwendung von Cookies zu. <a href='".newURL('pn_note=checked')."' class='pn_approval'>Bitte bestätigen!</a> \n";
                 echo "</div>\n";
             }
         }

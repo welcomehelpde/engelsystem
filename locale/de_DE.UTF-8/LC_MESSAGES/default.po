@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Helfersystem 2.0\n"
 "POT-Creation-Date: 2015-09-16 09:53+0100\n"
-"PO-Revision-Date: 2015-10-18 00:47+0200\n"
+"PO-Revision-Date: 2015-10-18 00:56+0200\n"
 "Last-Translator: Andreas Tichon <at@welcomehelp.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -655,9 +655,10 @@ msgid ""
 "This angeltype is restricted by double-opt-in by a team coordinator. Please "
 "show up at the according introduction meetings."
 msgstr ""
-"Dieser Helfer-Typ muss von einem Team-Koordinator freigeschaltet werden. "
-"Bitte komme zu den entsprechenden Einführungstreffen oder ersten Schicht und "
-"melde Dich mit Deinem Benutzernamen bei der Schichtleitung."
+"Dieser Helfer-Typ muss von einem Teammitglied der Flüchtlingshilfe München "
+"freigeschaltet werden. Bitte komme zu den entsprechenden Einführungstreffen "
+"oder ersten Schicht und melde Dich mit Deinem Benutzernamen bei der "
+"Schichtleitung."
 
 #: includes/view/Shifts_view.php:6
 #, php-format
@@ -1265,7 +1266,7 @@ msgstr "Frab Import"
 
 #: includes/pages/admin_import.php:15
 msgid "Frab import is not enabled"
-msgstr ""
+msgstr "Frab import is not enabled"
 
 #: includes/pages/admin_import.php:33
 msgid "Webserver has no write-permission on import directory."
@@ -1310,6 +1311,8 @@ msgid ""
 "This import will create/update/delete rooms and shifts by given FRAB-export "
 "file. The needed file format is xcal."
 msgstr ""
+"This import will create/update/delete rooms and shifts by given FRAB-export "
+"file. The needed file format is xcal."
 
 #: includes/pages/admin_import.php:87 includes/pages/admin_shifts.php:301
 #: includes/pages/user_shifts.php:184
@@ -1667,7 +1670,7 @@ msgstr "Beginn der Verfügbarkeit"
 
 #: includes/pages/admin_arrive.php:143
 msgid "Planned start of availability statistics"
-msgstr ""
+msgstr "Planned start of availability statistics"
 
 #: includes/pages/admin_arrive.php:146 includes/pages/admin_arrive.php:161
 #: includes/pages/admin_arrive.php:176
@@ -1685,7 +1688,7 @@ msgstr "Verfügbarkeits-Statistik"
 
 #: includes/pages/admin_arrive.php:173
 msgid "Planned end of availability statistics"
-msgstr ""
+msgstr "Planned end of availability statistics"
 
 #: includes/pages/guest_login.php:4 includes/pages/guest_login.php:322
 msgid "Login"
@@ -2098,8 +2101,8 @@ msgid "Occupancy"
 msgstr "Belegung"
 
 #: includes/pages/user_shifts.php:824
-msgid "Use new style if possible"
-msgstr ""
+msgid "<i class='fa fa-calendar'></i> Use calendar style"
+msgstr "<i class='fa fa-calendar'></i> Fortlaufende Kalenderansicht"
 
 #: includes/pages/user_shifts.php:826
 msgid "iCal export"

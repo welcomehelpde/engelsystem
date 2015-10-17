@@ -210,7 +210,7 @@ function form_checkboxes($name, $label, $items, $selected) {
   foreach ($items as $key => $item) {
     $id = $name . '_' . $key;
     $sel = array_search($key, $selected) !== false ? ' checked="checked"' : "";
-    $html .= '<li><input type="checkbox" id="' . $id . '" name="' . $id . '" value="checked"' . $sel . ' /><label for="' . $id . '">' . $item . '</label></li>';
+    $html .= '<li><input type="hidden" id="' . $id . '" name="' . $id . '" value="checked"' . $sel . ' /><label for="' . $id . '">' . $item . '</label></li>';
   }
   $html .= "</ul>";
   return form_element($label, $html);

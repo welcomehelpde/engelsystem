@@ -536,7 +536,7 @@ function view_user_shifts() {
       } elseif ($thistime % (60 * 60) == 0) {
         $shifts_table .= "<tr class=\"row-hour\"><th>";
         $shifts_table .= date("H:i", $thistime);
-      } elseif ($thistime) {
+      } else {
         $shifts_table .= "<tr class=\"row-hour\"><th>";
         $shifts_table .= $tage[$tag];
       } else {

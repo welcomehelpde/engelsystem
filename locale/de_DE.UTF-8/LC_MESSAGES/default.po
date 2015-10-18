@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Helfersystem 2.0\n"
-"POT-Creation-Date: 2015-10-18 01:00+0200\n"
-"PO-Revision-Date: 2015-10-18 01:37+0200\n"
+"POT-Creation-Date: 2015-10-18 02:58+0200\n"
+"PO-Revision-Date: 2015-10-18 03:01+0200\n"
 "Last-Translator: Andreas Tichon <at@welcomehelp.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: includes/controller/angeltypes_controller.php:7
 #: includes/pages/user_shifts.php:850 includes/view/AngelTypes_view.php:56
-#: includes/view/AngelTypes_view.php:72 includes/view/User_view.php:197
+#: includes/view/AngelTypes_view.php:72
 msgid "Angeltypes"
 msgstr "Helfer-Typen"
 
@@ -70,7 +70,7 @@ msgstr "ansehen"
 #: includes/pages/admin_rooms.php:21 includes/view/AngelTypes_view.php:84
 #: includes/view/ShiftTypes_view.php:52 includes/view/ShiftTypes_view.php:63
 #: includes/view/Shifts_view.php:77 includes/view/User_view.php:157
-#: includes/view/User_view.php:208
+#: includes/view/User_view.php:200
 msgid "edit"
 msgstr "bearbeiten"
 
@@ -542,7 +542,7 @@ msgid "Size"
 msgstr "Größe"
 
 #: includes/pages/admin_active.php:181 includes/pages/user_shifts.php:4
-#: includes/view/User_view.php:218
+#: includes/view/User_view.php:210
 msgid "Shifts"
 msgstr "Schichten"
 
@@ -604,7 +604,7 @@ msgstr "zurücksetzen"
 
 #: includes/pages/admin_arrive.php:64 includes/pages/admin_arrive.php:145
 #: includes/pages/admin_arrive.php:160 includes/pages/admin_arrive.php:175
-#: includes/view/User_view.php:209
+#: includes/view/User_view.php:201
 msgid "available"
 msgstr "verfügbar"
 
@@ -683,7 +683,7 @@ msgid "Phone"
 msgstr "Telefon"
 
 #: includes/pages/admin_free.php:90 includes/pages/guest_login.php:163
-#: includes/pages/user_settings.php:184 includes/view/User_view.php:240
+#: includes/pages/user_settings.php:184 includes/view/User_view.php:232
 msgid "E-Mail"
 msgstr "E-Mail"
 
@@ -712,7 +712,7 @@ msgstr "Privilegien"
 #: includes/pages/user_shifts.php:191 includes/view/AngelTypes_view.php:65
 #: includes/view/Questions_view.php:32 includes/view/ShiftEntry_view.php:32
 #: includes/view/ShiftTypes_view.php:37 includes/view/User_view.php:39
-#: includes/view/User_view.php:256
+#: includes/view/User_view.php:248
 msgid "Save"
 msgstr "Speichern"
 
@@ -801,7 +801,7 @@ msgid "Shifts to create"
 msgstr "Anzulegende Schichten"
 
 #: includes/pages/admin_import.php:127 includes/pages/admin_import.php:136
-#: includes/pages/admin_import.php:145 includes/view/User_view.php:220
+#: includes/pages/admin_import.php:145 includes/view/User_view.php:212
 msgid "Day"
 msgstr "Tag"
 
@@ -832,7 +832,7 @@ msgstr "Titel"
 #: includes/pages/admin_import.php:150 includes/pages/admin_rooms.php:160
 #: includes/pages/admin_shifts.php:303 includes/pages/user_shifts.php:806
 #: includes/pages/user_shifts.php:843 includes/view/Shifts_view.php:104
-#: includes/view/User_view.php:222
+#: includes/view/User_view.php:214
 msgid "Location"
 msgstr "Ort"
 
@@ -1186,20 +1186,20 @@ msgid ""
 "create you an account in the angel task sheduler."
 msgstr ""
 "<h2>Hallo lieber Helfer und liebe Helferin,<h2><p>wir freuen uns, dass Du "
-"mit anpacken willst! Dieses System ersetzt die offiziellen Doodle-Listen, in "
-"die sich Freiwillige seit dem Sommer 2015 eintragen, um Geflüchteten "
-"Menschen in München zu helfen.</p><p>Bitte registriere Dich zunächst mit "
-"Deinem Benutzernamen und Deiner Email-Adresse. Nur Dein Benutzername ist für "
-"die übrigen Mitglieder einsehbar.<br>Nur Schichtleiter, die eine "
-"Verschwiegenheitserklärung unterzeichnet haben, können Deine übrigen "
-"Kontaktinformationen einsehen, beispielsweise Deine Email-Adresse."
+"mit anpacken willst! Dieses Helfersystem ersetzt die offiziellen Doodle-"
+"Listen, in die sich Freiwillige seit dem Sommer 2015 eintragen, um "
+"Geflüchteten Menschen in München zu helfen.</p><p>Bitte registriere Dich "
+"zunächst mit Deinem Benutzernamen und Deiner Email-Adresse. Nur Dein "
+"Benutzername ist für die übrigen Mitglieder einsehbar.<br>Nur Schichtleiter, "
+"die eine Verschwiegenheitserklärung unterzeichnet haben, können Deine "
+"übrigen Kontaktinformationen einsehen, beispielsweise Deine Email-Adresse."
 
 #: includes/pages/guest_login.php:175 includes/pages/guest_login.php:294
-#: includes/view/User_view.php:254
+#: includes/view/User_view.php:246
 msgid "Password"
 msgstr "Passwort (mind. 6 Zeichen)"
 
-#: includes/pages/guest_login.php:178 includes/view/User_view.php:255
+#: includes/pages/guest_login.php:178 includes/view/User_view.php:247
 msgid "Confirm password"
 msgstr "Passwort wiederholen"
 
@@ -1353,7 +1353,7 @@ msgstr "Meine Schichten"
 msgid "Key changed."
 msgstr "Key geändert."
 
-#: includes/pages/user_myshifts.php:27 includes/view/User_view.php:214
+#: includes/pages/user_myshifts.php:27 includes/view/User_view.php:206
 msgid "Reset API key"
 msgstr "API-Key zurücksetzen"
 
@@ -1438,7 +1438,7 @@ msgstr "Unvollständiger Aufruf, fehlende Fragen ID."
 msgid "No question found."
 msgstr "Keine Frage gefunden."
 
-#: includes/pages/user_settings.php:4 includes/view/User_view.php:211
+#: includes/pages/user_settings.php:4 includes/view/User_view.php:203
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -1601,7 +1601,7 @@ msgstr ""
 msgid "You are subscribed. Thank you!"
 msgstr "Du bist eingetragen. Danke!"
 
-#: includes/pages/user_shifts.php:307 includes/view/User_view.php:189
+#: includes/pages/user_shifts.php:307 includes/view/User_view.php:185
 msgid "Freeloader"
 msgstr "User mit verpassten Schichten"
 
@@ -1654,7 +1654,7 @@ msgstr "Werde ein %s"
 msgid "Add more angels"
 msgstr "Neue Helfer hinzufügen"
 
-#: includes/pages/user_shifts.php:806 includes/view/User_view.php:221
+#: includes/pages/user_shifts.php:806 includes/view/User_view.php:213
 msgid "Time"
 msgstr "Zeit"
 
@@ -2034,11 +2034,11 @@ msgstr "Neuer User"
 msgid "First Name"
 msgstr "Vorname"
 
-#: includes/view/User_view.php:76 includes/view/User_view.php:191
+#: includes/view/User_view.php:76 includes/view/User_view.php:187
 msgid "Available"
 msgstr "Verfügbar"
 
-#: includes/view/User_view.php:77 includes/view/User_view.php:193
+#: includes/view/User_view.php:77 includes/view/User_view.php:189
 msgid "Active"
 msgstr "Aktiv"
 
@@ -2077,72 +2077,72 @@ msgstr "abmelden"
 msgid "Sum:"
 msgstr "Summe:"
 
-#: includes/view/User_view.php:188
+#: includes/view/User_view.php:184
 msgid "User state"
 msgstr "Verfügbarkeitszustand"
 
-#: includes/view/User_view.php:191
+#: includes/view/User_view.php:187
 #, php-format
 msgid "Available from %s"
 msgstr "Verfügbar seit %s"
 
-#: includes/view/User_view.php:191
+#: includes/view/User_view.php:187
 #, php-format
 msgid "Not available (Planned: %s)"
 msgstr "Nicht verfügbar (Geplant: %s)"
 
-#: includes/view/User_view.php:191
+#: includes/view/User_view.php:187
 msgid "Not available"
 msgstr "Nicht verfügbar"
 
-#: includes/view/User_view.php:192
+#: includes/view/User_view.php:188
 #, php-format
 msgid "Got %s voucher"
 msgid_plural "Got %s vouchers"
 msgstr[0] "Einen Gutschein bekommen"
 msgstr[1] "%s Gutschein(e) bekommen"
 
-#: includes/view/User_view.php:192
+#: includes/view/User_view.php:188
 msgid "Got no vouchers"
 msgstr "Gutschein(e) nicht bekommen"
 
-#: includes/view/User_view.php:194
+#: includes/view/User_view.php:190
 msgid "T-Shirt"
 msgstr "T-Shirt"
 
-#: includes/view/User_view.php:201
-msgid "Rights"
-msgstr "Rechte"
+#: includes/view/User_view.php:193
+msgid "Status"
+msgstr "Status"
 
-#: includes/view/User_view.php:210
+#: includes/view/User_view.php:202
 msgid "Edit vouchers"
 msgstr "Gutschein(e) bearbeiten"
 
-#: includes/view/User_view.php:212
+#: includes/view/User_view.php:204
 msgid "iCal Export"
 msgstr "iCal Export"
 
-#: includes/view/User_view.php:213
+#: includes/view/User_view.php:205
 msgid "JSON Export"
 msgstr "JSON Export"
 
-#: includes/view/User_view.php:223
+#: includes/view/User_view.php:215
 msgid "Name &amp; workmates"
 msgstr "Name &amp; Kollegen"
 
-#: includes/view/User_view.php:224
+#: includes/view/User_view.php:216
 msgid "Comment"
 msgstr "Kommentar"
 
-#: includes/view/User_view.php:225
+#: includes/view/User_view.php:217
 msgid "Action"
 msgstr "Aktion"
 
-#: includes/view/User_view.php:227
+#: includes/view/User_view.php:219
 msgid "Your night shifts between 2 and 8 am count twice."
 msgstr "Nachtschichten zwischen 2 und 8 Uhr zählen doppelt."
 
-#: includes/view/User_view.php:228
+#: includes/view/User_view.php:220
 #, php-format
 msgid ""
 "Go to the <a href=\"%s\">shifts table</a> to sign yourself up for some "
@@ -2151,7 +2151,7 @@ msgstr ""
 "Bitte gehe zur <a href=\"%s\">Übersicht der freien Schichten</a> um Dich "
 "direkt für eine Schicht einzutragen."
 
-#: includes/view/User_view.php:238
+#: includes/view/User_view.php:230
 msgid ""
 "We will send you an e-mail with a password recovery link. Please use the "
 "email address you used for registration."
@@ -2160,11 +2160,11 @@ msgstr ""
 "zurücksetzen kannst. Bitte benutze die E-Mail Adresse, die Du bei der "
 "Anmeldung verwendet hast."
 
-#: includes/view/User_view.php:241
+#: includes/view/User_view.php:233
 msgid "Recover"
 msgstr "Wiederherstellen"
 
-#: includes/view/User_view.php:252
+#: includes/view/User_view.php:244
 msgid "Please enter a new password."
 msgstr "Gib bitte ein neues Passwort ein."
 
@@ -2195,3 +2195,6 @@ msgstr "ausgewählt"
 #: public/index.php:190
 msgid "None selected"
 msgstr "keine"
+
+#~ msgid "Rights"
+#~ msgstr "Rechte"

@@ -693,7 +693,7 @@ function view_user_shifts() {
     foreach ($shifts as $shift) {
       $info = array();
       if ($_SESSION['user_shifts']['start_day'] != $_SESSION['user_shifts']['end_day'])
-        $info[] = date($tage[$tag], " <br />d.m.Y", $shift['start']);
+        $info[] = date($tage[$tag]) . date(" <br />d.m.Y", $shift['start']);
       $info[] = date("H:i", $shift['start']) . ' - ' . date("H:i", $shift['end']);
       if (count($_SESSION['user_shifts']['rooms']) > 1)
         $info[] = Room_name_render([
@@ -850,7 +850,7 @@ function view_user_shifts() {
         'type_select' => make_select($types, $_SESSION['user_shifts']['types'], "types", _("Angeltypes")),
         'filled_select' => make_select($filled, $_SESSION['user_shifts']['filled'], "filled", _("Occupancy")),
         'task_notice' => '',
-        'new_style_checkbox' => '</br><label><input type="checkbox" name="new_style" value="1" ' . ($_SESSION['user_shifts']['new_style'] ? ' unchecked' : '') . '> ' . _("Use list style") . '</label>',
+        'new_style_checkbox' => '</br><label><input type="checkbox" name="new_style" value="1" ' . ($_SESSION['user_shifts']['new_style'] ? ' unchecked' : '') . '> ' . _("Use calendar view") . '</label>',
         'shifts_table' => msg() . $shifts_table,
         'ical_text' => '<h2>' . _("iCal export") . '</h2><p>' . sprintf(_("Export of shown shifts. <a href=\"%s\">iCal format</a>."), page_link_to_absolute('ical') . '&key=' . $user['api_key'], page_link_to_absolute('shifts_json_export') . '&key=' . $user['api_key'], page_link_to('user_myshifts') . '&reset') . '</p>',
         'filter' => _("Filter")

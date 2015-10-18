@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Helfersystem 2.0\n"
-"POT-Creation-Date: 2015-10-18 16:59+0200\n"
-"PO-Revision-Date: 2015-10-18 17:01+0200\n"
+"POT-Creation-Date: 2015-10-18 19:32+0200\n"
+"PO-Revision-Date: 2015-10-18 19:32+0200\n"
 "Last-Translator: Andreas Tichon <at@welcomehelp.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -1667,8 +1667,8 @@ msgid "Occupancy"
 msgstr "Belegung"
 
 #: includes/pages/user_shifts.php:853
-msgid "Use list style"
-msgstr "Listenansicht verwenden"
+msgid "Use calendar view"
+msgstr "Kalenderansicht verwenden"
 
 #: includes/pages/user_shifts.php:855
 msgid "iCal export"
@@ -2190,6 +2190,9 @@ msgstr "ausgewählt"
 #: public/index.php:190
 msgid "None selected"
 msgstr "keine"
+
+#~ msgid "Use list style"
+#~ msgstr "Listenansicht verwenden"
 
 #~ msgid "Use calendar style"
 #~ msgstr "Kalenderansicht"

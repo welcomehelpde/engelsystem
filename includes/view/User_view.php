@@ -175,14 +175,10 @@ function User_view($user_source, $admin_user_privilege, $freeloader, $user_angel
         'actions' => "" 
     );
   
-  return page_with_title('<span class="icon-icon_angel"></span> ' . htmlspecialchars($user_source['Nick']) . ' <small>' . $user_name . '</small>', array(
+  return page_with_title('<span class="icon-icon_angel"></span> ' . htmlspecialchars($user_source['Nick']), array(
       msg(),
       div('row', array(
           div('col-md-3', array(
-              '<h1>',
-              '<span class="glyphicon glyphicon-phone"></span>',
-              $user_source['DECT'],
-              '</h1>' 
           )),
           div('col-md-3', array(
               '<h4>' . _("User state") . '</h4>',
@@ -194,13 +190,9 @@ function User_view($user_source, $admin_user_privilege, $freeloader, $user_angel
               ($user_source['Gekommen'] && $admin_user_privilege && $user_source['Tshirt']) ? ' <span class="text-success">' . _("T-Shirt") . '</span>' : '' 
           )),
           div('col-md-3', array(
-              '<h4>' . _("Angeltypes") . '</h4>',
+              '<h4>' . _("Status") . '</h4>',
               User_angeltypes_render($user_angeltypes) 
           )),
-          div('col-md-3', array(
-              '<h4>' . _("Rights") . '</h4>',
-              User_groups_render($user_groups) 
-          )) 
       )),
       div('row space-top', array(
           div('col-md-12', array(

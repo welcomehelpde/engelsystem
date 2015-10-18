@@ -272,7 +272,7 @@ INSERT INTO `Privileges` (`id`, `name`, `desc`) VALUES
 (38, 'shifttypes', 'Administrate shift types'),
 (39, 'faq2', 'View FAQ'),
 (40, 'imprint', 'View imprint'),
-(41, 'privacy', 'View privacy statement'),;
+(41, 'privacy', 'View privacy statement');
 
 -- --------------------------------------------------------
 

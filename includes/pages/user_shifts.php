@@ -533,7 +533,7 @@ function view_user_shifts() {
       if ($thistime % (24 * 60 * 60) == 23 * 60 * 60 && $endtime - $starttime > 24 * 60 * 60) {
         $shifts_table .= "<tr class=\"row-day\"><th class=\"row-header\">";
 		$shifts_table .= $tage[$tag];
-        $shifts_table .= date(' d.m.Y<b\r />H:i', $thistime);
+        $shifts_table .= date('<br />d.m.Y<b\r />H:i', $thistime);
       } elseif ($thistime % (60 * 60) == 0) {
         $shifts_table .= "<tr class=\"row-hour\"><th>";
         $shifts_table .= date("H:i", $thistime);
@@ -571,7 +571,7 @@ function view_user_shifts() {
                   'RID' => $room['id'],
                   'Name' => $room['name']
               ]) . '<br />';
-              $shifts_row .= '<a href="' . shift_link($shift) . '"><b>' . $tage[$tag] . date('</b> d.m.Y H:i', $shift['start']);
+              $shifts_row .= '<a href="' . shift_link($shift) . '"><b>' . $tage[$tag] . date('</b>, d.m.Y, H:i', $shift['start']);
               $shifts_row .= " &ndash; ";
               $shifts_row .= date('H:i', $shift['end']);
               $shifts_row .= "<br /><b>";
@@ -693,8 +693,8 @@ function view_user_shifts() {
     foreach ($shifts as $shift) {
       $info = array();
       if ($_SESSION['user_shifts']['start_day'] != $_SESSION['user_shifts']['end_day'])
-        $info[] = $tage[$tag];
-        $info[] = date("Y-m-d", $shift['start']);
+        $info[] .= $tage[$tag];
+        $info[] = date("<br />d.m.Y", $shift['start']);
       $info[] = date("H:i", $shift['start']) . ' - ' . date("H:i", $shift['end']);
       if (count($_SESSION['user_shifts']['rooms']) > 1)
         $info[] = Room_name_render([

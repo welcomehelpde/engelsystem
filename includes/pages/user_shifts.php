@@ -850,9 +850,9 @@ function view_user_shifts() {
         'type_select' => make_select($types, $_SESSION['user_shifts']['types'], "types", _("Angeltypes")),
         'filled_select' => make_select($filled, $_SESSION['user_shifts']['filled'], "filled", _("Occupancy")),
         'task_notice' => '',
-        'new_style_checkbox' => '</br><label><input type="checkbox" name="new_style" value="1" ' . ($_SESSION['user_shifts']['new_style'] ? ' unchecked' : '') . '> ' . _("<i class='fa fa-calendar'></i> Use calendar style") . '</label>',
+        'new_style_checkbox' => '</br><label><input type="checkbox" name="new_style" value="1" ' . ($_SESSION['user_shifts']['new_style'] ? ' unchecked' : '') . '> ' . _("Use calendar style") . '</label>',
         'shifts_table' => msg() . $shifts_table,
-        'ical_text' => '<h2>' . _("iCal export") . '</h2><p>' . sprintf(_("Export of shown shifts. <a href=\"%s\">iCal format</a> or <a href=\"%s\">JSON format</a> available (please keep secret, otherwise <a href=\"%s\">reset the api key</a>)."), page_link_to_absolute('ical') . '&key=' . $user['api_key'], page_link_to_absolute('shifts_json_export') . '&key=' . $user['api_key'], page_link_to('user_myshifts') . '&reset') . '</p>',
+        'ical_text' => '<h2>' . _("iCal export") . '</h2><p>' . sprintf(_("Export of shown shifts. <a href=\"%s\">iCal format</a>."), page_link_to_absolute('ical') . '&key=' . $user['api_key'], page_link_to_absolute('shifts_json_export') . '&key=' . $user['api_key'], page_link_to('user_myshifts') . '&reset') . '</p>',
         'filter' => _("Filter")
     ), $selected);
   return page(array(

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Helfersystem 2.0\n"
-"POT-Creation-Date: 2015-10-18 02:58+0200\n"
-"PO-Revision-Date: 2015-10-18 03:01+0200\n"
+"POT-Creation-Date: 2015-10-18 03:12+0200\n"
+"PO-Revision-Date: 2015-10-18 03:13+0200\n"
 "Last-Translator: Andreas Tichon <at@welcomehelp.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -1667,8 +1667,8 @@ msgid "Occupancy"
 msgstr "Belegung"
 
 #: includes/pages/user_shifts.php:853
-msgid "<i class='fa fa-calendar'></i> Use calendar style"
-msgstr "<i class='fa fa-calendar'></i> Fortlaufende Kalenderansicht"
+msgid "Use calendar style"
+msgstr "Kalenderansicht"
 
 #: includes/pages/user_shifts.php:855
 msgid "iCal export"
@@ -1676,13 +1676,8 @@ msgstr "iCal Export"
 
 #: includes/pages/user_shifts.php:855
 #, php-format
-msgid ""
-"Export of shown shifts. <a href=\"%s\">iCal format</a> or <a href=\"%s"
-"\">JSON format</a> available (please keep secret, otherwise <a href=\"%s"
-"\">reset the api key</a>)."
-msgstr ""
-"Exportiere Deine Schichten im <a href=\"%s\">iCal Format</a>.<a href=\"%s\" "
-"style=\"visibility:hidden;\">%s</a>"
+msgid "Export of shown shifts. <a href=\"%s\">iCal format</a>."
+msgstr "Exportiere Deine Schichten im <a href=\"%s\">iCal Format</a>."
 
 #: includes/pages/user_shifts.php:856
 msgid "Filter"
@@ -2195,6 +2190,17 @@ msgstr "ausgewählt"
 #: public/index.php:190
 msgid "None selected"
 msgstr "keine"
+
+#~ msgid "<i class='fa fa-calendar'></i> Use calendar style"
+#~ msgstr "<i class='fa fa-calendar'></i> Fortlaufende Kalenderansicht"
+
+#~ msgid ""
+#~ "Export of shown shifts. <a href=\"%s\">iCal format</a> or <a href=\"%s"
+#~ "\">JSON format</a> available (please keep secret, otherwise <a href=\"%s"
+#~ "\">reset the api key</a>)."
+#~ msgstr ""
+#~ "Exportiere Deine Schichten im <a href=\"%s\">iCal Format</a>.<a href=\"%s"
+#~ "\" style=\"visibility:hidden;\">%s</a>"
 
 #~ msgid "Rights"
 #~ msgstr "Rechte"

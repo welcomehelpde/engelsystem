@@ -397,12 +397,12 @@ function view_user_shifts() {
 
   if (isset($_REQUEST['rooms'])) {
     if (isset($_REQUEST['new_style']))
-      $_SESSION['user_shifts']['new_style'] = false;
-    else
       $_SESSION['user_shifts']['new_style'] = true;
+    else
+      $_SESSION['user_shifts']['new_style'] = false;
   }
   if (! isset($_SESSION['user_shifts']['new_style']))
-    $_SESSION['user_shifts']['new_style'] = false;
+    $_SESSION['user_shifts']['new_style'] = true;
   foreach (array(
       'start',
       'end'

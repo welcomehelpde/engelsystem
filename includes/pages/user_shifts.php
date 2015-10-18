@@ -402,7 +402,7 @@ function view_user_shifts() {
       $_SESSION['user_shifts']['new_style'] = true;
   }
   if (! isset($_SESSION['user_shifts']['new_style']))
-    $_SESSION['user_shifts']['new_style'] = true;
+    $_SESSION['user_shifts']['new_style'] = false;
   foreach (array(
       'start',
       'end'
@@ -695,7 +695,7 @@ function view_user_shifts() {
 	  $tag = date("w");
       $tage = array("Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag");
       if ($_SESSION['user_shifts']['start_day'] != $_SESSION['user_shifts']['end_day'])
-        $info[] = $tage[$tag] . date(" <br />d.m.Y", $shift['start']);
+        $info[] = $tage[$tag] . date(", d.m.Y", $shift['start']);
       $info[] = date("H:i", $shift['start']) . ' - ' . date("H:i", $shift['end']);
       if (count($_SESSION['user_shifts']['rooms']) > 1)
         $info[] = Room_name_render([

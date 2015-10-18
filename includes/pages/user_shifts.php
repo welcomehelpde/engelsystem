@@ -693,7 +693,7 @@ function view_user_shifts() {
     foreach ($shifts as $shift) {
       $info = array();
       if ($_SESSION['user_shifts']['start_day'] != $_SESSION['user_shifts']['end_day'])
-        $info[] = $tage[$tag]; . date(" <br />d.m.Y", $shift['start']);
+        $info[] = date("$tage[$tag]; <br />d.m.Y", $shift['start']);
       $info[] = date("H:i", $shift['start']) . ' - ' . date("H:i", $shift['end']);
       if (count($_SESSION['user_shifts']['rooms']) > 1)
         $info[] = Room_name_render([

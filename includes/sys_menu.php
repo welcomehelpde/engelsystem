@@ -45,8 +45,8 @@ function header_toolbar() {
     if ($unconfirmed_hint != '')
       $hints[] = $unconfirmed_hint;
     
-    if (! isset($user['planned_departure_date']) || $user['planned_departure_date'] == null)
-      $hints[] = info(_("Please enter your planned date of departure on your settings page to give us a feeling for teardown capacities."), true);
+//    if (! isset($user['planned_departure_date']) || $user['planned_departure_date'] == null)
+//      $hints[] = info(_("Please enter your planned date of departure on your settings page to give us a feeling for teardown capacities."), true);
     
     if (User_is_freeloader($user)) {
       $hints[] = error(sprintf(_("You freeloaded at least %s shifts. Shift signup is locked. Please go to heavens desk to be unlocked again."), $max_freeloadable_shifts), true);
@@ -55,22 +55,22 @@ function header_toolbar() {
     }
     
     // Hinweis für Engel, die noch nicht angekommen sind
-    if ($user['Gekommen'] == 0) {
-      $hints[] = error(_("You are not marked as available. Please contact the helper staff at your arrival"), true);
-      $hint_class = 'danger';
-      $glyphicon = 'warning-sign';
-    }
-    
-    if ($enable_tshirt_size && $user['Size'] == "") {
-      $hints[] = error(_("You need to specify a tshirt size in your settings!"), true);
-      $hint_class = 'danger';
-      $glyphicon = 'warning-sign';
-    }
-    
-    if ($enable_dect && $user['DECT'] == "") {
-      $hints[] = error(_("You need to specify a DECT phone number in your settings! If you don't have a DECT phone, just enter \"-\"."), true);
-      $hint_class = 'danger';
-      $glyphicon = 'warning-sign';
+//    if ($user['Gekommen'] == 0) {
+//      $hints[] = error(_("You are not marked as available. Please contact the helper staff at your arrival"), true);
+//      $hint_class = 'danger';
+//      $glyphicon = 'warning-sign';
+//    }
+//    
+//    if ($enable_tshirt_size && $user['Size'] == "") {
+//      $hints[] = error(_("You need to specify a tshirt size in your settings!"), true);
+//      $hint_class = 'danger';
+//      $glyphicon = 'warning-sign';
+//    }
+//    
+//    if ($enable_dect && $user['DECT'] == "") {
+//      $hints[] = error(_("You need to specify a DECT phone number in your settings! If you don't have a DECT phone, just enter \"-\"."), true);
+//      $hint_class = 'danger';
+//      $glyphicon = 'warning-sign';
     }
   }
   if (count($hints) > 0)
@@ -113,15 +113,16 @@ function make_navigation() {
   $admin_menu = array();
   $admin_pages = array(
       "admin_shifts" => admin_shifts_title(),
+      "admin_user" => admin_user_title(),
       "admin_arrive" => admin_arrive_title(),
       "admin_active" => admin_active_title(),
-      "admin_user" => admin_user_title(),
       "admin_free" => admin_free_title(),
-      "admin_questions" => admin_questions_title(),
       "shifttypes" => shifttypes_title(),
+	  "angeltypes" => angeltypes_title(),
       "admin_rooms" => admin_rooms_title(),
       "admin_groups" => admin_groups_title(),
       "admin_import" => admin_import_title(),
+      "admin_questions" => admin_questions_title(),
       "admin_log" => admin_log_title() 
   );
   

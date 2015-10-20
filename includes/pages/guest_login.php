@@ -12,6 +12,10 @@ function logout_title() {
   return _("Logout");
 }
 
+function user_activate_account_title() {
+  return _("Activate Account");
+}
+
 // Engel registrieren
 function guest_register() {
   global $default_theme, $genders;
@@ -107,6 +111,9 @@ function guest_register() {
 
 
     if ($ok) {
+      $confirmationToken = bin2hex(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM));
+      $confirmationTokenUrl = page_link_to_absolute('user_activate_account') . '&token=' . $confirmationToken;
+
       sql_query("
           INSERT INTO `User` SET 
           `color`='" . sql_escape($default_theme) . "', 
@@ -125,7 +132,9 @@ function guest_register() {
           `CreateDate`=NOW(), 
           `Sprache`='" . sql_escape($_SESSION["locale"]) . "',
           `arrival_date`=NULL,
-          `planned_arrival_date`=NULL");
+          `planned_arrival_date`=NULL,
+          `mailaddress_verification_token` = '" . sql_escape($confirmationToken) . "',
+          `user_account_approved` = 0");
       
       // Assign user-group and set password
       $user_id = sql_id();
@@ -139,8 +148,11 @@ function guest_register() {
         $user_angel_types_info[] = $angel_types[$selected_angel_type_id];
       }
       engelsystem_log("User " . $nick . " signed up as: " . join(", ", $user_angel_types_info));
-      success(_("Angel registration successful!"));
+
+      engelsystem_email($mail, _('Please confirm your eMail-address'), sprintf(_('Hello %1$s! Thanks for signing up at Engelsystem. Please confirm your eMail-address by clicking the following link: %2$s'), $mail, $confirmationTokenUrl));
       
+      success(_("Angel registration successful! Please click the confirmation link in the eMail we sent you to activate your account."));
+
       redirect('?');
     }
   }
@@ -244,6 +256,12 @@ function guest_login() {
             $ok = false;
             error(_("Your password is incorrect.  Please try it again."));
           }
+          else { //password is okay, check confirmaiton
+            if($login_user['user_account_approved'] !== '1') {
+              $ok = false;
+              error(_("Your account is not confirmed yet. Please click the link in the mail we sent you. If you didn't get an eMail, ask a dispatcher."));
+            }
+          }
         } else {
           $ok = false;
           error(_("Please enter a password."));
@@ -293,4 +311,34 @@ function guest_login() {
       '</div></div>' 
   ));
 }
+
+function user_activate_account_controller () {
+  if(!isset($_GET['token'])) {
+    error(_("Invalid confirmation token."));
+    redirect('?');
+    die();
+  }
+  
+  $token = $_GET['token'];
+
+  $checkQuery = 'SELECT COUNT(`UID`) as `exists`
+                 FROM `User`
+                 WHERE `mailaddress_verification_token` = "' . sql_escape($token) . '"';
+  $checkResult = sql_select_single_cell($checkQuery);
+
+  if($checkResult === '1') {
+    $confirmSql = 'UPDATE `User`
+                   SET `user_account_approved` = "1"
+                   WHERE `mailaddress_verification_token` = "' . sql_escape($token) . '"';
+    sql_query($confirmSql);
+    success(_('Your account is confirmed now. You might want to log in:'));
+    redirect(page_link_to('login'));
+  }
+  else {
+    error(_("Invalid confirmation token."));
+    redirect('?');
+    die();    
+  }
+}
+
 ?>

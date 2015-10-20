@@ -164,10 +164,10 @@ function guest_register() {
                           form_checkbox('email_shiftinfo', _("Please keep me informed by e-mail, e.g. if my shifts change"), $email_shiftinfo) 
                       )),
 					  div('col-sm-4', array(
-                          form_text('prename', _("First name"), $prename) 
+                          form_text('prename', _("First name"), $prename) . ' ' . entry_required()) 
                       )),
                       div('col-sm-4', array(
-                          form_text('lastname', _("Last name"), $lastname) 
+                          form_text('lastname', _("Last name"), $lastname) . ' ' . entry_required()) 
                       )) 
                   )),
                   div('row', array(
@@ -200,9 +200,9 @@ function guest_register() {
                       div('col-sm-3', array(
                           form_text('age', _("Age"), $age) 
                       )),
-                      div('col-sm-3', array(
-                          form_select('gender', _("Gender"), $genders, $gender)
-                      )),
+//                      div('col-sm-3', array(
+//                          form_select('gender', _("Gender"), $genders, $gender)
+//                      )),
 //                      div('col-sm-6', array(
 //                          form_text('hometown', _("Hometown"), $hometown) 
 //                      )),

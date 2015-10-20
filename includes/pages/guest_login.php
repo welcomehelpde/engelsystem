@@ -132,7 +132,7 @@ function guest_register() {
           `CreateDate`=NOW(), 
           `Sprache`='" . sql_escape($_SESSION["locale"]) . "',
           `arrival_date`=NULL,
-          `planned_arrival_date`=NULL,
+          `planned_arrival_date`= 0,
           `mailaddress_verification_token` = '" . sql_escape($confirmationToken) . "',
           `user_account_approved` = 0");
       

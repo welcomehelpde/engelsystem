@@ -287,9 +287,9 @@ function guest_login() {
       '<div class="col-md-6">',
       '<h2>' . register_title() . '</h2>',
       $register_hint,
-      ' '
+      ' ',
       )),
-      '</div></div>' 
+      '</div></div>',
   ));
 }
 ?>

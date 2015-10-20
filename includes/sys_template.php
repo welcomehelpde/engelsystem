@@ -100,7 +100,7 @@ function toolbar_item_divider() {
 
 function toolbar_dropdown($glyphicon, $label, $submenu, $class = '') {
   return '<li class="dropdown ' . $class . '">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">' . ($glyphicon != '' ? '<span class="glyphicon glyphicon-' . $glyphicon . '"></span> ' : '') . $label . ' <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">' . ($glyphicon != '' ? '<i class="fa fa-bars"></i> ' : '') . $label . ' <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">' . join("\n", $submenu) . '</ul></li>';
 }
 

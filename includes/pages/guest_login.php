@@ -149,7 +149,7 @@ function guest_register() {
   }
   
   return page_with_title(register_title(), array(
-      _("By completing this form you're registering as an angel. This script will create you an account in the angel task sheduler."),
+      _("By completing this form you're registering as an helper. Please enter a username/nick of your choice, your e-mail adress and your full name. Only your nick will be shown to other users."),
       $msg,
       msg(),
       form(array(
@@ -161,13 +161,15 @@ function guest_register() {
                       )),
                       div('col-sm-8', array(
                           form_email('mail', _("E-Mail") . ' ' . entry_required(), $mail),
-                          form_checkbox('email_shiftinfo', _("Please send me an email if my shifts change"), $email_shiftinfo) 
+                          form_checkbox('email_shiftinfo', _("Please keep me informed by e-mail (e.g. if my shifts change)"), $email_shiftinfo) 
                       )) 
                   )),
                   div('row', array(
                       div('col-sm-6', array(
+                          form_text('prename', _("First name"), $prename) 
                       )),
                       div('col-sm-6', array(
+                          form_text('lastname', _("Last name"), $lastname) 
                       )) 
                   )),
                   div('row', array(
@@ -183,23 +185,12 @@ function guest_register() {
               )),
               div('col-md-6', array(
                   div('row', array(
-                      div('col-sm-4', array(
+                      div('col-sm-6', array(
                           form_text('mobile', _("Mobile"), $mobile)                          
                       )),
-                      div('col-sm-4', array(
+                      div('col-sm-6', array(
                           form_text('tel', _("Phone"), $tel) 
                       )),
-                      div('col-sm-4', array(
-                          
-                      )) 
-                  )),
-                  div('row', array(
-                      div('col-sm-6', array(
-                          form_text('prename', _("First name"), $prename) 
-                      )),
-                      div('col-sm-6', array(
-                          form_text('lastname', _("Last name"), $lastname) 
-                      )) 
                   )),
                   div('row', array(
                       div('col-sm-3', array(

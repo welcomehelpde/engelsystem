@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Helfersystem 2.0\n"
-"POT-Creation-Date: 2015-10-20 15:15+0200\n"
-"PO-Revision-Date: 2015-10-20 15:22+0200\n"
+"POT-Creation-Date: 2015-10-20 15:40+0200\n"
+"PO-Revision-Date: 2015-10-20 15:40+0200\n"
 "Last-Translator: Andreas Tichon <at@welcomehelp.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -28,7 +28,7 @@ msgid "Angeltypes"
 msgstr "Helfer-Typen"
 
 #: includes/controller/angeltypes_controller.php:46
-#: includes/pages/guest_login.php:299 includes/view/AngelTypes_view.php:188
+#: includes/pages/guest_login.php:308 includes/view/AngelTypes_view.php:188
 #: includes/view/AngelTypes_view.php:232
 msgid "Teams/Job description"
 msgstr "Team-/Aufgabenbeschreibung"
@@ -666,18 +666,18 @@ msgid "Only confirmed"
 msgstr "Nur bestätigte"
 
 #: includes/pages/admin_free.php:86 includes/pages/guest_login.php:160
-#: includes/pages/guest_login.php:284 includes/pages/user_settings.php:174
+#: includes/pages/guest_login.php:293 includes/pages/user_settings.php:174
 #: includes/view/AngelTypes_view.php:131 includes/view/AngelTypes_view.php:157
 #: includes/view/AngelTypes_view.php:169 includes/view/User_view.php:70
 msgid "Nick"
 msgstr "Benutzername"
 
-#: includes/pages/admin_free.php:88 includes/pages/guest_login.php:189
+#: includes/pages/admin_free.php:88 includes/pages/guest_login.php:187
 #: includes/pages/user_settings.php:183 includes/view/User_view.php:74
 msgid "Mobile"
 msgstr "Handy"
 
-#: includes/pages/admin_free.php:89 includes/pages/guest_login.php:192
+#: includes/pages/admin_free.php:89 includes/pages/guest_login.php:190
 #: includes/pages/user_settings.php:181 includes/view/User_view.php:75
 msgid "Phone"
 msgstr "Telefon"
@@ -1146,11 +1146,11 @@ msgstr "FAQ"
 msgid "Imprint - Impressum"
 msgstr "Imprint - Impressum"
 
-#: includes/pages/guest_login.php:4 includes/pages/guest_login.php:286
+#: includes/pages/guest_login.php:4 includes/pages/guest_login.php:295
 msgid "Login"
 msgstr "Login"
 
-#: includes/pages/guest_login.php:8 includes/pages/guest_login.php:212
+#: includes/pages/guest_login.php:8 includes/pages/guest_login.php:221
 msgid "Register"
 msgstr "Registrieren"
 
@@ -1197,66 +1197,58 @@ msgstr ""
 "beispielsweise Deine Email-Adresse.</small></p></small>"
 
 #: includes/pages/guest_login.php:164
-msgid "Please keep me informed by e-mail (e.g. if my shifts change)"
+msgid "Please keep me informed by e-mail, e.g. if my shifts change"
 msgstr ""
 "Informiere mich per E-Mail bei Änderungen an meinen Schichten und wichtigen "
 "Neuigkeiten."
 
-#: includes/pages/guest_login.php:169 includes/pages/user_settings.php:176
-msgid "First name"
-msgstr "Vorname"
-
-#: includes/pages/guest_login.php:172 includes/pages/user_settings.php:175
-msgid "Last name"
-msgstr "Nachname"
-
-#: includes/pages/guest_login.php:177 includes/pages/guest_login.php:285
+#: includes/pages/guest_login.php:175 includes/pages/guest_login.php:294
 #: includes/view/User_view.php:246
 msgid "Password"
 msgstr "Passwort (mind. 6 Zeichen)"
 
-#: includes/pages/guest_login.php:180 includes/view/User_view.php:247
+#: includes/pages/guest_login.php:178 includes/view/User_view.php:247
 msgid "Confirm password"
 msgstr "Passwort wiederholen"
 
-#: includes/pages/guest_login.php:183
-msgid "What do you want to do?"
-msgstr "Was möchtest Du machen?"
+#: includes/pages/guest_login.php:198 includes/pages/user_settings.php:176
+msgid "First name"
+msgstr "Vorname"
 
-#: includes/pages/guest_login.php:183
-msgid "Description of job types"
-msgstr "Beschreibung der Aufgaben"
+#: includes/pages/guest_login.php:201 includes/pages/user_settings.php:175
+msgid "Last name"
+msgstr "Nachname"
 
-#: includes/pages/guest_login.php:197 includes/pages/user_settings.php:179
+#: includes/pages/guest_login.php:206 includes/pages/user_settings.php:179
 msgid "Age"
 msgstr "Alter"
 
-#: includes/pages/guest_login.php:200 includes/pages/user_settings.php:180
+#: includes/pages/guest_login.php:209 includes/pages/user_settings.php:180
 #: includes/view/User_view.php:73
 msgid "Gender"
 msgstr "Geschlecht"
 
-#: includes/pages/guest_login.php:203
+#: includes/pages/guest_login.php:212
 msgid "Hometown"
 msgstr "Wohnort"
 
-#: includes/pages/guest_login.php:206 includes/pages/user_settings.php:187
+#: includes/pages/guest_login.php:215 includes/pages/user_settings.php:187
 msgid "Additional Information(Language / Profession)"
 msgstr "Weitere Qualifikationen (Führerschein u. Klasse, Sprachen, etc.)"
 
-#: includes/pages/guest_login.php:209 includes/pages/user_settings.php:173
+#: includes/pages/guest_login.php:218 includes/pages/user_settings.php:173
 msgid "Entry required!"
 msgstr "Pflichtfeld"
 
-#: includes/pages/guest_login.php:244
+#: includes/pages/guest_login.php:253
 msgid "Your password is incorrect.  Please try it again."
 msgstr "Dein Passwort stimmt nicht. Bitte probiere es nochmal."
 
-#: includes/pages/guest_login.php:248
+#: includes/pages/guest_login.php:257
 msgid "Please enter a password."
 msgstr "Gib bitte ein Passwort ein."
 
-#: includes/pages/guest_login.php:252
+#: includes/pages/guest_login.php:261
 msgid ""
 "No user was found with that Nickname. Please try again. If you are still "
 "having problems, ask an Dispatcher."
@@ -1264,32 +1256,32 @@ msgstr ""
 "Es wurde kein Helfer mit diesem Benutzernamen gefunden. Probiere es bitte "
 "noch einmal. Wenn das Problem weiterhin besteht, frage einen Leiter."
 
-#: includes/pages/guest_login.php:256
+#: includes/pages/guest_login.php:265
 msgid "Please enter a nickname."
 msgstr "Gib bitte einen Benutzernamen an."
 
-#: includes/pages/guest_login.php:269
+#: includes/pages/guest_login.php:278
 msgid "Please sign up, if you want to help us!"
 msgstr "Bitte registriere Dich, wenn Du helfen möchtest!"
 
-#: includes/pages/guest_login.php:276
+#: includes/pages/guest_login.php:285
 msgid "Registration is disabled."
 msgstr "Registrierung ist vorübergehend abgeschaltet."
 
-#: includes/pages/guest_login.php:288
+#: includes/pages/guest_login.php:297
 msgid "I forgot my password"
 msgstr "Passwort vergessen"
 
-#: includes/pages/guest_login.php:290
+#: includes/pages/guest_login.php:299
 msgid "Please note: You have to activate cookies!"
 msgstr ""
 "Hinweis: Cookies müssen aktiviert sein, damit das Schichtsystem funktioniert!"
 
-#: includes/pages/guest_login.php:296
+#: includes/pages/guest_login.php:305
 msgid "What can I do?"
 msgstr "Was kann ich machen?"
 
-#: includes/pages/guest_login.php:297
+#: includes/pages/guest_login.php:306
 msgid "Please read about the jobs you can do to help us."
 msgstr ""
 "Bitte informiere Dich über die Tätigkeiten bei denen Du uns helfen kannst."
@@ -2198,6 +2190,17 @@ msgstr "ausgewählt"
 #: public/index.php:190
 msgid "None selected"
 msgstr "keine"
+
+#~ msgid "Please keep me informed by e-mail (e.g. if my shifts change)"
+#~ msgstr ""
+#~ "Informiere mich per E-Mail bei Änderungen an meinen Schichten und "
+#~ "wichtigen Neuigkeiten."
+
+#~ msgid "What do you want to do?"
+#~ msgstr "Was möchtest Du machen?"
+
+#~ msgid "Description of job types"
+#~ msgstr "Beschreibung der Aufgaben"
 
 #~ msgid ""
 #~ "By completing this form you're registering as an angel. This script will "

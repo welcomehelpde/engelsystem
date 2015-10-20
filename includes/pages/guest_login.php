@@ -161,7 +161,36 @@ function guest_register() {
                       )),
                       div('col-sm-8', array(
                           form_email('mail', _("E-Mail") . ' ' . entry_required(), $mail),
-                          form_checkbox('email_shiftinfo', _("Please keep me informed by e-mail (e.g. if my shifts change)"), $email_shiftinfo) 
+                          form_checkbox('email_shiftinfo', _("Please keep me informed by e-mail, e.g. if my shifts change"), $email_shiftinfo) 
+                      )) 
+                  )),
+                  div('row', array(
+                      div('col-sm-6', array(
+                      )),
+                      div('col-sm-6', array(
+                      )) 
+                  )),
+                  div('row', array(
+                      div('col-sm-6', array(
+                          form_password('password', _("Password") . ' ' . entry_required()) 
+                      )),
+                      div('col-sm-6', array(
+                          form_password('password2', _("Confirm password") . ' ' . entry_required()) 
+                      )) 
+                  )),
+                  // form_checkboxes('angel_types', _("What do you want to do?") . sprintf(" (<a href=\"%s\">%s</a>)", page_link_to('angeltypes') . '&action=about', _("Description of job types")), $angel_types, $selected_angel_types),
+                 //				 form_info("", _("Restricted angel types need will be confirmed later by an archangel. You can change your selection in the options section.")) 
+              )),
+              div('col-md-6', array(
+                  div('row', array(
+                      div('col-sm-4', array(
+                          form_text('mobile', _("Mobile"), $mobile)                          
+                      )),
+                      div('col-sm-4', array(
+                          form_text('tel', _("Phone"), $tel) 
+                      )),
+                      div('col-sm-4', array(
+                          
                       )) 
                   )),
                   div('row', array(
@@ -173,33 +202,19 @@ function guest_register() {
                       )) 
                   )),
                   div('row', array(
-                      div('col-sm-6', array(
-                          form_password('password', _("Password") . ' ' . entry_required()) 
-                      )),
-                      div('col-sm-6', array(
-                          form_password('password2', _("Confirm password") . ' ' . entry_required()) 
-                      )) 
-                  )),
-                  form_checkboxes('angel_types', _("What do you want to do?") . sprintf(" (<a href=\"%s\">%s</a>)", page_link_to('angeltypes') . '&action=about', _("Description of job types")), $angel_types, $selected_angel_types),
-                 //				 form_info("", _("Restricted angel types need will be confirmed later by an archangel. You can change your selection in the options section.")) 
-              )),
-              div('col-md-6', array(
-                  div('row', array(
-                      div('col-sm-6', array(
-                          form_text('mobile', _("Mobile"), $mobile)                          
-                      )),
-                      div('col-sm-6', array(
-                          form_text('tel', _("Phone"), $tel) 
-                      ))
-                  )),
-                  div('row', array(
                       div('col-sm-3', array(
                           form_text('age', _("Age"), $age) 
+                      )),
+                      div('col-sm-3', array(
+                          form_select('gender', _("Gender"), $genders, $gender)
+                      )),
+                      div('col-sm-6', array(
+                          form_text('hometown', _("Hometown"), $hometown) 
                       )),
                       div('col-sm-6', array(
                               form_text('comment', _("Additional Information(Language / Profession)"), $comment)
                           ))
-                      ))
+                      )),
                   form_info(entry_required() . ' = ' . _("Entry required!")) 
               )) 
           )),
@@ -287,9 +302,12 @@ function guest_login() {
       '<div class="col-md-6">',
       '<h2>' . register_title() . '</h2>',
       $register_hint,
-      ' '
+      '<h2>' . _("What can I do?") . '</h2>',
+      '<p>' . _("Please read about the jobs you can do to help us.") . '</p>',
+      buttons(array(
+          button(page_link_to('angeltypes') . '&action=about', _("Teams/Job description") . ' &raquo;') 
       )),
-      '</div></div>'
+      '</div></div>' 
   ));
 }
 ?>

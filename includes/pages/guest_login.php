@@ -293,14 +293,6 @@ function guest_login() {
           )),
           info(_("Please note: You have to activate cookies!"), true) 
       )),
-      '</div>',
-      '<div class="col-md-6">',
-      '<h2>' . register_title() . '</h2>',
-      $register_hint,
-      '',
-//      buttons(array(
-//          button(page_link_to('angeltypes') . '&action=about', _("Teams/Job description") . ' &raquo;') 
-      )),
       '</div></div>' 
   ));
 }

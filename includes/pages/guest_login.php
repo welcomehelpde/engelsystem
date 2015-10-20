@@ -199,7 +199,7 @@ function guest_register() {
                       div('col-sm-6', array(
                               form_text('comment', _("Additional Information(Language / Profession)"), $comment)
                           ))
-                      ))
+                      )),
                   form_info(entry_required() . ' = ' . _("Entry required!")) 
               )) 
           )),

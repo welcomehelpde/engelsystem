@@ -297,8 +297,7 @@ function guest_login() {
       '<div class="col-md-6">',
       '<h2>' . register_title() . '</h2>',
       $register_hint,
-      ' ',
-      ' ' 
+      '',
 //      buttons(array(
 //          button(page_link_to('angeltypes') . '&action=about', _("Teams/Job description") . ' &raquo;') 
       )),

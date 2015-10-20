@@ -164,10 +164,10 @@ function guest_register() {
                           form_checkbox('email_shiftinfo', _("Please keep me informed by e-mail, e.g. if my shifts change"), $email_shiftinfo) 
                       )),
 					  div('col-sm-4', array(
-                          form_text('prename', _("First name")) . ' ' . entry_required(), $prename) 
+                          form_text('prename', _("First name") . ' ' . entry_required(), $prename) 
                       )),
                       div('col-sm-4', array(
-                          form_text('lastname', _("Last name")) . ' ' . entry_required(), $lastname) 
+                          form_text('lastname', _("Last name") . ' ' . entry_required(), $lastname) 
                       )) 
                   )),
                   div('row', array(

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Helfersystem 2.0\n"
-"POT-Creation-Date: 2015-10-18 19:32+0200\n"
-"PO-Revision-Date: 2015-10-18 19:32+0200\n"
+"POT-Creation-Date: 2015-10-20 14:50+0200\n"
+"PO-Revision-Date: 2015-10-20 14:51+0200\n"
 "Last-Translator: Andreas Tichon <at@welcomehelp.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -22,7 +22,7 @@ msgstr ""
 "js\n"
 
 #: includes/controller/angeltypes_controller.php:7
-#: includes/pages/user_shifts.php:850 includes/view/AngelTypes_view.php:56
+#: includes/pages/user_shifts.php:851 includes/view/AngelTypes_view.php:56
 #: includes/view/AngelTypes_view.php:72
 msgid "Angeltypes"
 msgstr "Helfer-Typen"
@@ -830,8 +830,8 @@ msgstr "Titel"
 
 #: includes/pages/admin_import.php:132 includes/pages/admin_import.php:141
 #: includes/pages/admin_import.php:150 includes/pages/admin_rooms.php:160
-#: includes/pages/admin_shifts.php:303 includes/pages/user_shifts.php:806
-#: includes/pages/user_shifts.php:843 includes/view/Shifts_view.php:104
+#: includes/pages/admin_shifts.php:303 includes/pages/user_shifts.php:807
+#: includes/pages/user_shifts.php:844 includes/view/Shifts_view.php:104
 #: includes/view/User_view.php:214
 msgid "Location"
 msgstr "Ort"
@@ -1177,8 +1177,9 @@ msgstr "Dein Passwort ist zu kurz (mindestens %s Zeichen)."
 #: includes/pages/guest_login.php:145
 msgid "Angel registration successful!"
 msgstr ""
-"Registrierung erfolgreich! Bitte bestätige deine E-Mail Adresse und logge "
-"dich dann ein."
+"Registrierung erfolgreich! Wir haben Dir eine E-Mail mit einem "
+"Bestätigungslink gesendet. Bitte bestätige Deine Registrierung und logge "
+"Dich dann ein."
 
 #: includes/pages/guest_login.php:152
 msgid ""
@@ -1629,61 +1630,61 @@ msgstr ""
 "Die Administratoren haben noch keine Helfer-Typ konfiguriert - oder Du hast "
 "noch keine Helfer-Typ ausgewählt."
 
-#: includes/pages/user_shifts.php:621 includes/pages/user_shifts.php:758
+#: includes/pages/user_shifts.php:620 includes/pages/user_shifts.php:759
 #, php-format
 msgid "%d helper needed"
 msgid_plural "%d helpers needed"
 msgstr[0] "%d Helfer benötigt"
 msgstr[1] "%d Helfer benötigt"
 
-#: includes/pages/user_shifts.php:641 includes/view/Shifts_view.php:22
+#: includes/pages/user_shifts.php:640 includes/view/Shifts_view.php:22
 msgid "Sign up"
 msgstr "Eintragen"
 
-#: includes/pages/user_shifts.php:644
+#: includes/pages/user_shifts.php:643
 msgid "ended"
 msgstr "vorbei"
 
-#: includes/pages/user_shifts.php:652 includes/pages/user_shifts.php:785
+#: includes/pages/user_shifts.php:651 includes/pages/user_shifts.php:786
 #: includes/view/Shifts_view.php:24
 #, php-format
 msgid "Become %s"
 msgstr "Werde ein %s"
 
-#: includes/pages/user_shifts.php:664 includes/pages/user_shifts.php:798
+#: includes/pages/user_shifts.php:663 includes/pages/user_shifts.php:799
 msgid "Add more angels"
 msgstr "Neue Helfer hinzufügen"
 
-#: includes/pages/user_shifts.php:806 includes/view/User_view.php:213
+#: includes/pages/user_shifts.php:807 includes/view/User_view.php:213
 msgid "Time"
 msgstr "Zeit"
 
-#: includes/pages/user_shifts.php:807
+#: includes/pages/user_shifts.php:808
 msgid "Entries"
 msgstr "Einträge"
 
-#: includes/pages/user_shifts.php:851
+#: includes/pages/user_shifts.php:852
 msgid "Occupancy"
 msgstr "Belegung"
 
-#: includes/pages/user_shifts.php:853
-msgid "Use calendar view"
-msgstr "Kalenderansicht verwenden"
+#: includes/pages/user_shifts.php:854
+msgid "List view"
+msgstr "Listenansicht"
 
-#: includes/pages/user_shifts.php:855
+#: includes/pages/user_shifts.php:856
 msgid "iCal export"
 msgstr "iCal Export"
 
-#: includes/pages/user_shifts.php:855
+#: includes/pages/user_shifts.php:856
 #, php-format
 msgid "Export of shown shifts. <a href=\"%s\">iCal format</a>."
 msgstr "Exportiere Deine Schichten im <a href=\"%s\">iCal Format</a>."
 
-#: includes/pages/user_shifts.php:856
+#: includes/pages/user_shifts.php:857
 msgid "Filter"
 msgstr "Filter anwenden!"
 
-#: includes/pages/user_shifts.php:893
+#: includes/pages/user_shifts.php:894
 msgid ""
 "The tasks shown here are influenced by the preferences you defined in your "
 "settings!"
@@ -1691,7 +1692,7 @@ msgstr ""
 "Die Schichten, die hier angezeigt werden, sind von Deinen Einstellungen "
 "(Helfer-Typ/Aufgaben) abhängig!"
 
-#: includes/pages/user_shifts.php:893
+#: includes/pages/user_shifts.php:894
 msgid "Description of the jobs."
 msgstr "Beschreibung der Aufgaben."
 
@@ -2190,6 +2191,9 @@ msgstr "ausgewählt"
 #: public/index.php:190
 msgid "None selected"
 msgstr "keine"
+
+#~ msgid "Use calendar view"
+#~ msgstr "Kalenderansicht verwenden"
 
 #~ msgid "Use list style"
 #~ msgstr "Listenansicht verwenden"

@@ -297,10 +297,10 @@ function guest_login() {
       '<div class="col-md-6">',
       '<h2>' . register_title() . '</h2>',
       $register_hint,
-//      '<h2>' . _("What can I do?") . '</h2>',
-//      '<p>' . _("Please read about the jobs you can do to help us.") . '</p>',
-//      buttons(array(
-//          button(page_link_to('angeltypes') . '&action=about', _("Teams/Job description") . ' &raquo;') 
+      '<h2>' . _("What can I do?") . '</h2>',
+      '<p>' . _("Please read about the jobs you can do to help us.") . '</p>',
+      buttons(array(
+          button(page_link_to('angeltypes') . '&action=about', _("Teams/Job description") . ' &raquo;') 
       )),
       '</div></div>' 
   ));

@@ -8,11 +8,12 @@ $free_pages = array(
     'stats',
     'shifts_json_export_all',
     'user_password_recovery',
+    'user_activate_account',
     'api',
     'credits',
-	'faq2',
-	'imprint',
-	'privacy',
+    'faq2',
+    'imprint',
+    'privacy',
     'angeltypes',
     'users',
     'ical',
@@ -59,6 +60,9 @@ if (isset($_REQUEST['p'])
         require_once realpath(__DIR__ . '/../includes/controller/users_controller.php');
         $title = user_password_recovery_title();
         $content = user_password_recovery_controller();
+      } elseif($p === "user_activate_account") {
+        $title = user_activate_account_title();
+        $content = user_activate_account_controller();
       } elseif ($p == "angeltypes") {
         list($title, $content) = angeltypes_controller();
       } elseif ($p == "shifts") {

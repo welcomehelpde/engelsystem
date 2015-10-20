@@ -196,12 +196,6 @@ function guest_register() {
                       div('col-sm-3', array(
                           form_text('age', _("Age"), $age) 
                       )),
-                      div('col-sm-3', array(
-                          form_select('gender', _("Gender"), $genders, $gender)
-                      )),
-                      div('col-sm-6', array(
-                          form_text('hometown', _("Hometown"), $hometown) 
-                      )),
                       div('col-sm-6', array(
                               form_text('comment', _("Additional Information(Language / Profession)"), $comment)
                           ))
@@ -293,10 +287,7 @@ function guest_login() {
       '<div class="col-md-6">',
       '<h2>' . register_title() . '</h2>',
       $register_hint,
-      '<h2>' . _("What can I do?") . '</h2>',
-      '<p>' . _("Please read about the jobs you can do to help us.") . '</p>',
-      buttons(array(
-          button(page_link_to('angeltypes') . '&action=about', _("Teams/Job description") . ' &raquo;') 
+      ' '
       )),
       '</div></div>' 
   ));

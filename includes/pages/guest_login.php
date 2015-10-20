@@ -289,7 +289,7 @@ function guest_login() {
       $register_hint,
       ' '
       )),
-      '</div></div>',
+      '</div></div>'
   ));
 }
 ?>

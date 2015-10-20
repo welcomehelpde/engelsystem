@@ -116,19 +116,16 @@ function guest_register() {
           `Alter`='" . sql_escape($age) . "', 
           `gender`='" . sql_escape($gender) . "',
           `Telefon`='" . sql_escape($tel) . "', 
-          `DECT`='" . sql_escape($dect) . "', 
           `Handy`='" . sql_escape($mobile) . "', 
           `email`='" . sql_escape($mail) . "', 
           `email_shiftinfo`=" . sql_bool($email_shiftinfo) . ", 
-          `jabber`='" . sql_escape($jabber) . "',
-          `Size`='" . sql_escape($tshirt_size) . "', 
           `Passwort`='" . sql_escape($password_hash) . "', 
           `kommentar`='" . sql_escape($comment) . "', 
           `Hometown`='" . sql_escape($hometown) . "', 
           `CreateDate`=NOW(), 
           `Sprache`='" . sql_escape($_SESSION["locale"]) . "',
           `arrival_date`=NULL,
-          `planned_arrival_date`='" . sql_escape($planned_arrival_date) . "'");
+          `planned_arrival_date`=NULL");
       
       // Assign user-group and set password
       $user_id = sql_id();

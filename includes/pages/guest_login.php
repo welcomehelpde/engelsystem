@@ -162,6 +162,12 @@ function guest_register() {
                       div('col-sm-8', array(
                           form_email('mail', _("E-Mail") . ' ' . entry_required(), $mail),
                           form_checkbox('email_shiftinfo', _("Please keep me informed by e-mail, e.g. if my shifts change"), $email_shiftinfo) 
+                      )),
+					  div('col-sm-4', array(
+                          form_text('prename', _("First name"), $prename) 
+                      )),
+                      div('col-sm-4', array(
+                          form_text('lastname', _("Last name"), $lastname) 
                       )) 
                   )),
                   div('row', array(
@@ -188,17 +194,6 @@ function guest_register() {
                       )),
                       div('col-sm-4', array(
                           form_text('tel', _("Phone"), $tel) 
-                      )),
-                      div('col-sm-4', array(
-                          
-                      )) 
-                  )),
-                  div('row', array(
-                      div('col-sm-6', array(
-                          form_text('prename', _("First name"), $prename) 
-                      )),
-                      div('col-sm-6', array(
-                          form_text('lastname', _("Last name"), $lastname) 
                       )) 
                   )),
                   div('row', array(
@@ -208,9 +203,9 @@ function guest_register() {
                       div('col-sm-3', array(
                           form_select('gender', _("Gender"), $genders, $gender)
                       )),
-                      div('col-sm-6', array(
-                          form_text('hometown', _("Hometown"), $hometown) 
-                      )),
+//                      div('col-sm-6', array(
+//                          form_text('hometown', _("Hometown"), $hometown) 
+//                      )),
                       div('col-sm-6', array(
                               form_text('comment', _("Additional Information(Language / Profession)"), $comment)
                           ))

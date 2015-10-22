@@ -36,6 +36,8 @@
     * @param string $sessionname name of the session var to store results
     */
     function PN_ShowNotice($privacypoliceurl='?p=privacy', $sessionname='pn_ckeck'){
+        $html = '';
+
         // check if the user accepted the use of analytic software or removed the approval
         if(isset($_GET['pn_note']) AND $_GET['pn_note'] == 'checked'){
             // if the use approved the use of analyitcs software ... 
@@ -47,19 +49,19 @@
         elseif(isset($_GET['pn_note']) AND $_GET['pn_note'] == 'removed'){
             // if the user rejected/removed the use of analytics software ...
             unset($_SESSION[$sessionname]);
-            echo "<div class='pn_notebox pn_removed'>\n";
-            echo "Du hast Deine Genehmigung zur Nutung von Analyse-Software zur&uuml;ckgezogen.";
-            echo "</div>\n";
+            $html .= "<div class='pn_notebox pn_removed'>\n";
+            $html .= "Du hast Deine Genehmigung zur Nutung von Analyse-Software zur&uuml;ckgezogen.";
+            $html .= "</div>\n";
         } else {
             // check if privacy note was allready accepted, if not we show the note
             if(!isset($_SESSION[$sessionname]) OR $_SESSION[$sessionname] != 'checked'){
-                echo "<div class='pn_notebox'>\n";
-                echo "<center><small>Der Gebrauch von Cookies erlaubt uns dieses Helfersystem für Euch anzubieten. Durch Fortfahren auf unserer Webseite stimmst Du der Verwendung von Cookies zu. Mehr über Cookies erfährst Du in unserer <a href='".$privacypoliceurl."'>Datenschutzerkl&auml;rung</a>.</small> <br><a href='".newURL('pn_note=checked')."' class='pn_approval'>Verstanden!</a></center> \n";
-                echo "</div>\n";
+                $html .=  "<div class='pn_notebox'>\n";
+                $html .=  "<center><small>Der Gebrauch von Cookies erlaubt uns dieses Helfersystem für Euch anzubieten. Durch Fortfahren auf unserer Webseite stimmst Du der Verwendung von Cookies zu. Mehr über Cookies erfährst Du in unserer <a href='".$privacypoliceurl."'>Datenschutzerkl&auml;rung</a>.</small> <br><a href='".newURL('pn_note=checked')."' class='pn_approval'>Verstanden!</a></center> \n";
+                $html .=  "</div>\n";
             }
         }
         
-        
+        return $html;
     }
     
     

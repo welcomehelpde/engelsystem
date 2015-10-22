@@ -2,7 +2,6 @@
 
 require_once realpath(__DIR__ . '/../includes/engelsystem_provider.php');
 require_once realpath(__DIR__ . '/../includes/privacynote.php');
-PN_ShowNotice('?p=privacy');
 
 $free_pages = array(
     'stats',
@@ -184,6 +183,7 @@ echo template_render('../templates/layout.html', array(
     'atom_link' => ($p == 'news' || $p == 'user_meetings') ? '<link href="' . page_link_to('atom') . (($p == 'user_meetings') ? '&amp;meetings=1' : '') . '&amp;key=' . $user['api_key'] . '" type="application/atom+xml" rel="alternate" title="Atom Feed">' : '',
     'menu' => make_menu(),
     'content' => msg() . $content,
+    'privacy_note' => PN_ShowNotice(),
     'header_toolbar' => header_toolbar(),
     'faq_url' => $faq_url,
     'locale' => locale(),

@@ -97,4 +97,19 @@ function mail_shift_removed($user, $shift) {
   }
 }
 
+function mail_shift_reminder($user, $shift, $untilStart) {
+
+  if ($user["email_shiftinfo"]) {
+    // send email to user about shortly starting shift
+    
+    $message = _("Your shift starts in less than ");
+    $message .= $untilStart.'.\n\n';   
+    $message .= _('Shift: ').$shift['title'].'\n';
+    $message .= _('Scheduled: ').date("Y-m-d H:i", $shift['start'])." - ".date("H:i", $shift['end']).'\n';
+    $message .= _('Location: ').$shift['RID']['Location'].'\n';
+
+     engelsystem_email_to_user($user, '[engelsystem] ' . _("Reminder: Your Shift starts soon"), $message);
+  }
+}
+
 ?>

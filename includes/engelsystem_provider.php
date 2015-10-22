@@ -2,7 +2,6 @@
 /**
  * This file includes all needed functions, connects to the db etc.
  */
-require_once realpath(__DIR__ . '/../public/vendor/autoload.php');
 require_once realpath(__DIR__ . '/../includes/mysqli_provider.php');
 
 require_once realpath(__DIR__ . '/../includes/sys_auth.php');
@@ -45,6 +44,7 @@ require_once realpath(__DIR__ . '/../includes/helper/graph_helper.php');
 require_once realpath(__DIR__ . '/../includes/helper/internationalization_helper.php');
 require_once realpath(__DIR__ . '/../includes/helper/message_helper.php');
 require_once realpath(__DIR__ . '/../includes/helper/error_helper.php');
+require_once realpath(__DIR__ . '/../includes/helper/email_helper.php');
 require_once realpath(__DIR__ . '/../includes/helper/session_helper.php');
 
 require_once realpath(__DIR__ . '/../includes/mailer/shifts_mailer.php');
@@ -58,7 +58,6 @@ if ($maintenance_mode) {
   die();
 }
 
-require_once realpath(__DIR__ . '/../includes/helper/email_helper.php');
 require_once realpath(__DIR__ . '/../includes/pages/admin_active.php');
 require_once realpath(__DIR__ . '/../includes/pages/admin_arrive.php');
 require_once realpath(__DIR__ . '/../includes/pages/admin_free.php');
@@ -81,7 +80,9 @@ require_once realpath(__DIR__ . '/../includes/pages/user_shifts.php');
 if (! defined('PHPUNIT_TESTSUITE')) {
   session_lifetime(24 * 60, preg_replace("/[^a-z0-9-]/", '', md5(__DIR__)));
 }
-session_start();
+if (! defined('ENGELSYSTEM_CRONJOB')) {
+  session_start();
+}
 
 gettext_init();
 

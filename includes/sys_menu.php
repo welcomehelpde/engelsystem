@@ -101,9 +101,9 @@ function make_navigation() {
   $pages = array(
       "user_shifts" => shifts_title(),
       "news" => news_title(),
-      "user_meetings" => meetings_title(),
-      "angeltypes" => angeltypes_title(),
-      "user_questions" => questions_title() 
+//      "user_meetings" => meetings_title(),
+//      "angeltypes" => angeltypes_title(),
+//      "user_questions" => questions_title() 
   );
   
   foreach ($pages as $page => $title)

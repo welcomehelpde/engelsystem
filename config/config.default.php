@@ -39,9 +39,9 @@ $shift_sum_formula = "SUM(
 $api_key = "";
 // MySQL-Connection Settings
 $config = array(
-    'host' => "xxx",
-    'user' => "xxx",
-    'pw' => "xxx",
-    'db' => "xxx"
+    'host' => "localhost",
+    'user' => "engelsysuser",
+    'pw' => "engelsys",
+    'db' => "engelsysdb"
 );
 ?>

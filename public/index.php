@@ -2,7 +2,9 @@
 
 require_once realpath(__DIR__ . '/../includes/engelsystem_provider.php');
 require_once realpath(__DIR__ . '/../includes/privacynote.php');
+
 PN_ShowNotice('?p=privacy');
+
 
 $free_pages = array(
     'stats',
@@ -173,6 +175,7 @@ if (isset($_REQUEST['p'])
     $title = _("No Access");
     $content = _("You don't have permission to view this page. You probably have to sign in or register in order to gain access!");
   } else {
+        die;
     // Sonst zur Loginseite leiten
     redirect(page_link_to("login"));
   }

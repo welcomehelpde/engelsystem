@@ -6,9 +6,11 @@ function shifts_title() {
 
 function user_shifts() {
   global $user, $privileges, $max_freeloadable_shifts;
-
   if (User_is_freeloader($user))
-    redirect(page_link_to('user_myshifts'));
+        redirect(page_link_to('user_myshifts'));
+
+
+
 
     // Locations laden
   $rooms = sql_select("SELECT * FROM `Room` WHERE `show`='Y' ORDER BY `Name`");
@@ -23,6 +25,7 @@ function user_shifts() {
     else
       redirect(page_link_to('user_shifts'));
 
+
     $shift_entry_source = sql_select("
         SELECT `User`.`Nick`, `ShiftEntry`.`Comment`, `ShiftEntry`.`UID`, `ShiftTypes`.`name`, `Shifts`.*, `Room`.`Name`, `AngelTypes`.`name` as `angel_type`
         FROM `ShiftEntry`
@@ -32,6 +35,7 @@ function user_shifts() {
         JOIN `ShiftTypes` ON (`ShiftTypes`.`id` = `Shifts`.`shifttype_id`)
         JOIN `Room` ON (`Shifts`.`RID` = `Room`.`RID`)
         WHERE `ShiftEntry`.`id`='" . sql_escape($entry_id) . "'");
+
     if (count($shift_entry_source) > 0) {
       $shift_entry_source = $shift_entry_source[0];
 
@@ -43,7 +47,7 @@ function user_shifts() {
       success(_("Shift entry deleted."));
     } else
       error(_("Entry not found."));
-    redirect(page_link_to('user_shifts'));
+    //redirect(page_link_to('user_shifts'));
   }   // Schicht bearbeiten
   elseif (isset($_REQUEST['edit_shift']) && in_array('admin_shifts', $privileges)) {
     $msg = "";

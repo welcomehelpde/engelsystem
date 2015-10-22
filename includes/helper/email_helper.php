@@ -14,8 +14,20 @@ function engelsystem_email_to_user($recipient_user, $title, $message, $not_if_it
   return engelsystem_email($recipient_user['email'], $title, $message);
 }
 
-function engelsystem_email($address, $title, $message) {
-  return mail($address, $title, $message, "Content-Type: text/plain; charset=UTF-8\r\nFrom: Fluechtlingshilfe Erding <erding@sunyquetest.de>");
+function engelsystem_email($recipient, $subject, $body) {
+  global $mailConfig;
+
+  $transport = Swift_SmtpTransport::newInstance($mailConfig['smtp_host'], $mailConfig['smtp_port'])
+    ->setUsername($mailConfig['smtp_user'])
+    ->setPassword($mailConfig['smtp_password']);
+  $mailer = Swift_Mailer::newInstance($transport);
+  
+  $message = Swift_Message::newInstance($subject)
+    ->setFrom(array($mailConfig['sender_address'] => $mailConfig['sender_name']))
+    ->setTo(array($recipient))
+    ->setBody($body);
+
+  return $mailer->send($message);
 }
 
 ?>

@@ -35,6 +35,16 @@ $shift_sum_formula = "SUM(
 )";
 // weigh every shift the same
 // $shift_sum_formula = "SUM(`end` - `start`)";
+
+$mailConfig = array(
+  'smtp_host' => '',
+  'smtp_port' => '25',
+  'smtp_user' => '',
+  'smtp_password' => '',
+  'sender_address' => 'erding@sunyquetest.de',
+  'sender_name' => 'Fluechtlingshilfe Erding',
+);
+
 // For accessing stats
 $api_key = "";
 // MySQL-Connection Settings

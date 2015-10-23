@@ -9,3 +9,5 @@ test/coverage
 *.wop
 *.dat
 includes/pages/guest_login.old
+*.htaccess
+*.db

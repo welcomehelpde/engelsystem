@@ -38,7 +38,7 @@ CREATE TABLE `AngelTypes` (
 
 LOCK TABLES `AngelTypes` WRITE;
 /*!40000 ALTER TABLE `AngelTypes` DISABLE KEYS */;
-INSERT INTO `AngelTypes` VALUES (3,'12332',0,'1e2e21e1');
+INSERT INTO `AngelTypes` VALUES (3,'Test-Helfer_typ',0,'Test-Helfer-Beschreibung');
 /*!40000 ALTER TABLE `AngelTypes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,7 +109,7 @@ CREATE TABLE `LogEntries` (
   `message` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `timestamp` (`timestamp`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,7 +118,7 @@ CREATE TABLE `LogEntries` (
 
 LOCK TABLES `LogEntries` WRITE;
 /*!40000 ALTER TABLE `LogEntries` DISABLE KEYS */;
-INSERT INTO `LogEntries` VALUES (1,1445514185,'<a class=\"\" href=\"?p=users&amp;action=view&amp;user_id=1\"><span class=\"icon-icon_angel\"></span> admin</a>','Updated user: admin, XL, available: 1, active: 1, tshirt: 1'),(2,1445518391,'<a class=\"\" href=\"?p=users&amp;action=view&amp;user_id=1\"><span class=\"icon-icon_angel\"></span> admin</a>','Location created: hier, pentabarf import: , public: Y, number: 123'),(3,1445518391,'<a class=\"\" href=\"?p=users&amp;action=view&amp;user_id=1\"><span class=\"icon-icon_angel\"></span> admin</a>','Set needed angeltypes of location hier to: '),(4,1445518415,'<a class=\"\" href=\"?p=users&amp;action=view&amp;user_id=1\"><span class=\"icon-icon_angel\"></span> admin</a>','Shift created: Schichttyp1 with title  from 2015-10-22 00:00 to 2015-11-22 00:00'),(5,1445518415,'<a class=\"\" href=\"?p=users&amp;action=view&amp;user_id=1\"><span class=\"icon-icon_angel\"></span> admin</a>','Shift needs following angel types: '),(6,1445518499,'<a class=\"\" href=\"?p=users&amp;action=view&amp;user_id=1\"><span class=\"icon-icon_angel\"></span> admin</a>','Created angeltype: 12332, restricted: 0');
+INSERT INTO `LogEntries` VALUES (1,1445514185,'<a class=\"\" href=\"?p=users&amp;action=view&amp;user_id=1\"><span class=\"icon-icon_angel\"></span> admin</a>','Updated user: admin, XL, available: 1, active: 1, tshirt: 1'),(2,1445518391,'<a class=\"\" href=\"?p=users&amp;action=view&amp;user_id=1\"><span class=\"icon-icon_angel\"></span> admin</a>','Location created: hier, pentabarf import: , public: Y, number: 123'),(3,1445518391,'<a class=\"\" href=\"?p=users&amp;action=view&amp;user_id=1\"><span class=\"icon-icon_angel\"></span> admin</a>','Set needed angeltypes of location hier to: '),(4,1445518415,'<a class=\"\" href=\"?p=users&amp;action=view&amp;user_id=1\"><span class=\"icon-icon_angel\"></span> admin</a>','Shift created: Schichttyp1 with title  from 2015-10-22 00:00 to 2015-11-22 00:00'),(5,1445518415,'<a class=\"\" href=\"?p=users&amp;action=view&amp;user_id=1\"><span class=\"icon-icon_angel\"></span> admin</a>','Shift needs following angel types: '),(6,1445518499,'<a class=\"\" href=\"?p=users&amp;action=view&amp;user_id=1\"><span class=\"icon-icon_angel\"></span> admin</a>','Created angeltype: 12332, restricted: 0'),(7,1445587226,'<a class=\"\" href=\"?p=users&amp;action=view&amp;user_id=1\"><span class=\"icon-icon_angel\"></span> admin</a>','Deleted shift Schichttyp1 from 2015-10-22 00:00 to 2015-11-22 00:00'),(8,1445587536,'<a class=\"\" href=\"?p=users&amp;action=view&amp;user_id=1\"><span class=\"icon-icon_angel\"></span> admin</a>','Updated shifttype Schichttyp1'),(9,1445587587,'<a class=\"\" href=\"?p=users&amp;action=view&amp;user_id=1\"><span class=\"icon-icon_angel\"></span> admin</a>','Updated angeltype: Test-Helfer_typ, restricted: 0'),(10,1445587674,'<a class=\"\" href=\"?p=users&amp;action=view&amp;user_id=1\"><span class=\"icon-icon_angel\"></span> admin</a>','Location updated: Testort, pentabarf import: , public: Y, number: 1234567890'),(11,1445587674,'<a class=\"\" href=\"?p=users&amp;action=view&amp;user_id=1\"><span class=\"icon-icon_angel\"></span> admin</a>','Set needed angeltypes of location Testort to: Test-Helfer_typ: 5'),(12,1445587708,'<a class=\"\" href=\"?p=users&amp;action=view&amp;user_id=1\"><span class=\"icon-icon_angel\"></span> admin</a>','Shift created: Schichttyp1 with title TEST_Schichttyp from 2015-10-23 00:00 to 2015-11-23 00:00'),(13,1445587708,'<a class=\"\" href=\"?p=users&amp;action=view&amp;user_id=1\"><span class=\"icon-icon_angel\"></span> admin</a>','Shift needs following angel types: Test-Helfer_typ: 4');
 /*!40000 ALTER TABLE `LogEntries` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -174,7 +174,7 @@ CREATE TABLE `NeededAngelTypes` (
   CONSTRAINT `neededangeltypes_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `Room` (`RID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `neededangeltypes_ibfk_2` FOREIGN KEY (`shift_id`) REFERENCES `Shifts` (`SID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `neededangeltypes_ibfk_3` FOREIGN KEY (`angel_type_id`) REFERENCES `AngelTypes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -183,6 +183,7 @@ CREATE TABLE `NeededAngelTypes` (
 
 LOCK TABLES `NeededAngelTypes` WRITE;
 /*!40000 ALTER TABLE `NeededAngelTypes` DISABLE KEYS */;
+INSERT INTO `NeededAngelTypes` VALUES (1,6,NULL,3,5),(2,NULL,134,3,4);
 /*!40000 ALTER TABLE `NeededAngelTypes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -328,7 +329,7 @@ CREATE TABLE `Room` (
 
 LOCK TABLES `Room` WRITE;
 /*!40000 ALTER TABLE `Room` DISABLE KEYS */;
-INSERT INTO `Room` VALUES (6,'hier','dort','','','N','Y',0);
+INSERT INTO `Room` VALUES (6,'Testort','MUC_TEST','','','','Y',1234567890);
 /*!40000 ALTER TABLE `Room` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -391,7 +392,7 @@ CREATE TABLE `ShiftTypes` (
 
 LOCK TABLES `ShiftTypes` WRITE;
 /*!40000 ALTER TABLE `ShiftTypes` DISABLE KEYS */;
-INSERT INTO `ShiftTypes` VALUES (4,'Schichttyp1',NULL,'');
+INSERT INTO `ShiftTypes` VALUES (4,'Schichttyp1',NULL,'Testschichttyp');
 /*!40000 ALTER TABLE `ShiftTypes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -425,7 +426,7 @@ CREATE TABLE `Shifts` (
   CONSTRAINT `shifts_ibfk_2` FOREIGN KEY (`shifttype_id`) REFERENCES `ShiftTypes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `shifts_ibfk_3` FOREIGN KEY (`created_by_user_id`) REFERENCES `User` (`UID`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `shifts_ibfk_4` FOREIGN KEY (`edited_by_user_id`) REFERENCES `User` (`UID`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=135 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -434,7 +435,7 @@ CREATE TABLE `Shifts` (
 
 LOCK TABLES `Shifts` WRITE;
 /*!40000 ALTER TABLE `Shifts` DISABLE KEYS */;
-INSERT INTO `Shifts` VALUES (133,NULL,4,1445464800,1448146800,6,NULL,NULL,1,1445518415,NULL,0);
+INSERT INTO `Shifts` VALUES (134,'TEST_Schichttyp',4,1445551200,1448233200,6,NULL,NULL,1,1445587708,NULL,0);
 /*!40000 ALTER TABLE `Shifts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -496,7 +497,7 @@ CREATE TABLE `User` (
 
 LOCK TABLES `User` WRITE;
 /*!40000 ALTER TABLE `User` DISABLE KEYS */;
-INSERT INTO `User` VALUES (1,'admin','Gates','Bill',42,'none','','-','','admin@example.com',1,'','XL','$6$rounds=5000$hjXbIhoRTH3vKiRa$Wl2P2iI5T9iRR.HHu/YFHswBW0WVn0yxCfCiX0Keco9OdIoDK6bIAADswP6KvMCJSwTGdV8PgA8g8Xfw5l8BD1',NULL,1,1,0,1,2,'de_DE.UTF-8','L',1445518535,'0000-00-00 00:00:00','','','','038850abdd1feb264406be3ffa746235',3,1439490478,1436964455,1440161255,'',1);
+INSERT INTO `User` VALUES (1,'admin','Gates','Bill',42,'none','','-','','admin@example.com',1,'','XL','$6$rounds=5000$hjXbIhoRTH3vKiRa$Wl2P2iI5T9iRR.HHu/YFHswBW0WVn0yxCfCiX0Keco9OdIoDK6bIAADswP6KvMCJSwTGdV8PgA8g8Xfw5l8BD1',NULL,1,1,0,1,0,'de_DE.UTF-8','L',1445587708,'0000-00-00 00:00:00','','','','038850abdd1feb264406be3ffa746235',3,1439490478,1436964455,1440161255,'',1);
 /*!40000 ALTER TABLE `User` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -571,4 +572,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-10-22 15:34:56
+-- Dump completed on 2015-10-23 10:18:50

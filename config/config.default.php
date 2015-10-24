@@ -10,6 +10,7 @@ $default_theme = 0;
 $DISPLAY_NEWS = 6;
 // Anzahl Stunden bis zum Austragen eigener Schichten
 $LETZTES_AUSTRAGEN = 3;
+
 // Setzt den zu verwendenden Crypto-Algorismus (entsprechend der Dokumentation von crypt()).
 // Falls ein Benutzerpasswort in einem anderen Format gespeichert ist,
 // wird es bei der ersten Benutzung des Klartext-Passworts in das neue Format
@@ -35,6 +36,8 @@ $shift_sum_formula = "SUM(
 )";
 // weigh every shift the same
 // $shift_sum_formula = "SUM(`end` - `start`)";
+
+$googleMapsHeight = "500";//px
 
 $mailConfig = array(
   'smtp_host' => '',

@@ -13,6 +13,7 @@ function getDashboardTitle()
 function get_dashboard()
 {
     global $privileges;
+    global $googleMapsHeight;
 
     require_once realpath(__DIR__ . '/../controller/api.php');
     $shifts = getAllUpcomingShifts();
@@ -75,6 +76,7 @@ function get_dashboard()
             BLOCK_TYPE_PANEL
         ),
         'api_shifts_link' => api_link('shifts'),
+        'google-container-height' => $googleMapsHeight
     );
 
     return  dashboardView($viewData);

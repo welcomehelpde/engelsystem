@@ -46,9 +46,9 @@ function admin_rooms()
             if (count($room) > 0) {
                 $id = $_REQUEST['id'];
                 $name = $room[0]['Name'];
-                $location = $room[0]['location'];
-                $lat = $room[0]['lat'];
-                $long = $room[0]['long'];
+                $location = $room[0]['Location'];
+                $lat = $room[0]['Lat'];
+                $long = $room[0]['Long'];
                 $from_pentabarf = $room[0]['FromPentabarf'];
                 $public = $room[0]['show'];
                 $needed_angeltypes = sql_select("SELECT * FROM `NeededAngelTypes` WHERE `room_id`='" . sql_escape($id) . "'");
@@ -76,9 +76,9 @@ function admin_rooms()
                     $msg .= error(_("Please enter a location."));
                 }
 
-                if (isset($_REQUEST['lat']) && isset($_REQUEST['long'])) {
-                    $lat = $_REQUEST['lat'];
-                    $long = $_REQUEST['long'];
+                if (isset($_REQUEST['Lat']) && isset($_REQUEST['Long'])) {
+                    $lat = $_REQUEST['Lat'];
+                    $long = $_REQUEST['Long'];
                 } else {
                     $ok = false;
                     $msg .= error(_("Please enter a location - no lat long values found."));
@@ -158,8 +158,8 @@ function admin_rooms()
             $form_elements = [];
             $form_elements[] = form_text('name', _("Name"), $name);
             $form_elements[] = form_text('location', _("Location"), $location);
-            $form_elements[] = form_text('lat', _("Latitude"), $lat, false, true);
-            $form_elements[] = form_text('long', _("Longitude"), $long, false, true);
+            $form_elements[] = form_text('Lat', _("Latitude"), $lat, false, false);
+            $form_elements[] = form_text('Long', _("Longitude"), $long, false, false);
             if ($enable_frab_import) {
                 $form_elements[] = form_checkbox('from_pentabarf', _("Frab import"), $from_pentabarf);
             }

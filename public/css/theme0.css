@@ -7056,6 +7056,9 @@ form.admin-user-form input[type="radio"]:first-child {
   top: 0;
   content: '- ';
 }
+
+
+
 @media all and (max-width: 768px) {
   .selection.user-shift-filter {
     margin-top: 25px;

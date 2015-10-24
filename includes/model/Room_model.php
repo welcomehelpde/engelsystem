@@ -48,4 +48,13 @@ function Room($id) {
   return null;
 }
 
+/**
+ * Returns assoc array of all room entries
+ *
+ *
+ */
+function selectAllRooms(){
+      return sql_select("SELECT * FROM `Room`");
+}
+
 ?>

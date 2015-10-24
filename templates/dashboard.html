@@ -1,16 +1,20 @@
-<div><center><a href="http://fluechtlingshilfe-erding.org" target="_blank"><img src="logo.gif" alt="fluechtlingshilfe-erding.org" title="Zur Homepage des Flüchtlingshilfe Erding e.V." style="padding:10px"></a></center><br></div>
-<center><div class="row forecast" style="text-align:center!important">
-    <div class="upcoming-shifts">
-        
-    </div>
-    <div class="upcoming-shifts">
-        %number_upcoming_shifts%
-    </div>
-    <div class="currently-working">
-        %number_currently_working%
-    </div>
-</center>
+<div id = "google-container" style = "height:%google-container-height%px;">
+      <center>
+            <a href="http://fluechtlingshilfe-erding.org" target="_blank"><img src="logo.gif" alt="fluechtlingshilfe-erding.org" title="Zur Homepage des Flüchtlingshilfe Erding e.V." style="padding:10px"></a>
+      </center>
+      <br>
 </div>
+<center>
+      <div class="row forecast" style="text-align:center!important">
+            <div class="upcoming-shifts"></div>
+            <div class="upcoming-shifts">
+              %number_upcoming_shifts%
+            </div>
+            <div class="currently-working">
+              %number_currently_working%
+            </div>
+      </div>
+</center>
 <div class="row blocks">
     <section class="job-list">
         %my_next_jobs%
@@ -28,22 +32,63 @@
 <span id="bg_pattern" <div="" style="opacity: .9"></div></span>
 <script>
     var LatLngList = [], marker = [], infowindow = [], map, contentHtml;
-    initEmptyCard();
-
+    map = initEmptyCard();
+    data = getPlacesAsMarkers(map)
     showUpcomingShifts();
+    //renderTime();
 
-    renderTime();
+    function placeDataOnMap(data,map){
+          if (data){
+                for (i = 0;i < data.length; i++){
+                      console.log(data[i])
+                      markers[i] = new google.maps.Marker({
+                            position: {lat: parseFloat(data[i].Lat),long: parseFloat(data[i].Long)},
+                            map: map,
+                            title: data[i].Name+" - "+data[i].Location
+                      })
+                }
+          }
+   }
+    function getPlacesAsMarkers(map){
+          $.ajax({ url: '../../ajax/ajax_provider.php',
+               data: {action: 'getAllPlaces'},
+               type: 'post',
+               success: function(data) {
+                      places = jQuery.parseJSON(data)
+                      for (i = 0; i < places.length;i++){
+                            var myLatlng = {lat: parseFloat(places[i].Lat), lng: parseFloat(places[i].Long)};
+                            places[i] = new google.maps.Marker({
+                                  position: myLatlng,
+                                  map: map,
+                                  title: places[i].Name+" - "+places[i].Location
+                            })
+                      }
+                  }
+            });
+    }
 
     function initEmptyCard() {
-        var latitude = 51;
-        var longitude = 10;
+        var latitude = 48.1509197;
+        var longitude = 11.5812874;
         var home = new google.maps.LatLng(latitude, longitude);
         var options = {
             center: home,
-            zoom: 5,
+            zoom: 13,
             mapTypeId: google.maps.MapTypeId.HYBRID
         };
-        map = new google.maps.Map(document.getElementById("google-container"), options);
+        var map = new google.maps.Map(document.getElementById("google-container"), options);
+        var myLatLng = {lat: latitude, lng: longitude};
+
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'LMU'
+        });
+
+
+
+        return map
     }
 
     function showUpcomingShifts() {

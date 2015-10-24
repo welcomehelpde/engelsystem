@@ -36,19 +36,7 @@
     data = getPlacesAsMarkers(map)
     showUpcomingShifts();
     //renderTime();
-
-    function placeDataOnMap(data,map){
-          if (data){
-                for (i = 0;i < data.length; i++){
-                      console.log(data[i])
-                      markers[i] = new google.maps.Marker({
-                            position: {lat: parseFloat(data[i].Lat),long: parseFloat(data[i].Long)},
-                            map: map,
-                            title: data[i].Name+" - "+data[i].Location
-                      })
-                }
-          }
-   }
+    
     function getPlacesAsMarkers(map){
           $.ajax({ url: '../../ajax/ajax_provider.php',
                data: {action: 'getAllPlaces'},

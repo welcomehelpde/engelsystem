@@ -26,3 +26,34 @@
 .icon-icon_angel:before {
 	content: "\e600";
 }
+
+#bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+}
+/*HTML5 VIDEO*/
+
+#bg video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
+}
+
+#overlay {
+  background: url(pattern.png);
+  background-repeat: repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 2;
+}

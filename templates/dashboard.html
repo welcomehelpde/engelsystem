@@ -29,32 +29,13 @@
         %news%
     </section>
 </div>
-<span id="bg_pattern" <div="" style="opacity: .9"></div></span>
+<span id="bg_pattern"> <div="" style="opacity: .9"></div></span>
 <script>
     var LatLngList = [], marker = [], infowindow = [], map, contentHtml;
+
     map = initEmptyCard();
-    data = getPlacesAsMarkers(map)
     showUpcomingShifts();
     //renderTime();
-    
-    function getPlacesAsMarkers(map){
-          $.ajax({ url: '../../ajax/ajax_provider.php',
-               data: {action: 'getAllPlaces'},
-               type: 'post',
-               success: function(data) {
-                      places = jQuery.parseJSON(data)
-                      for (i = 0; i < places.length;i++){
-                            var myLatlng = {lat: parseFloat(places[i].Lat), lng: parseFloat(places[i].Long)};
-                            places[i] = new google.maps.Marker({
-                                  position: myLatlng,
-                                  map: map,
-                                  title: places[i].Name+" - "+places[i].Location
-                            })
-                      }
-                  }
-            });
-    }
-
     function initEmptyCard() {
         var latitude = 48.1509197;
         var longitude = 11.5812874;
@@ -65,16 +46,6 @@
             mapTypeId: google.maps.MapTypeId.HYBRID
         };
         var map = new google.maps.Map(document.getElementById("google-container"), options);
-        var myLatLng = {lat: latitude, lng: longitude};
-
-
-        var marker = new google.maps.Marker({
-          position: myLatLng,
-          map: map,
-          title: 'LMU'
-        });
-
-
 
         return map
     }

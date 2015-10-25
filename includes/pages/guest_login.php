@@ -327,7 +327,7 @@ function user_activate_account_controller () {
   $checkResult = sql_select($checkQuery);
 
   // check that validation code exists for user
-  if(isset($checkResult[0])) {
+  if(is_array($checkResult) && isset($checkResult[0])) {
     $confirmSql = 'UPDATE `User`
                    SET `user_account_approved` = "1"
                    WHERE `UID` = "' . $checkResult[0]['UID'] . '"';

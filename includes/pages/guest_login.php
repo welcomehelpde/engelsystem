@@ -321,17 +321,26 @@ function user_activate_account_controller () {
   
   $token = $_GET['token'];
 
-  $checkQuery = 'SELECT COUNT(`UID`) as `exists`
+  $checkQuery = 'SELECT *
                  FROM `User`
                  WHERE `mailaddress_verification_token` = "' . sql_escape($token) . '"';
-  $checkResult = sql_select_single_cell($checkQuery);
+  $checkResult = sql_select($checkQuery);
 
-  if($checkResult === '1') {
+  // check that validation code exists for user
+  if(isset($checkResult[0])) {
     $confirmSql = 'UPDATE `User`
                    SET `user_account_approved` = "1"
-                   WHERE `mailaddress_verification_token` = "' . sql_escape($token) . '"';
+                   WHERE `UID` = "' . $checkResult[0]['UID'] . '"';
     sql_query($confirmSql);
     success(_('Your account is confirmed now. You might want to log in:'));
+
+    // send introductory eMail
+    $msg = _('Your e-Mail address was successfully verified. We would like to use this oportunity to inform you about the system and how things are run. Please find the details below.');
+    if(file_exists(__DIR__.'../../locale/introduction.txt')) {
+      $msg = readfile(__DIR__.'../../locale/introduction.txt');
+    }
+    engelsystem_email_to_user($checkResult[0], _('Introduction to Engelsystem'), $msg);
+
     redirect(page_link_to('login'));
   }
   else {

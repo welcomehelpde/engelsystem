@@ -335,11 +335,13 @@ function user_activate_account_controller () {
     success(_('Your account is confirmed now. You might want to log in:'));
 
     // send introductory eMail
-    $msg = _('Your e-Mail address was successfully verified. We would like to use this oportunity to inform you about the system and how things are run. Please find the details below.');
+    $msg = _('Your e-Mail address was successfully verified.');
     if(file_exists(__DIR__.'../../locale/introduction.txt')) {
-      $msg = readfile(__DIR__.'../../locale/introduction.txt');
+      $msg .= readfile(__DIR__.'../../locale/introduction.txt');
+    } else {
+      $msg .= _('---------------- DUMMY MSG ----------------------');
     }
-    engelsystem_email_to_user($checkResult[0], _('Introduction to Engelsystem'), $msg);
+    engelsystem_email_to_user($checkResult[0], _('E-Mail verified successful and introduction to Engelsystem'), $msg);
 
     redirect(page_link_to('login'));
   }

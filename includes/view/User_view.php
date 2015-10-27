@@ -281,7 +281,24 @@ function User_groups_render($user_groups) {
  * @return string
  */
 function User_Nick_render($user_source) {
-  return '<a class="' . ($user_source['Gekommen'] ? '' : 'text-muted') . '" href="' . page_link_to('users') . '&amp;action=view&amp;user_id=' . $user_source['UID'] . '"><span class="icon-icon_angel"></span> ' . htmlspecialchars($user_source['Nick']) . '</a>';
+  global $privileges;
+  
+  $out = '<a class="' . ($user_source['Gekommen'] ? '' : 'text-muted') . '" href="' . user_link($user_source) . '">';
+  $out .= '<span class="icon-icon_angel"></span>';
+
+  if(in_array('access_userdata', $privileges)) {
+    $out .= htmlspecialchars($user_source['Vorname']) . ' ' . htmlspecialchars($user_source['Name']) . '</a>';
+    if($user_source['email'] !== '') {
+      $out .= sprintf(_(' (eMail: <a href="mailto:%1$s">%1$s</a>)'), htmlspecialchars($user_source['email']));
+    }
+  }
+  else {
+    $out .= htmlspecialchars($user_source['Nick']);
+  }
+
+  $out .= '</a>';
+
+  return $out;
 }
 
 ?>

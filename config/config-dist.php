@@ -11,3 +11,5 @@ $config = array(
 $mailConfig['smtp_host'] = '';
 $mailConfig['smtp_user'] = '';
 $mailConfig['smtp_password'] = '';
+$mailConfig['sender_address'] = '';
+$mailConfig['sender_name'] = '';

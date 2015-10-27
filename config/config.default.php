@@ -44,8 +44,8 @@ $mailConfig = array(
   'smtp_port' => '25',
   'smtp_user' => '',
   'smtp_password' => '',
-  'sender_address' => 'erding@sunyquetest.de',
-  'sender_name' => 'Fluechtlingshilfe Erding',
+  'sender_address' => '',
+  'sender_name' => '',
 );
 
 // For accessing stats

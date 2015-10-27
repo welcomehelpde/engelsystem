@@ -214,6 +214,22 @@ function Shifts_filtered() {
 }
 
 /**
+ * Returns all Shift ids given the start time intervall [$start, [start + $period]
+ *
+ * @parm $start Shift start time (as defined in DB a Unix timestamp)
+ * @parm $period Length of search interval
+ */
+function Shifts_find_by_start_interval($start = -1, $period = 3600) {
+  
+  if($start == -1) {
+    $start = time();
+  }
+
+  return sql_select('SELECT `SID`, `title`, `RID`, `start`, `end` FROM `Shifts` where `start` > '.$start.' and `start` <'.$start.' + '.$period);
+  
+}
+
+/**
  * Returns Shift by id.
  *
  * @param $id Shift

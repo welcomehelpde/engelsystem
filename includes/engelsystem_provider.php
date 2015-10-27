@@ -45,6 +45,7 @@ require_once realpath(__DIR__ . '/../includes/helper/graph_helper.php');
 require_once realpath(__DIR__ . '/../includes/helper/internationalization_helper.php');
 require_once realpath(__DIR__ . '/../includes/helper/message_helper.php');
 require_once realpath(__DIR__ . '/../includes/helper/error_helper.php');
+
 require_once realpath(__DIR__ . '/../includes/helper/session_helper.php');
 
 require_once realpath(__DIR__ . '/../includes/mailer/shifts_mailer.php');
@@ -83,7 +84,9 @@ require_once realpath(__DIR__ . '/../includes/pages/user_shifts.php');
 if (! defined('PHPUNIT_TESTSUITE')) {
   session_lifetime(24 * 60, preg_replace("/[^a-z0-9-]/", '', md5(__DIR__)));
 }
-session_start();
+if (! defined('ENGELSYSTEM_CRONJOB')) {
+  session_start();
+}
 
 gettext_init();
 

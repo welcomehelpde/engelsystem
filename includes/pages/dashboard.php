@@ -168,7 +168,7 @@ function countUpcomingNeededAngels($shifts, $withinSeconds)
             SELECT
                 '1' as grouping,
                 s.SID,
-                (SUM(nat.count)- COUNT(se.SID)) as stillNeeded
+                (nat.count - COUNT(se.SID)) as stillNeeded
             FROM Shifts s
             INNER JOIN NeededAngelTypes nat
                 ON s.SID = nat.shift_id

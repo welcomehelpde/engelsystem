@@ -60,8 +60,8 @@ if (isset($_REQUEST['p'])
         require_once realpath(__DIR__ . '/../includes/pages/guest_stats.php');
         guest_stats();
       } elseif ($p == "user_resend_verification_token") {
-        require_once realpath(__DIR__. '/../includes/pages/guest_login.php');
-        guest_resend_verification_token();
+        $title = user_request_verification_token_title();
+        $content = user_resend_verification_token();
       } elseif ($p == "user_password_recovery") {
         require_once realpath(__DIR__ . '/../includes/controller/users_controller.php');
         $title = user_password_recovery_title();

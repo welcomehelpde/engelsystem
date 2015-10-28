@@ -16,12 +16,6 @@ function user_activate_account_title() {
   return _("Activate Account");
 }
 
-// Send verification email
-function send_verification_email($mail, $confirmationToken) {
-  $confirmationTokenUrl = page_link_to_absolute('user_activate_account') . '&token=' . $confirmationToken;
-  engelsystem_email($mail, _('Please confirm your eMail-address'), sprintf(_('Hello %1$s! Thanks for signing up at Engelsystem. Please confirm your eMail-address by clicking the following link: %2$s'), $mail, $confirmationTokenUrl));
-}
-
 // Engel registrieren
 function guest_register() {
   global $default_theme, $genders;
@@ -154,7 +148,7 @@ function guest_register() {
       }
       engelsystem_log("User " . $nick . " signed up as: " . join(", ", $user_angel_types_info));
 
-      send_verification_email($mail, $confirmationToken);      
+      user_send_verification_email($mail, $confirmationToken);      
             
       success(_("Angel registration successful! Please click the confirmation link in the eMail we sent you to activate your account."));
 
@@ -311,47 +305,13 @@ function guest_login() {
           form_password('password', _("Password")),
           form_submit('submit', _("Login")),
           buttons(array(
-              button(page_link_to('user_password_recovery'), _("I forgot my password")) 
+              button(page_link_to('user_password_recovery'), _("I forgot my password")),
+              button(page_link_to('user_resend_verification_token'), _("Request E-Mail verification token")) 
           )),
           info(_("Please note: You have to activate cookies!"), true) 
       )),
       '</div></div>' 
   ));
-}
-
-function guest_resend_verification_token() {  
-  global $user, $privileges;
-
-  $success = false;
-  
-  if(isset($_GET['uid'])) {
-     $uid = $_GET['uid'];
-     if(is_numeric($uid)) {
-       $user = User($uid);
-
-       if($user != null && $user['user_account_approved'] == 0) {
-         // found user entry, check verification bit set? and send email
-         send_verification_email($user['email'], $user['mailaddress_verification_token']);
-
-         success(_("Verification E-Mail was send again to your E-Mail address. If you still don't receive it, please check your spam folder and ask a Dispatcher."));
-         $success = true;
-       }
-     }
-  } 
-
-  $admin_priv = in_array('admin_user', $privileges);
-
-  if($success == false) {
-    // failure, couldn't find user or something went wrong
-    error(_("Verification E-Mail Could not be send. Please ask a Dispatcher."));
-  }
-
-
-  if($admin_priv && $success == true) {
-    redirect(user_link($uid));
-  } else {
-    redirect('?');     
-  }
 }
 
 function user_activate_account_controller () {

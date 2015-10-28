@@ -211,11 +211,73 @@ function user_password_recovery_controller() {
   }
 }
 
+// Send verification email
+function user_send_verification_email($mail, $confirmationToken) {
+  $confirmationTokenUrl = page_link_to_absolute('user_activate_account') . '&token=' . $confirmationToken;
+  engelsystem_email($mail, _('Please confirm your eMail-address'), sprintf(_('Hello %1$s! Thanks for signing up at Engelsystem. Please confirm your eMail-address by clicking the following link: %2$s'), $mail, $confirmationTokenUrl));
+}
+
+function user_resend_verification_token() {  
+  global $user, $privileges;
+
+  $success = false;
+
+  if(isset($_GET['uid'])) {
+     $uid = $_GET['uid'];
+     if(is_numeric($uid)) {
+       $user = User($uid);
+
+       if($user != null && $user['user_account_approved'] == 0) {
+         // found user entry, check verification bit set? and send email
+         user_send_verification_email($user['email'], $user['mailaddress_verification_token']);
+
+         success(_("Verification E-Mail was send again to your E-Mail address. If you still don't receive it, please check your spam folder and ask a Dispatcher."));
+         $success = true;
+       }
+     }
+  } elseif (isset($_REQUEST['email']) && strlen(strip_request_item('email')) > 0) {
+    $email = strip_request_item('email');
+    if(check_email($email)) {
+      $user = User_by_email($email);
+      
+      if($user != null && $user['user_account_approved'] == 0) {
+        user_send_verification_email($user['email'], $user['mailaddress_verification_token']);
+        success(_("Verification E-Mail was send again to your E-Mail address. If you still don't receive it, please check your spam folder and ask a Dispatcher."));
+        $success = true;        
+      }      
+    }
+  } else { 
+    // show page to input E-Mail
+    return User_request_verification_token_view();
+  }
+
+  $admin_priv = in_array('admin_user', $privileges);
+
+  if($success == false) {
+    // failure, couldn't find user or something went wrong
+    error(_("Verification E-Mail Could not be send. Please ask a Dispatcher."));
+  }
+
+
+  if($admin_priv && $success == true) {
+    redirect(user_link($uid));
+  } else {
+    redirect('?');     
+  }
+}
+
 /**
  * Menu title for password recovery.
  */
 function user_password_recovery_title() {
   return _("Password recovery");
+}
+
+/**
+ * Menu title for requesting verification token.
+ */
+function user_request_verification_token_title() {
+  return _("Requesting additional verification token");
 }
 
 ?>

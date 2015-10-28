@@ -251,6 +251,20 @@ function User_password_set_view() {
   ));
 }
 
+/**
+ * View for requesting another eMail verification token
+ */
+function User_request_verification_token_view() {
+  return page_with_title(user_request_verification_token_title(), array(
+      msg(),
+      _("We will resend an e-mail including the verification link. Please use the email address you used for registration."),
+      form(array(
+          form_text('email', _("E-Mail"), ""),
+          form_submit('submit', _("Resend")) 
+      )) 
+  ));
+}
+
 function User_angeltypes_render($user_angeltypes) {
   $output = array();
   foreach ($user_angeltypes as $angeltype) {

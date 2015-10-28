@@ -198,7 +198,7 @@ function User_view($user_source, $admin_user_privilege, $freeloader, $user_angel
           div('col-md-12', array(
               buttons(array(
                   $admin_user_privilege ? button(page_link_to('admin_user') . '&id=' . $user_source['UID'], glyph("edit") . _("edit")) : '',
-                  $admin_user_privilege ? button(page_link_to('user_resend_verification_token') . '&uid=' . $user_source['UID'], glyph("resend verification token") . _("resend verification token")) : '',
+                  ($admin_user_privilege && $user_source['user_account_approved'] == 0) ? button(page_link_to('user_resend_verification_token') . '&uid=' . $user_source['UID'], glyph("resend verification token") . _("resend verification token")) : '',
                   ($admin_user_privilege && ! $user_source['Gekommen']) ? button(page_link_to('admin_arrive') . '&arrived=' . $user_source['UID'], _("available")) : '',
                   $admin_user_privilege ? button(page_link_to('users') . '&action=edit_vouchers&user_id=' . $user_source['UID'], glyph('cutlery') . _('Edit vouchers')) : '',
                   $its_me ? button(page_link_to('user_settings'), glyph('list-alt') . _("Settings")) : '',

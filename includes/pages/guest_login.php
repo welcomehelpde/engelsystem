@@ -16,6 +16,12 @@ function user_activate_account_title() {
   return _("Activate Account");
 }
 
+// Send verification email
+function send_verification_email($mail, $confirmationToken) {
+  $confirmationTokenUrl = page_link_to_absolute('user_activate_account') . '&token=' . $confirmationToken;
+  engelsystem_email($mail, _('Please confirm your eMail-address'), sprintf(_('Hello %1$s! Thanks for signing up at Engelsystem. Please confirm your eMail-address by clicking the following link: %2$s'), $mail, $confirmationTokenUrl));
+}
+
 // Engel registrieren
 function guest_register() {
   global $default_theme, $genders;
@@ -112,7 +118,6 @@ function guest_register() {
 
     if ($ok) {
       $confirmationToken = bin2hex(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM));
-      $confirmationTokenUrl = page_link_to_absolute('user_activate_account') . '&token=' . $confirmationToken;
 
       sql_query("
           INSERT INTO `User` SET 
@@ -149,8 +154,8 @@ function guest_register() {
       }
       engelsystem_log("User " . $nick . " signed up as: " . join(", ", $user_angel_types_info));
 
-      engelsystem_email($mail, _('Please confirm your eMail-address'), sprintf(_('Hello %1$s! Thanks for signing up at Engelsystem. Please confirm your eMail-address by clicking the following link: %2$s'), $mail, $confirmationTokenUrl));
-      
+      send_verification_email($mail, $confirmationToken);      
+            
       success(_("Angel registration successful! Please click the confirmation link in the eMail we sent you to activate your account."));
 
       redirect('?');
@@ -259,7 +264,9 @@ function guest_login() {
           else { //password is okay, check confirmaiton
             if($login_user['user_account_approved'] !== '1') {
               $ok = false;
-              error(_("Your account is not confirmed yet. Please click the link in the mail we sent you. If you didn't get an eMail, ask a dispatcher."));
+              error(_("Your account is not confirmed yet. Please click the link in the mail we sent you. To resend your verification E-Mail click ")
+                    . "<a href=\"". page_link_to_absolute('user_resend_verification_token') . '&uid=' . $login_user['UID'] . "\">" . _("here") . "</a>." 
+                    . _("If you didn't get an eMail, ask a dispatcher."));
             }
           }
         } else {
@@ -310,6 +317,41 @@ function guest_login() {
       )),
       '</div></div>' 
   ));
+}
+
+function guest_resend_verification_token() {  
+  global $user, $privileges;
+
+  $success = false;
+  
+  if(isset($_GET['uid'])) {
+     $uid = $_GET['uid'];
+     if(is_numeric($uid)) {
+       $user = User($uid);
+
+       if($user != null && $user['user_account_approved'] == 0) {
+         // found user entry, check verification bit set? and send email
+         send_verification_email($user['email'], $user['mailaddress_verification_token']);
+
+         success(_("Verification E-Mail was send again to your E-Mail address. If you still don't receive it, please check your spam folder and ask a Dispatcher."));
+         $success = true;
+       }
+     }
+  } 
+
+  $admin_priv = in_array('admin_user', $privileges);
+
+  if($success == false) {
+    // failure, couldn't find user or something went wrong
+    error(_("Verification E-Mail Could not be send. Please ask a Dispatcher."));
+  }
+
+
+  if($admin_priv && $success == true) {
+    redirect(user_link($uid));
+  } else {
+    redirect('?');     
+  }
 }
 
 function user_activate_account_controller () {

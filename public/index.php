@@ -9,6 +9,7 @@ PN_ShowNotice('?p=privacy');
 $free_pages = array(
     'stats',
     'shifts_json_export_all',
+    'user_resend_verification_token',
     'user_password_recovery',
     'user_activate_account',
     'api',
@@ -58,6 +59,9 @@ if (isset($_REQUEST['p'])
       } elseif ($p == "stats") {
         require_once realpath(__DIR__ . '/../includes/pages/guest_stats.php');
         guest_stats();
+      } elseif ($p == "user_resend_verification_token") {
+        require_once realpath(__DIR__. '/../includes/pages/guest_login.php');
+        guest_resend_verification_token();
       } elseif ($p == "user_password_recovery") {
         require_once realpath(__DIR__ . '/../includes/controller/users_controller.php');
         $title = user_password_recovery_title();

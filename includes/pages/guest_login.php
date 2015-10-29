@@ -222,8 +222,12 @@ function guest_register() {
               )) 
           )),
           form_submit('submit', _("Register"))
-      )) 
-  ));
+          )),
+          buttons(array(      
+            button(page_link_to('user_password_recovery'), _("I forgot my password")),
+            button(page_link_to('user_resend_verification_token'), _("Request E-Mail verification token")) 
+          )) 
+       ));
 }
 
 function entry_required() {

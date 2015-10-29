@@ -177,6 +177,7 @@ function countUpcomingNeededAngels($shifts, $withinSeconds)
             WHERE s.SID IN ('%s')
             GROUP BY s.SID
             ) sub
+            WHERE sub.stillNeeded >= 0
             GROUP BY sub.grouping;",
             implode("', '", $ids)
         )

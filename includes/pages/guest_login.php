@@ -248,7 +248,9 @@ function guest_login() {
 
   $nick = "";
 
-  unset($_SESSION['uid']);
+  // unset($_SESSION['uid']);
+  if (isset($user) && isset($_SESSION['uid'])) //assume that a safe loggedin
+    redirect(page_link_to('dashboard'));
 
   if (isset($_REQUEST['submit'])) {
     $ok = true;

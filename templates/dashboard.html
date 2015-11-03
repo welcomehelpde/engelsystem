@@ -1,4 +1,4 @@
-<div id = "google-container" style = "height:%google-container-height%px;">
+<!-- <div id = "google-container" style = "height:%google-container-height%px;">
       <center>
             <a href="http://fluechtlingshilfe-erding.org" target="_blank"><img src="logo.gif" alt="fluechtlingshilfe-erding.org" title="Zur Homepage des Flüchtlingshilfe Erding e.V." style="padding:10px"></a>
       </center>
@@ -14,7 +14,14 @@
               %number_currently_working%
             </div>
       </div>
-</center>
+</center> -->
+
+
+<div><center><a href="http://fluechtlingshilfe-erding.org" target="_blank"><img src="logo.gif" alt="fluechtlingshilfe-erding.org" title="Zur Homepage des Flüchtlingshilfe Erding e.V." style="padding:10px"></a></center><br></div>
+<div><center><a class="btn btn-lg btn-success" href="https://www.welcomehelp.de/erding/public/?p=register">
+<i class="fa fa-hand-peace-o fa-2x pull-left"></i> Jetzt registrieren,<br>eintragen & helfen!</a><br><br>
+<a class="btn btn-lg btn-danger" href="https://www.welcomehelp.de/erding/public/?p=login"><i class="fa fa-sign-in fa-2x pull-left"></i> Schon angemeldet?<br>Hier einloggen!</a></center><br><br></div>
+
 <div class="row blocks">
     <section class="job-list">
         %my_next_jobs%
@@ -29,25 +36,25 @@
         %news%
     </section>
 </div>
-<span id="bg_pattern"> <div="" style="opacity: .9"></div></span>
+<span id="bg_pattern" <div="" style="opacity: .9"></div></span>
 <script>
     var LatLngList = [], marker = [], infowindow = [], map, contentHtml;
+    initEmptyCard();
 
-    map = initEmptyCard();
     showUpcomingShifts();
-    //renderTime();
+
+    renderTime();
+
     function initEmptyCard() {
-        var latitude = 48.1509197;
-        var longitude = 11.5812874;
+        var latitude = 51;
+        var longitude = 10;
         var home = new google.maps.LatLng(latitude, longitude);
         var options = {
             center: home,
-            zoom: 13,
+            zoom: 5,
             mapTypeId: google.maps.MapTypeId.HYBRID
         };
-        var map = new google.maps.Map(document.getElementById("google-container"), options);
-
-        return map
+        map = new google.maps.Map(document.getElementById("google-container"), options);
     }
 
     function showUpcomingShifts() {

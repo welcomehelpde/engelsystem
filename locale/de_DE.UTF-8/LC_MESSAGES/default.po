@@ -1,25 +1,21 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Helfersystem 2.0\n"
-"POT-Creation-Date: 2015-10-20 15:56+0200\n"
-"PO-Revision-Date: 2015-10-20 15:56+0200\n"
+"POT-Creation-Date: 2015-10-22 20:16+0200\n"
+"PO-Revision-Date: 2015-11-03 22:56+0100\n"
 "Last-Translator: Andreas Tichon <at@welcomehelp.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 1.8.6\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: ../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: vendor/bootstrap/grunt/bs-lessdoc-parser.js\n"
-"X-Poedit-SearchPathExcluded-1: public/vendor/bootstrap-multiselect/docs/js/"
-"prettify.js\n"
-"X-Poedit-SearchPathExcluded-2: vendor/bootstrap-multiselect/docs/js/prettify."
-"js\n"
+"X-Poedit-SearchPathExcluded-0: vendor\n"
 
 #: includes/controller/angeltypes_controller.php:7
 #: includes/pages/user_shifts.php:851 includes/view/AngelTypes_view.php:56
@@ -28,8 +24,7 @@ msgid "Angeltypes"
 msgstr "Helfer-Typen"
 
 #: includes/controller/angeltypes_controller.php:46
-#: includes/pages/guest_login.php:303 includes/view/AngelTypes_view.php:188
-#: includes/view/AngelTypes_view.php:232
+#: includes/view/AngelTypes_view.php:188 includes/view/AngelTypes_view.php:232
 msgid "Teams/Job description"
 msgstr "Team-/Aufgabenbeschreibung"
 
@@ -154,6 +149,7 @@ msgstr "Helfer-Typ die bestätigt werden müssen:"
 #: includes/controller/user_angeltypes_controller.php:259
 #: includes/controller/user_angeltypes_controller.php:296
 #: includes/controller/user_angeltypes_controller.php:304
+#, fuzzy
 msgid "Angeltype doesn't exist."
 msgstr "Helfer-Typ existiert nicht."
 
@@ -311,7 +307,7 @@ msgid "Token is not correct."
 msgstr "Der Token ist nicht in Ordnung."
 
 #: includes/controller/users_controller.php:156
-#: includes/pages/guest_login.php:74 includes/pages/user_settings.php:129
+#: includes/pages/guest_login.php:78 includes/pages/user_settings.php:129
 msgid "Your passwords don't match."
 msgstr "Deine Passwörter stimmen nicht überein."
 
@@ -331,12 +327,12 @@ msgstr "Passwort gespeichert."
 
 #: includes/controller/users_controller.php:186
 #: includes/controller/users_controller.php:190
-#: includes/pages/guest_login.php:60 includes/pages/user_settings.php:38
+#: includes/pages/guest_login.php:64 includes/pages/user_settings.php:38
 msgid "E-mail address is not correct."
 msgstr "Die E-Mail Adresse ist nicht in Ordnung."
 
 #: includes/controller/users_controller.php:194
-#: includes/pages/guest_login.php:64 includes/pages/user_settings.php:42
+#: includes/pages/guest_login.php:68 includes/pages/user_settings.php:42
 msgid "Please enter your e-mail."
 msgstr "Bitte gib Deine E-Mail-Adresse ein."
 
@@ -520,7 +516,7 @@ msgstr "Alle Schichten anzeigen"
 #: includes/pages/admin_active.php:171 includes/pages/admin_arrive.php:130
 #: includes/pages/admin_arrive.php:131 includes/pages/admin_free.php:72
 #: includes/pages/admin_free.php:81 includes/pages/admin_log.php:25
-#: includes/pages/admin_log.php:26 public/index.php:187
+#: includes/pages/admin_log.php:26 public/index.php:191
 msgid "Search"
 msgstr "Suche"
 
@@ -665,24 +661,24 @@ msgstr "Helfer-Typ"
 msgid "Only confirmed"
 msgstr "Nur bestätigte"
 
-#: includes/pages/admin_free.php:86 includes/pages/guest_login.php:160
-#: includes/pages/guest_login.php:288 includes/pages/user_settings.php:174
+#: includes/pages/admin_free.php:86 includes/pages/guest_login.php:169
+#: includes/pages/guest_login.php:303 includes/pages/user_settings.php:174
 #: includes/view/AngelTypes_view.php:131 includes/view/AngelTypes_view.php:157
 #: includes/view/AngelTypes_view.php:169 includes/view/User_view.php:70
 msgid "Nick"
 msgstr "Benutzername"
 
-#: includes/pages/admin_free.php:88 includes/pages/guest_login.php:193
+#: includes/pages/admin_free.php:88 includes/pages/guest_login.php:202
 #: includes/pages/user_settings.php:183 includes/view/User_view.php:74
 msgid "Mobile"
 msgstr "Handy"
 
-#: includes/pages/admin_free.php:89 includes/pages/guest_login.php:196
+#: includes/pages/admin_free.php:89 includes/pages/guest_login.php:205
 #: includes/pages/user_settings.php:181 includes/view/User_view.php:75
 msgid "Phone"
 msgstr "Telefon"
 
-#: includes/pages/admin_free.php:90 includes/pages/guest_login.php:163
+#: includes/pages/admin_free.php:90 includes/pages/guest_login.php:172
 #: includes/pages/user_settings.php:184 includes/view/User_view.php:232
 msgid "E-Mail"
 msgstr "E-Mail"
@@ -1146,11 +1142,11 @@ msgstr "FAQ"
 msgid "Imprint - Impressum"
 msgstr "Imprint - Impressum"
 
-#: includes/pages/guest_login.php:4 includes/pages/guest_login.php:290
+#: includes/pages/guest_login.php:4 includes/pages/guest_login.php:305
 msgid "Login"
 msgstr "Login"
 
-#: includes/pages/guest_login.php:8 includes/pages/guest_login.php:216
+#: includes/pages/guest_login.php:8 includes/pages/guest_login.php:225
 msgid "Register"
 msgstr "Registrieren"
 
@@ -1158,29 +1154,54 @@ msgstr "Registrieren"
 msgid "Logout"
 msgstr "Logout"
 
-#: includes/pages/guest_login.php:49
+#: includes/pages/guest_login.php:16
+msgid "Activate Account"
+msgstr "Benutzerkonto aktivieren"
+
+#: includes/pages/guest_login.php:53
 #, php-format
 msgid "Your nick &quot;%s&quot; already exists."
 msgstr "Der Benutzername &quot;%s&quot; existiert bereits."
 
-#: includes/pages/guest_login.php:53
+#: includes/pages/guest_login.php:57
 #, php-format
 msgid "Your nick &quot;%s&quot; is too short (min. 2 characters)."
 msgstr "Der Benutzername &quot;%s&quot; ist zu kurz (Mindestens 2 Zeichen)."
 
-#: includes/pages/guest_login.php:78
+#: includes/pages/guest_login.php:82
 #, php-format
 msgid "Your password is too short (please use at least %s characters)."
 msgstr "Dein Passwort ist zu kurz (mindestens %s Zeichen)."
 
-#: includes/pages/guest_login.php:145
-msgid "Angel registration successful!"
-msgstr ""
-"Registrierung erfolgreich! Wir haben Dir eine E-Mail mit einem "
-"Bestätigungslink gesendet. Bitte bestätige Deine Registrierung und logge "
-"Dich dann ein."
+#: includes/pages/guest_login.php:152
+msgid "Please confirm your eMail-address"
+msgstr "Bitte bestätige Deine E-Mail Adresse."
 
 #: includes/pages/guest_login.php:152
+#, php-format
+msgid ""
+"Hello %1$s! Thanks for signing up at Engelsystem. Please confirm your eMail-"
+"address by clicking the following link: %2$s"
+msgstr ""
+"Hallo %1$s,\n"
+" vielen Dank für Deine Anmeldung beim Helfersystem.\n"
+"Bitte bestätige jetzt Deine E-Mail Adresse, in dem Du auf folgenden Link "
+"klickst: %2$s \n"
+" Alternativ kannst Du die Adresse auch kopieren und in die Adresszeile "
+"Deines Browsers einfügen.\n"
+" \n"
+" Dein Flüchtlingshilfe Erding e.V."
+
+#: includes/pages/guest_login.php:154
+msgid ""
+"Angel registration successful! Please click the confirmation link in the "
+"eMail we sent you to activate your account."
+msgstr ""
+"Vielen Dank für Deine Registrierung! Wir haben Dir soeben eine E-Mail mit "
+"einem Bestätigungslink gesendet. Bitte klicke auf den Link in der E-Mail, um "
+"Dein Benutzerkonto freizuschalten."
+
+#: includes/pages/guest_login.php:161
 msgid ""
 "By completing this form you're registering as an helper. Please enter a "
 "username/nick of your choice, your e-mail adress and your full name. Only "
@@ -1195,50 +1216,58 @@ msgstr ""
 "unterzeichnet haben, können Deine übrigen Kontaktinformationen einsehen, "
 "beispielsweise Deine Email-Adresse."
 
-#: includes/pages/guest_login.php:164
+#: includes/pages/guest_login.php:173
 msgid "Please keep me informed by e-mail, e.g. if my shifts change"
 msgstr ""
 "Informiere mich per E-Mail bei Änderungen an meinen Schichten und wichtigen "
 "Neuigkeiten."
 
-#: includes/pages/guest_login.php:167 includes/pages/user_settings.php:176
+#: includes/pages/guest_login.php:176 includes/pages/user_settings.php:176
 msgid "First name"
 msgstr "Vorname"
 
-#: includes/pages/guest_login.php:170 includes/pages/user_settings.php:175
+#: includes/pages/guest_login.php:179 includes/pages/user_settings.php:175
 msgid "Last name"
 msgstr "Nachname"
 
-#: includes/pages/guest_login.php:181 includes/pages/guest_login.php:289
+#: includes/pages/guest_login.php:190 includes/pages/guest_login.php:304
 #: includes/view/User_view.php:246
 msgid "Password"
 msgstr "Passwort (mind. 6 Zeichen)"
 
-#: includes/pages/guest_login.php:184 includes/view/User_view.php:247
+#: includes/pages/guest_login.php:193 includes/view/User_view.php:247
 msgid "Confirm password"
 msgstr "Passwort wiederholen"
 
-#: includes/pages/guest_login.php:201 includes/pages/user_settings.php:179
+#: includes/pages/guest_login.php:210 includes/pages/user_settings.php:179
 msgid "Age"
 msgstr "Alter"
 
-#: includes/pages/guest_login.php:210 includes/pages/user_settings.php:187
+#: includes/pages/guest_login.php:219 includes/pages/user_settings.php:187
 msgid "Additional Information(Language / Profession)"
 msgstr "Weitere Qualifikationen (Führerschein u. Klasse, Sprachen, etc.)"
 
-#: includes/pages/guest_login.php:213 includes/pages/user_settings.php:173
+#: includes/pages/guest_login.php:222 includes/pages/user_settings.php:173
 msgid "Entry required!"
 msgstr "Pflichtfeld"
 
-#: includes/pages/guest_login.php:248
+#: includes/pages/guest_login.php:257
 msgid "Your password is incorrect.  Please try it again."
 msgstr "Dein Passwort stimmt nicht. Bitte probiere es nochmal."
 
-#: includes/pages/guest_login.php:252
+#: includes/pages/guest_login.php:262
+msgid ""
+"Your account is not confirmed yet. Please click the link in the mail we sent "
+"you. If you didn't get an eMail, ask a dispatcher."
+msgstr ""
+"Dein Benutzerkonto ist noch nicht aktiviert. Bitte klicke auf den Link in "
+"der E-Mail, die wir Dir gesendet haben, um Dein Benutzerkonto freizuschalten."
+
+#: includes/pages/guest_login.php:267
 msgid "Please enter a password."
 msgstr "Gib bitte ein Passwort ein."
 
-#: includes/pages/guest_login.php:256
+#: includes/pages/guest_login.php:271
 msgid ""
 "No user was found with that Nickname. Please try again. If you are still "
 "having problems, ask an Dispatcher."
@@ -1246,35 +1275,36 @@ msgstr ""
 "Es wurde kein Helfer mit diesem Benutzernamen gefunden. Probiere es bitte "
 "noch einmal. Wenn das Problem weiterhin besteht, frage einen Leiter."
 
-#: includes/pages/guest_login.php:260
+#: includes/pages/guest_login.php:275
 msgid "Please enter a nickname."
 msgstr "Gib bitte einen Benutzernamen an."
 
-#: includes/pages/guest_login.php:273
+#: includes/pages/guest_login.php:288
 msgid "Please sign up, if you want to help us!"
 msgstr "Bitte registriere Dich, wenn Du helfen möchtest!"
 
-#: includes/pages/guest_login.php:280
+#: includes/pages/guest_login.php:295
 msgid "Registration is disabled."
 msgstr "Registrierung ist vorübergehend abgeschaltet."
 
-#: includes/pages/guest_login.php:292
+#: includes/pages/guest_login.php:307
 msgid "I forgot my password"
 msgstr "Passwort vergessen"
 
-#: includes/pages/guest_login.php:294
+#: includes/pages/guest_login.php:309
 msgid "Please note: You have to activate cookies!"
 msgstr ""
 "Hinweis: Cookies müssen aktiviert sein, damit das Schichtsystem funktioniert!"
 
-#: includes/pages/guest_login.php:300
-msgid "What can I do?"
-msgstr "Was kann ich machen?"
+#: includes/pages/guest_login.php:317 includes/pages/guest_login.php:338
+msgid "Invalid confirmation token."
+msgstr "Ungültiger Bestätigungslink."
 
-#: includes/pages/guest_login.php:301
-msgid "Please read about the jobs you can do to help us."
+#: includes/pages/guest_login.php:334
+msgid "Your account is confirmed now. You might want to log in:"
 msgstr ""
-"Bitte informiere Dich über die Tätigkeiten bei denen Du uns helfen kannst."
+"Vielen Dank für die Aktivierung deines Benutzerkontos! Du kannst Dich jetzt "
+"mit Deinem Benutzernamen und Passwort anmelden:"
 
 #: includes/pages/guest_privacy.php:3
 msgid "Privacy - Datenschutzbedingungen"
@@ -1689,14 +1719,6 @@ msgstr ""
 msgid "Description of the jobs."
 msgstr "Beschreibung der Aufgaben."
 
-#: includes/sys_menu.php:49
-msgid ""
-"Please enter your planned date of departure on your settings page to give us "
-"a feeling for teardown capacities."
-msgstr ""
-"Bitte gib ein Enddatum Deiner Verfügbarkeit an, damit wir besser Planen "
-"können"
-
 #: includes/sys_menu.php:52
 #, php-format
 msgid ""
@@ -1707,27 +1729,7 @@ msgstr ""
 "gesperrt. Bitte wende Dich an einen Administrator um wieder entsperrt zu "
 "werden."
 
-#: includes/sys_menu.php:59
-msgid ""
-"You are not marked as available. Please contact the helper staff at your "
-"arrival"
-msgstr ""
-"Du bist nicht als verfügbar markiert. Bitte melde Dich persönlich bei Deiner "
-"Ankunft beim Schichtleiter oder dem Helfer-Team."
-
-#: includes/sys_menu.php:65
-msgid "You need to specify a tshirt size in your settings!"
-msgstr "Bitte eine Größe für die Helfer-Weste auswählen"
-
-#: includes/sys_menu.php:71
-msgid ""
-"You need to specify a DECT phone number in your settings! If you don't have "
-"a DECT phone, just enter \"-\"."
-msgstr ""
-"You need to specify a DECT phone number in your settings! If you don't have "
-"a DECT phone, just enter \"-\"."
-
-#: includes/sys_menu.php:137
+#: includes/sys_menu.php:138
 msgid "Admin"
 msgstr "Admin"
 
@@ -2157,11 +2159,11 @@ msgstr "Wiederherstellen"
 msgid "Please enter a new password."
 msgstr "Gib bitte ein neues Passwort ein."
 
-#: public/index.php:169
+#: public/index.php:173
 msgid "No Access"
 msgstr "Kein Zugriff"
 
-#: public/index.php:170
+#: public/index.php:174
 msgid ""
 "You don't have permission to view this page. You probably have to sign in or "
 "register in order to gain access!"
@@ -2169,21 +2171,58 @@ msgstr ""
 "<big>Diese Seite kann leider nicht angezeigt werden. Bitte registriere Dich "
 "und logge Dich ein, um Zugriff zu dieser Seite zu erhalten.</big>"
 
-#: public/index.php:186
+#: public/index.php:190
 msgid "Select all"
 msgstr "Alle auswählen"
 
-#: public/index.php:188
+#: public/index.php:192
 msgid "All selected"
 msgstr "Alle"
 
-#: public/index.php:189
+#: public/index.php:193
 msgid "selected"
 msgstr "ausgewählt"
 
-#: public/index.php:190
+#: public/index.php:194
 msgid "None selected"
 msgstr "keine"
+
+#~ msgid "Angel registration successful!"
+#~ msgstr ""
+#~ "Registrierung erfolgreich! Wir haben Dir eine E-Mail mit einem "
+#~ "Bestätigungslink gesendet. Bitte bestätige Deine Registrierung und logge "
+#~ "Dich dann ein."
+
+#~ msgid "What can I do?"
+#~ msgstr "Was kann ich machen?"
+
+#~ msgid "Please read about the jobs you can do to help us."
+#~ msgstr ""
+#~ "Bitte informiere Dich über die Tätigkeiten bei denen Du uns helfen kannst."
+
+#~ msgid ""
+#~ "Please enter your planned date of departure on your settings page to give "
+#~ "us a feeling for teardown capacities."
+#~ msgstr ""
+#~ "Bitte gib ein Enddatum Deiner Verfügbarkeit an, damit wir besser Planen "
+#~ "können"
+
+#~ msgid ""
+#~ "You are not marked as available. Please contact the helper staff at your "
+#~ "arrival"
+#~ msgstr ""
+#~ "Du bist nicht als verfügbar markiert. Bitte melde Dich persönlich bei "
+#~ "Deiner Ankunft beim Schichtleiter oder dem Helfer-Team."
+
+#~ msgid "You need to specify a tshirt size in your settings!"
+#~ msgstr "Bitte eine Größe für die Helfer-Weste auswählen"
+
+#~ msgid ""
+#~ "You need to specify a DECT phone number in your settings! If you don't "
+#~ "have a DECT phone, just enter \"-\"."
+#~ msgstr ""
+#~ "You need to specify a DECT phone number in your settings! If you don't "
+#~ "have a DECT phone, just enter \"-\"."
 
 #~ msgid "Hometown"
 #~ msgstr "Wohnort"

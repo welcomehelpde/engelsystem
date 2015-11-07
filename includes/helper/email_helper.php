@@ -17,7 +17,7 @@ function engelsystem_email_to_user($recipient_user, $title, $message, $not_if_it
 function engelsystem_email($recipient, $subject, $body) {
   global $mailConfig;
 
-  $transport = Swift_SmtpTransport::newInstance($mailConfig['smtp_host'], $mailConfig['smtp_port'])
+  $transport = Swift_SmtpTransport::newInstance($mailConfig['smtp_host'], $mailConfig['smtp_port'], $mailConfig['smtp_transport'])
     ->setUsername($mailConfig['smtp_user'])
     ->setPassword($mailConfig['smtp_password']);
   $mailer = Swift_Mailer::newInstance($transport);

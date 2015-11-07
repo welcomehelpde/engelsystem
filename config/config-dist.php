@@ -9,6 +9,8 @@ $config = array(
 
 // STMP Mailserver Config
 $mailConfig['smtp_host'] = '';
+$mailConfig['smtp_port'] = '';
+$mailConfig['smtp_transport'] = ''; //empty, 'tls' or 'ssl'
 $mailConfig['smtp_user'] = '';
 $mailConfig['smtp_password'] = '';
 $mailConfig['sender_address'] = '';

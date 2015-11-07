@@ -42,6 +42,7 @@ $googleMapsHeight = "500";//px
 $mailConfig = array(
   'smtp_host' => '',
   'smtp_port' => '25',
+  'smtp_transport' => '',
   'smtp_user' => '',
   'smtp_password' => '',
   'sender_address' => '',

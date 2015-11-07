@@ -63,6 +63,11 @@ function guest_register() {
         $ok = false;
         $msg .= error(_("E-mail address is not correct."), true);
       }
+
+      if ($ok == true && User_by_email($mail) != null) {
+        $ok = false;
+        $msg .= error(_("A user with this E-mail address already exists."), true);
+      }
     } else {
       $ok = false;
       $msg .= error(_("Please enter your e-mail."), true);

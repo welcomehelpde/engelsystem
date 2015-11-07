@@ -59,7 +59,7 @@ function shift_controller() {
 
 function shifts_controller() {
   if (! isset($_REQUEST['action']))
-   redirect(page_link_to('user_shifts')); 
+   redirect(page_link_to('dashboard')); 
 
   switch ($_REQUEST['action']) {
     default:

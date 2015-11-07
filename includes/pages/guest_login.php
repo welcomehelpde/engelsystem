@@ -89,10 +89,18 @@ function guest_register() {
         $selected_angel_types[] = $angel_type_id;
       
       // Trivia
-    if (isset($_REQUEST['lastname']))
+    if (isset($_REQUEST['lastname']) && strlen($_REQUEST['lastname']) > 0){
       $lastname = strip_request_item('lastname');
-    if (isset($_REQUEST['prename']))
+    } else {
+      $ok = false;
+      $msg .= error(_("Please enter Lastname"),true);
+    }
+    if (isset($_REQUEST['prename']) && strlen($_REQUEST['prename']) > 0){
       $prename = strip_request_item('prename');
+    } else {
+      $ok = false;
+      $msg .= error(_("Please enter Prename"),true);
+    }
     if (isset($_REQUEST['age']) && preg_match("/^[0-9]{0,4}$/", $_REQUEST['age']))
       $age = strip_request_item('age');
     if (isset($_REQUEST['tel']))
@@ -244,7 +252,9 @@ function guest_login() {
   
   $nick = "";
   
-  unset($_SESSION['uid']);
+  // unset($_SESSION['uid']);
+  if (isset($user) && isset($_SESSION['uid'])) //assume that a safe loggedin
+    redirect(page_link_to('dashboard'));
   
   if (isset($_REQUEST['submit'])) {
     $ok = true;

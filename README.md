@@ -9,7 +9,7 @@
  * Webserver mit PHP-Anbindung, z.B. lighttpd, nginx oder Apache
 
 ## Installation
- * Klonen des `fhmuc-tool` Branches inkl. submodules in lokales Verzeichnis: `git clone --recursive https://github.com/welcomehelpde/engelsystem.git`
+ * Klonen des `master` Branches inkl. submodules in lokales Verzeichnis: `git clone --recursive https://github.com/welcomehelpde/engelsystem.git`
  * Der Webserver muss Schreibrechte auf das Verzeichnis `import` bekommen, für alle anderen Dateien reichen Leserechte.
  * Der Webserver muss auf `public` als http-root zeigen.
 

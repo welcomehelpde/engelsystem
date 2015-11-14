@@ -161,7 +161,7 @@ function getShiftManagers($shiftId) {
           ON `ShiftEntry`.`TID` = `AngelTypes`.`id`
           AND `AngelTypes`.`name` LIKE "%Schichtleiter%"
 
-          LEFT JOIN `USER`
+          LEFT JOIN `User`
           ON `ShiftEntry`.`UID` = `User`.`UID`
 
           WHERE `ShiftEntry`.`SID` = "' . $shiftId . '"';

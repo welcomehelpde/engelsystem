@@ -259,8 +259,8 @@ function user_resend_verification_token() {
   }
 
 
-  if($admin_priv && $success == true) {
-    redirect(user_link($uid));
+  if($admin_priv && $success == true && isset($user) && isset($user['UID'])) {
+    redirect(user_link($user));
   } else {
     redirect('?');     
   }

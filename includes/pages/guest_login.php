@@ -334,6 +334,8 @@ function guest_login() {
 }
 
 function user_activate_account_controller () {
+  global $signup;
+
   if(!isset($_GET['token'])) {
     error(_("Invalid confirmation token."));
     redirect('?');
@@ -357,8 +359,8 @@ function user_activate_account_controller () {
 
     // send introductory eMail
     $msg = _('Your e-Mail address was successfully verified.');
-    if(file_exists(__DIR__.'../../locale/introduction.txt')) {
-      $msg .= readfile(__DIR__.'../../locale/introduction.txt');
+    if(file_exists($signup['doubleOptinMsg'])) {
+      $msg .= readfile($signup['doubleOptinMsg']);
     } else {
       $msg .= _('---------------- DUMMY MSG ----------------------');
     }

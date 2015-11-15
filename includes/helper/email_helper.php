@@ -26,8 +26,12 @@ function engelsystem_email($recipient, $subject, $body) {
     ->setFrom(array($mailConfig['sender_address'] => $mailConfig['sender_name']))
     ->setTo(array($recipient))
     ->setBody($body);
-
-  return $mailer->send($message);
+  
+  $result = $mailer->send($message);
+ 
+  engelsystem_log("Send email (result=\"$result\") to \"$recipient\" about \"$subject\". <br>Full message: \"$body\"");
+ 
+  return $result;
 }
 
 ?>

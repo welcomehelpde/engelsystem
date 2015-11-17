@@ -159,12 +159,12 @@ function getShiftManagers($shiftId) {
 
           LEFT JOIN `AngelTypes`
           ON `ShiftEntry`.`TID` = `AngelTypes`.`id`
-          AND `AngelTypes`.`name` LIKE "%Schichtleiter%"
-
+          
           LEFT JOIN `User`
           ON `ShiftEntry`.`UID` = `User`.`UID`
 
-          WHERE `ShiftEntry`.`SID` = "' . $shiftId . '"';
+          WHERE `ShiftEntry`.`SID` = "' . $shiftId . '"
+          AND `AngelTypes`.`name` LIKE "%Schichtleiter%"';
 
     return sql_select($sql);
 }

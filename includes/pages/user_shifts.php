@@ -585,9 +585,12 @@ function view_user_shifts() {
                 $shifts_row .= "<br />";
               }
 
-              $shifts_row .= _('Shift Manager') . ': ' . implode(', ', array_map(function ($manager) {
-                return $manager['Vorname'] . ' ' . $manager['Name'] . ($manager['Handy'] ? ' (Handy: ' . $manager['Handy'] . ')' : '');
-              }, getShiftManagers($shift['SID'])));
+              $shiftManagers = getShiftManagers($shift['SID']);
+              if(!empty($shiftManagers)) {
+                $shifts_row .= _('Shift Manager') . ': ' . implode(', ', array_map(function ($manager) {
+                  return $manager['Vorname'] . ' ' . $manager['Name'] . ($manager['Handy'] ? ' (Handy: ' . $manager['Handy'] . ')' : '');
+                }, $shiftManagers));
+              }
 
               $shifts_row .= '</a>';
               $shifts_row .= '<br />';

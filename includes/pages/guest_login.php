@@ -360,7 +360,7 @@ function user_activate_account_controller () {
     // send introductory eMail
     $msg = _('Your e-Mail address was successfully verified.');
     if(file_exists($signup['doubleOptinMsg'])) {
-      $msg .= readfile($signup['doubleOptinMsg']);
+      $msg .= "\n" . file_get_contents($signup['doubleOptinMsg']);
     } else {
       $msg .= _('---------------- DUMMY MSG ----------------------');
     }

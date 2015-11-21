@@ -584,6 +584,14 @@ function view_user_shifts() {
                 $shifts_row .= $shift['title'];
                 $shifts_row .= "<br />";
               }
+
+              $shiftManagers = getShiftManagers($shift['SID']);
+              if(!empty($shiftManagers)) {
+                $shifts_row .= _('Shift Manager') . ': ' . implode(', ', array_map(function ($manager) {
+                  return $manager['Vorname'] . ' ' . $manager['Name'] . ($manager['Handy'] ? ' (Handy: ' . $manager['Handy'] . ')' : '');
+                }, $shiftManagers));
+              }
+
               $shifts_row .= '</a>';
               $shifts_row .= '<br />';
               $query = "SELECT `NeededAngelTypes`.`count`, `AngelTypes`.`id`, `AngelTypes`.`restricted`, `UserAngelTypes`.`confirm_user_id`, `AngelTypes`.`name`, `UserAngelTypes`.`user_id`
@@ -710,6 +718,14 @@ function view_user_shifts() {
           'info' => join('<br />', $info),
           'entries' => '<a href="' . shift_link($shift) . '">' . $shift['name'] . '</a>' . ($shift['title'] ? '<br />' . $shift['title'] : '')
       );
+
+      $shiftManagers = getShiftManagers($shift['SID']);
+      if(!empty($shiftManagers)) {
+        $shift_row['entries'] .= '<br>' . _('Shift Manager')  . ': ';
+        $shift_row['entries'] .= implode(', ', array_map(function ($manager) {
+          return $manager['Vorname'] . ' ' . $manager['Name'] . ($manager['Handy'] ? ' (Handy: ' . $manager['Handy'] . ')' : '');
+        }, $shiftManagers));
+      }
 
       if (in_array('admin_shifts', $privileges))
         $shift_row['info'] .= ' ' . table_buttons(array(

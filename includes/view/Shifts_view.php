@@ -68,6 +68,7 @@ function Shift_view($shift, $shifttype, $room, $shift_admin, $angeltypes_source,
     $needed_angels .= '</div>';
   }
   
+  $shiftManagers = getShiftManagers($shift['SID']);
   return page_with_title($shift['name'] . ' <small class="moment-countdown" data-timestamp="' . $shift['start'] . '">%c</small>', [
       
       msg(),
@@ -111,8 +112,13 @@ function Shift_view($shift, $shifttype, $room, $shift_admin, $angeltypes_source,
               '<div class="list-group">' . $needed_angels . '</div>' 
           ]),
           div('col-sm-6', [
+              !empty($shiftManagers) ? '<h2>' . _('Shift Manager') . '</h2>' : '',
+              !empty($shiftManagers) ? implode('<br>', array_map(function ($manager) {
+                        return $manager['Vorname'] . ' ' . $manager['Name'] . ($manager['Handy'] ? ' (Handy: ' . $manager['Handy'] . ')' : '');
+                      }, $shiftManagers)) : '',
+              
               '<h2>' . _('Description') . '</h2>',
-              $parsedown->parse($shifttype['description']) 
+              $parsedown->parse($shifttype['description'])
           ]) 
       ]),
       $shift_admin ? Shift_editor_info_render($shift) : '' 

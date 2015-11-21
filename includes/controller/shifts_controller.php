@@ -153,4 +153,20 @@ function shifts_json_export_controller() {
   die();
 }
 
+function getShiftManagers($shiftId) {
+  $sql = 'SELECT `User`.`Vorname`, `User`.`Name`, `User`.`Handy`
+          FROM `ShiftEntry`
+
+          LEFT JOIN `AngelTypes`
+          ON `ShiftEntry`.`TID` = `AngelTypes`.`id`
+          
+          LEFT JOIN `User`
+          ON `ShiftEntry`.`UID` = `User`.`UID`
+
+          WHERE `ShiftEntry`.`SID` = "' . $shiftId . '"
+          AND `AngelTypes`.`name` LIKE "%Schichtleiter%"';
+
+    return sql_select($sql);
+}
+
 ?>

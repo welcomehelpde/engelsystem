@@ -5,8 +5,6 @@
  */
 $themes = array(
     "0" => "light",
-    "1" => "dark",
-    "2" => "cccamp15"
 );
 
 /**

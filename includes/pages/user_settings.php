@@ -206,11 +206,11 @@ function user_settings() {
                   form_password('new_password2', _("Password confirmation:")),
                   form_submit('submit_password', _("Save"))
               )),
-              form(array(
-                  form_info(_("Here you can choose your color settings:")),
-                  form_select('theme', _("Color settings:"), $themes, $selected_theme),
-                  form_submit('submit_theme', _("Save"))
-              )),
+              // form(array(
+              //     form_info(_("Here you can choose your color settings:")),
+              //     form_select('theme', _("Color settings:"), $themes, $selected_theme),
+              //     form_submit('submit_theme', _("Save"))
+              // )),
               form(array(
                   form_info(_("Here you can choose your language:")),
                   form_select('language', _("Language:"), $locales, $selected_language),

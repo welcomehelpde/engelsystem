@@ -15,3 +15,9 @@ $mailConfig['smtp_user'] = '';
 $mailConfig['smtp_password'] = '';
 $mailConfig['sender_address'] = '';
 $mailConfig['sender_name'] = '';
+
+// signup process configuration
+$signup = array(
+  // file containing text to be send to double-optin users
+  'doubleOptinMsg' => '' // example __DIR__.'/../locale/text.txt'
+);

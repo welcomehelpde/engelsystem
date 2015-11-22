@@ -4,6 +4,7 @@ function credits_title() {
 }
 
 function guest_credits() {
-  return template_render('../templates/guest_imprint.html', array());
+  global $customization;
+  return $customization['imprint_content'];
 }
 ?>

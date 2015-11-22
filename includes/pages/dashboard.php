@@ -76,7 +76,8 @@ function get_dashboard()
             BLOCK_TYPE_PANEL
         ),
         'api_shifts_link' => api_link('shifts'),
-        'google-container-height' => $googleMapsHeight
+        'google-container-height' => $googleMapsHeight,
+        'organization_logo' => organization_logo(),
     );
 
     return  dashboardView($viewData);
@@ -369,4 +370,30 @@ function getNumberUpcomingNightShifts()
     }
 
     return $result[0]['countUpcomingNightShifts'];
+}
+
+/**
+ * @return string organization logo
+ */
+function organization_logo () {
+  global $customization;
+
+  if(!$customization['dashboard_logo']) {
+    return '<br>';
+  }
+
+  $html = '<div><center>';
+
+  if($customization['dashboard_link']) {
+    $html .= '<a href="' . $customization['dashboard_link'] . '" target="_blank">';
+  }
+
+  $html .= '<img src="' . $customization['dashboard_logo'] . '" alt="' . $customization['instance_name'] . '" title="Zur Homepage von ' . $customization['instance_name'] . '" style="padding:10px;max-width:100%;height:auto">';
+  
+  if($customization['dashboard_link']) {
+    $html .= '</a>';
+  }
+  $html .= '</center><br></div>';
+
+  return $html;
 }

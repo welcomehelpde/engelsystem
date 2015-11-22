@@ -188,6 +188,9 @@ if (isset($_REQUEST['p'])
 echo template_render('../templates/layout.html', array(
     'theme' => isset($user) ? $user['color'] : $default_theme,
     'title' => $title,
+    'instance_name' => $customization['instance_name'],
+    'analytics_code' => $customization['analytics_code'] ? $customization['analytics_code'] : '',
+    'favicon_tag' => $customization['favicon_url'] ? '<link href="' . $customization['favicon_url'] . '" rel="shortcut icon" />' : '',
     'atom_link' => ($p == 'news' || $p == 'user_meetings') ? '<link href="' . page_link_to('atom') . (($p == 'user_meetings') ? '&amp;meetings=1' : '') . '&amp;key=' . $user['api_key'] . '" type="application/atom+xml" rel="alternate" title="Atom Feed">' : '',
     'menu' => make_menu(),
     'content' => msg() . $content,

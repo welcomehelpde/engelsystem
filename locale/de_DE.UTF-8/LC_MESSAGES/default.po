@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Helfersystem 2.0\n"
-"POT-Creation-Date: 2015-10-22 20:16+0200\n"
-"PO-Revision-Date: 2015-11-03 22:56+0100\n"
+"POT-Creation-Date: 2015-11-22 17:55+0100\n"
+"PO-Revision-Date: 2015-11-22 17:57+0100\n"
 "Last-Translator: Andreas Tichon <at@welcomehelp.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -15,10 +15,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: vendor\n"
+"X-Poedit-SearchPathExcluded-0: *vendor/*\n"
 
 #: includes/controller/angeltypes_controller.php:7
-#: includes/pages/user_shifts.php:851 includes/view/AngelTypes_view.php:56
+#: includes/pages/user_shifts.php:871 includes/view/AngelTypes_view.php:56
 #: includes/view/AngelTypes_view.php:72
 msgid "Angeltypes"
 msgstr "Helfer-Typen"
@@ -64,18 +64,18 @@ msgstr "ansehen"
 #: includes/pages/admin_free.php:65 includes/pages/admin_groups.php:23
 #: includes/pages/admin_rooms.php:21 includes/view/AngelTypes_view.php:84
 #: includes/view/ShiftTypes_view.php:52 includes/view/ShiftTypes_view.php:63
-#: includes/view/Shifts_view.php:77 includes/view/User_view.php:157
+#: includes/view/Shifts_view.php:78 includes/view/User_view.php:157
 #: includes/view/User_view.php:200
 msgid "edit"
 msgstr "bearbeiten"
 
 #: includes/controller/angeltypes_controller.php:210
 #: includes/pages/admin_questions.php:37 includes/pages/admin_questions.php:56
-#: includes/pages/admin_rooms.php:22 includes/pages/user_shifts.php:220
+#: includes/pages/admin_rooms.php:22 includes/pages/user_shifts.php:224
 #: includes/view/AngelTypes_view.php:48 includes/view/AngelTypes_view.php:86
 #: includes/view/Questions_view.php:5 includes/view/Questions_view.php:12
 #: includes/view/ShiftTypes_view.php:15 includes/view/ShiftTypes_view.php:53
-#: includes/view/ShiftTypes_view.php:64 includes/view/Shifts_view.php:78
+#: includes/view/ShiftTypes_view.php:64 includes/view/Shifts_view.php:79
 msgid "delete"
 msgstr "löschen"
 
@@ -93,7 +93,7 @@ msgstr "mitmachen"
 msgid "no resource given."
 msgstr "no resource given."
 
-#: includes/controller/shifts_controller.php:28
+#: includes/controller/shifts_controller.php:27
 msgid "Shift could not be found."
 msgstr "Schicht konnte nicht gefunden werden."
 
@@ -307,12 +307,12 @@ msgid "Token is not correct."
 msgstr "Der Token ist nicht in Ordnung."
 
 #: includes/controller/users_controller.php:156
-#: includes/pages/guest_login.php:78 includes/pages/user_settings.php:129
+#: includes/pages/guest_login.php:83 includes/pages/user_settings.php:137
 msgid "Your passwords don't match."
 msgstr "Deine Passwörter stimmen nicht überein."
 
 #: includes/controller/users_controller.php:160
-#: includes/pages/user_settings.php:127
+#: includes/pages/user_settings.php:135
 msgid "Your password is to short (please use at least 6 characters)."
 msgstr "Dein Passwort ist zu kurz (bitte mindestens 6 Zeichen verwenden)."
 
@@ -321,7 +321,7 @@ msgid "Password could not be updated."
 msgstr "Passwort kann nicht neu gesetzt werden."
 
 #: includes/controller/users_controller.php:168
-#: includes/pages/user_settings.php:131
+#: includes/pages/user_settings.php:139
 msgid "Password saved."
 msgstr "Passwort gespeichert."
 
@@ -332,12 +332,12 @@ msgid "E-mail address is not correct."
 msgstr "Die E-Mail Adresse ist nicht in Ordnung."
 
 #: includes/controller/users_controller.php:194
-#: includes/pages/guest_login.php:68 includes/pages/user_settings.php:42
+#: includes/pages/guest_login.php:73 includes/pages/user_settings.php:42
 msgid "Please enter your e-mail."
 msgstr "Bitte gib Deine E-Mail-Adresse ein."
 
 #: includes/controller/users_controller.php:201
-#: includes/controller/users_controller.php:218
+#: includes/controller/users_controller.php:282
 msgid "Password recovery"
 msgstr "Passwort wiederherstellen"
 
@@ -350,6 +350,44 @@ msgstr "Bitte besuche %s, um Dein Passwort zurückzusetzen"
 msgid "We sent an email containing your password recovery link."
 msgstr ""
 "Wir haben eine eMail mit einem Link zum Passwort-zurücksetzen geschickt."
+
+#: includes/controller/users_controller.php:221
+#, php-format
+msgid ""
+"Hello %1$s! Thanks for signing up at Engelsystem. Please confirm your eMail-"
+"address by clicking the following link: %2$s %3$s"
+msgstr ""
+"Hallo %1$s,\n"
+"vielen Dank für Deine Anmeldung beim Helfersystem.\n"
+"Bitte bestätige jetzt Deine E-Mail Adresse, in dem Du auf folgenden Link "
+"klickst: %2$s \n"
+"Alternativ kannst Du die Adresse auch kopieren und in die Adresszeile Deines "
+"Browsers einfügen.\n"
+" \n"
+"%3$s"
+
+#: includes/controller/users_controller.php:224
+msgid "Please confirm your eMail-address"
+msgstr "Bitte bestätige Deine E-Mail Adresse."
+
+#: includes/controller/users_controller.php:243
+#: includes/controller/users_controller.php:254
+msgid ""
+"Verification E-Mail was send again to your E-Mail address. If you still "
+"don't receive it, please check your spam folder and ask a Dispatcher."
+msgstr ""
+
+#: includes/controller/users_controller.php:267
+msgid "Verification E-Mail Could not be send. Please ask a Dispatcher."
+msgstr ""
+
+#: includes/controller/users_controller.php:289
+msgid "Requesting additional verification token"
+msgstr ""
+
+#: includes/cron.php:54
+msgid "3 hours"
+msgstr ""
 
 #: includes/helper/email_helper.php:11
 #, php-format
@@ -428,6 +466,26 @@ msgstr "Du wurdest aus einer Schicht ausgetragen:"
 #: includes/mailer/shifts_mailer.php:96
 msgid "Removed from Shift"
 msgstr "Von Schicht ausgetragen"
+
+#: includes/mailer/shifts_mailer.php:105
+msgid "Your shift starts in less than "
+msgstr ""
+
+#: includes/mailer/shifts_mailer.php:107
+msgid "Shift: "
+msgstr ""
+
+#: includes/mailer/shifts_mailer.php:108
+msgid "Scheduled: "
+msgstr ""
+
+#: includes/mailer/shifts_mailer.php:109
+msgid "Location: "
+msgstr ""
+
+#: includes/mailer/shifts_mailer.php:111
+msgid "Reminder: Your Shift starts soon"
+msgstr ""
 
 #: includes/pages/admin_active.php:4
 msgid "Active angels"
@@ -516,7 +574,7 @@ msgstr "Alle Schichten anzeigen"
 #: includes/pages/admin_active.php:171 includes/pages/admin_arrive.php:130
 #: includes/pages/admin_arrive.php:131 includes/pages/admin_free.php:72
 #: includes/pages/admin_free.php:81 includes/pages/admin_log.php:25
-#: includes/pages/admin_log.php:26 public/index.php:191
+#: includes/pages/admin_log.php:26 public/index.php:199
 msgid "Search"
 msgstr "Suche"
 
@@ -538,7 +596,7 @@ msgid "Size"
 msgstr "Größe"
 
 #: includes/pages/admin_active.php:181 includes/pages/user_shifts.php:4
-#: includes/view/User_view.php:210
+#: includes/view/User_view.php:211
 msgid "Shifts"
 msgstr "Schichten"
 
@@ -600,7 +658,7 @@ msgstr "zurücksetzen"
 
 #: includes/pages/admin_arrive.php:64 includes/pages/admin_arrive.php:145
 #: includes/pages/admin_arrive.php:160 includes/pages/admin_arrive.php:175
-#: includes/view/User_view.php:201
+#: includes/view/User_view.php:202
 msgid "available"
 msgstr "verfügbar"
 
@@ -616,7 +674,7 @@ msgstr "Verfügbar?"
 msgid "Start of availability"
 msgstr "Beginn der Verfügbarkeit"
 
-#: includes/pages/admin_arrive.php:138 includes/pages/user_settings.php:178
+#: includes/pages/admin_arrive.php:138 includes/pages/user_settings.php:186
 msgid "Planned end of availability"
 msgstr "Geplantes Ende der Verfügbarkeit"
 
@@ -661,25 +719,26 @@ msgstr "Helfer-Typ"
 msgid "Only confirmed"
 msgstr "Nur bestätigte"
 
-#: includes/pages/admin_free.php:86 includes/pages/guest_login.php:169
-#: includes/pages/guest_login.php:303 includes/pages/user_settings.php:174
+#: includes/pages/admin_free.php:86 includes/pages/guest_login.php:181
+#: includes/pages/guest_login.php:323 includes/pages/user_settings.php:182
 #: includes/view/AngelTypes_view.php:131 includes/view/AngelTypes_view.php:157
 #: includes/view/AngelTypes_view.php:169 includes/view/User_view.php:70
 msgid "Nick"
 msgstr "Benutzername"
 
-#: includes/pages/admin_free.php:88 includes/pages/guest_login.php:202
-#: includes/pages/user_settings.php:183 includes/view/User_view.php:74
+#: includes/pages/admin_free.php:88 includes/pages/guest_login.php:214
+#: includes/pages/user_settings.php:191 includes/view/User_view.php:74
 msgid "Mobile"
 msgstr "Handy"
 
-#: includes/pages/admin_free.php:89 includes/pages/guest_login.php:205
-#: includes/pages/user_settings.php:181 includes/view/User_view.php:75
+#: includes/pages/admin_free.php:89 includes/pages/guest_login.php:217
+#: includes/pages/user_settings.php:189 includes/view/User_view.php:75
 msgid "Phone"
 msgstr "Telefon"
 
-#: includes/pages/admin_free.php:90 includes/pages/guest_login.php:172
-#: includes/pages/user_settings.php:184 includes/view/User_view.php:232
+#: includes/pages/admin_free.php:90 includes/pages/guest_login.php:184
+#: includes/pages/user_settings.php:192 includes/view/User_view.php:233
+#: includes/view/User_view.php:262
 msgid "E-Mail"
 msgstr "E-Mail"
 
@@ -703,12 +762,11 @@ msgstr "Privilegien"
 #: includes/pages/admin_questions.php:35 includes/pages/admin_rooms.php:213
 #: includes/pages/admin_shifts.php:257 includes/pages/user_messages.php:62
 #: includes/pages/user_news.php:106 includes/pages/user_news.php:160
-#: includes/pages/user_settings.php:190 includes/pages/user_settings.php:199
-#: includes/pages/user_settings.php:204 includes/pages/user_settings.php:209
-#: includes/pages/user_shifts.php:191 includes/view/AngelTypes_view.php:65
-#: includes/view/Questions_view.php:32 includes/view/ShiftEntry_view.php:32
-#: includes/view/ShiftTypes_view.php:37 includes/view/User_view.php:39
-#: includes/view/User_view.php:248
+#: includes/pages/user_settings.php:198 includes/pages/user_settings.php:207
+#: includes/pages/user_settings.php:217 includes/pages/user_shifts.php:195
+#: includes/view/AngelTypes_view.php:65 includes/view/Questions_view.php:32
+#: includes/view/ShiftEntry_view.php:32 includes/view/ShiftTypes_view.php:37
+#: includes/view/User_view.php:39 includes/view/User_view.php:249
 msgid "Save"
 msgstr "Speichern"
 
@@ -772,7 +830,7 @@ msgstr ""
 "file. The needed file format is xcal."
 
 #: includes/pages/admin_import.php:87 includes/pages/admin_shifts.php:301
-#: includes/pages/user_shifts.php:184
+#: includes/pages/user_shifts.php:188
 msgid "Shifttype"
 msgstr "Schichttyp"
 
@@ -797,19 +855,19 @@ msgid "Shifts to create"
 msgstr "Anzulegende Schichten"
 
 #: includes/pages/admin_import.php:127 includes/pages/admin_import.php:136
-#: includes/pages/admin_import.php:145 includes/view/User_view.php:212
+#: includes/pages/admin_import.php:145 includes/view/User_view.php:213
 msgid "Day"
 msgstr "Tag"
 
 #: includes/pages/admin_import.php:128 includes/pages/admin_import.php:137
 #: includes/pages/admin_import.php:146 includes/pages/admin_shifts.php:306
-#: includes/view/Shifts_view.php:88
+#: includes/view/Shifts_view.php:89
 msgid "Start"
 msgstr "Beginn"
 
 #: includes/pages/admin_import.php:129 includes/pages/admin_import.php:138
 #: includes/pages/admin_import.php:147 includes/pages/admin_shifts.php:307
-#: includes/view/Shifts_view.php:96
+#: includes/view/Shifts_view.php:97
 msgid "End"
 msgstr "Ende"
 
@@ -820,15 +878,15 @@ msgstr "Schichttyp"
 
 #: includes/pages/admin_import.php:131 includes/pages/admin_import.php:140
 #: includes/pages/admin_import.php:149 includes/pages/admin_shifts.php:302
-#: includes/pages/user_shifts.php:185 includes/view/Shifts_view.php:84
+#: includes/pages/user_shifts.php:189 includes/view/Shifts_view.php:85
 msgid "Title"
 msgstr "Titel"
 
 #: includes/pages/admin_import.php:132 includes/pages/admin_import.php:141
 #: includes/pages/admin_import.php:150 includes/pages/admin_rooms.php:160
-#: includes/pages/admin_shifts.php:303 includes/pages/user_shifts.php:807
-#: includes/pages/user_shifts.php:844 includes/view/Shifts_view.php:104
-#: includes/view/User_view.php:214
+#: includes/pages/admin_shifts.php:303 includes/pages/user_shifts.php:827
+#: includes/pages/user_shifts.php:864 includes/view/Shifts_view.php:105
+#: includes/view/User_view.php:215
 msgid "Location"
 msgstr "Ort"
 
@@ -1028,7 +1086,7 @@ msgid "Type and title"
 msgstr "Typ und Titel"
 
 #: includes/pages/admin_shifts.php:255 includes/pages/admin_shifts.php:316
-#: includes/pages/user_shifts.php:189 includes/view/Shifts_view.php:110
+#: includes/pages/user_shifts.php:193 includes/view/Shifts_view.php:111
 msgid "Needed angels"
 msgstr "Benötigte Helfer"
 
@@ -1068,7 +1126,7 @@ msgstr "Helferliste"
 msgid "This user does not exist."
 msgstr "Benutzer existiert nicht."
 
-#: includes/pages/admin_user.php:45 includes/pages/user_settings.php:185
+#: includes/pages/admin_user.php:45 includes/pages/user_settings.php:193
 msgid "Please send me an email if my shifts change"
 msgstr ""
 "Informiere mich per E-Mail bei Änderungen an meinen Schichten und wichtigen "
@@ -1094,39 +1152,39 @@ msgstr "User bearbeiten"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: includes/pages/dashboard.php:23
+#: includes/pages/dashboard.php:24
 msgid "Angels needed in the next 3 hrs"
 msgstr "Helfer die in den nächsten 3 Stunden gebraucht werden"
 
-#: includes/pages/dashboard.php:29
+#: includes/pages/dashboard.php:30
 msgid "Angels needed for night shifts"
 msgstr "Helfer, die noch für die Nachtschicht gebraucht werden"
 
-#: includes/pages/dashboard.php:36
+#: includes/pages/dashboard.php:37
 msgid "Angels currently working"
 msgstr "Helfer die gerade arbeiten"
 
-#: includes/pages/dashboard.php:43
+#: includes/pages/dashboard.php:44
 msgid "Hours to be worked"
 msgstr "Stunden zu arbeiten"
 
-#: includes/pages/dashboard.php:49
+#: includes/pages/dashboard.php:50
 msgid "My next jobs"
 msgstr "Meine nächsten Jobs"
 
-#: includes/pages/dashboard.php:53
+#: includes/pages/dashboard.php:54
 msgid "Currently running"
 msgstr "Aktive Schichten"
 
-#: includes/pages/dashboard.php:60
+#: includes/pages/dashboard.php:61
 msgid "Within the next hour"
 msgstr "In der Nächsten Stunde"
 
-#: includes/pages/dashboard.php:67
+#: includes/pages/dashboard.php:68
 msgid "Within the next 3 hours"
 msgstr "Innerhalb der nächsten 3 Stunden"
 
-#: includes/pages/dashboard.php:74 includes/pages/user_news.php:7
+#: includes/pages/dashboard.php:75 includes/pages/user_news.php:7
 msgid "News"
 msgstr "News"
 
@@ -1142,11 +1200,11 @@ msgstr "FAQ"
 msgid "Imprint - Impressum"
 msgstr "Imprint - Impressum"
 
-#: includes/pages/guest_login.php:4 includes/pages/guest_login.php:305
+#: includes/pages/guest_login.php:4 includes/pages/guest_login.php:325
 msgid "Login"
 msgstr "Login"
 
-#: includes/pages/guest_login.php:8 includes/pages/guest_login.php:225
+#: includes/pages/guest_login.php:8 includes/pages/guest_login.php:237
 msgid "Register"
 msgstr "Registrieren"
 
@@ -1168,31 +1226,24 @@ msgstr "Der Benutzername &quot;%s&quot; existiert bereits."
 msgid "Your nick &quot;%s&quot; is too short (min. 2 characters)."
 msgstr "Der Benutzername &quot;%s&quot; ist zu kurz (Mindestens 2 Zeichen)."
 
-#: includes/pages/guest_login.php:82
+#: includes/pages/guest_login.php:69
+msgid "A user with this E-mail address already exists."
+msgstr ""
+
+#: includes/pages/guest_login.php:87
 #, php-format
 msgid "Your password is too short (please use at least %s characters)."
 msgstr "Dein Passwort ist zu kurz (mindestens %s Zeichen)."
 
-#: includes/pages/guest_login.php:152
-msgid "Please confirm your eMail-address"
-msgstr "Bitte bestätige Deine E-Mail Adresse."
-
-#: includes/pages/guest_login.php:152
-#, php-format
-msgid ""
-"Hello %1$s! Thanks for signing up at Engelsystem. Please confirm your eMail-"
-"address by clicking the following link: %2$s"
+#: includes/pages/guest_login.php:101 includes/pages/user_settings.php:83
+msgid "Please enter Lastname"
 msgstr ""
-"Hallo %1$s,\n"
-" vielen Dank für Deine Anmeldung beim Helfersystem.\n"
-"Bitte bestätige jetzt Deine E-Mail Adresse, in dem Du auf folgenden Link "
-"klickst: %2$s \n"
-" Alternativ kannst Du die Adresse auch kopieren und in die Adresszeile "
-"Deines Browsers einfügen.\n"
-" \n"
-" Dein Flüchtlingshilfe Erding e.V."
 
-#: includes/pages/guest_login.php:154
+#: includes/pages/guest_login.php:107 includes/pages/user_settings.php:89
+msgid "Please enter Prename"
+msgstr ""
+
+#: includes/pages/guest_login.php:166
 msgid ""
 "Angel registration successful! Please click the confirmation link in the "
 "eMail we sent you to activate your account."
@@ -1201,7 +1252,7 @@ msgstr ""
 "einem Bestätigungslink gesendet. Bitte klicke auf den Link in der E-Mail, um "
 "Dein Benutzerkonto freizuschalten."
 
-#: includes/pages/guest_login.php:161
+#: includes/pages/guest_login.php:173
 msgid ""
 "By completing this form you're registering as an helper. Please enter a "
 "username/nick of your choice, your e-mail adress and your full name. Only "
@@ -1216,58 +1267,72 @@ msgstr ""
 "unterzeichnet haben, können Deine übrigen Kontaktinformationen einsehen, "
 "beispielsweise Deine Email-Adresse."
 
-#: includes/pages/guest_login.php:173
+#: includes/pages/guest_login.php:185
 msgid "Please keep me informed by e-mail, e.g. if my shifts change"
 msgstr ""
 "Informiere mich per E-Mail bei Änderungen an meinen Schichten und wichtigen "
 "Neuigkeiten."
 
-#: includes/pages/guest_login.php:176 includes/pages/user_settings.php:176
+#: includes/pages/guest_login.php:188 includes/pages/user_settings.php:184
 msgid "First name"
 msgstr "Vorname"
 
-#: includes/pages/guest_login.php:179 includes/pages/user_settings.php:175
+#: includes/pages/guest_login.php:191 includes/pages/user_settings.php:183
 msgid "Last name"
 msgstr "Nachname"
 
-#: includes/pages/guest_login.php:190 includes/pages/guest_login.php:304
-#: includes/view/User_view.php:246
+#: includes/pages/guest_login.php:202 includes/pages/guest_login.php:324
+#: includes/view/User_view.php:247
 msgid "Password"
 msgstr "Passwort (mind. 6 Zeichen)"
 
-#: includes/pages/guest_login.php:193 includes/view/User_view.php:247
+#: includes/pages/guest_login.php:205 includes/view/User_view.php:248
 msgid "Confirm password"
 msgstr "Passwort wiederholen"
 
-#: includes/pages/guest_login.php:210 includes/pages/user_settings.php:179
+#: includes/pages/guest_login.php:222 includes/pages/user_settings.php:187
 msgid "Age"
 msgstr "Alter"
 
-#: includes/pages/guest_login.php:219 includes/pages/user_settings.php:187
+#: includes/pages/guest_login.php:231 includes/pages/user_settings.php:195
 msgid "Additional Information(Language / Profession)"
 msgstr "Weitere Qualifikationen (Führerschein u. Klasse, Sprachen, etc.)"
 
-#: includes/pages/guest_login.php:222 includes/pages/user_settings.php:173
+#: includes/pages/guest_login.php:234 includes/pages/user_settings.php:181
 msgid "Entry required!"
 msgstr "Pflichtfeld"
 
-#: includes/pages/guest_login.php:257
+#: includes/pages/guest_login.php:240 includes/pages/guest_login.php:327
+msgid "I forgot my password"
+msgstr "Passwort vergessen"
+
+#: includes/pages/guest_login.php:241 includes/pages/guest_login.php:328
+msgid "Request E-Mail verification token"
+msgstr ""
+
+#: includes/pages/guest_login.php:275
 msgid "Your password is incorrect.  Please try it again."
 msgstr "Dein Passwort stimmt nicht. Bitte probiere es nochmal."
 
-#: includes/pages/guest_login.php:262
+#: includes/pages/guest_login.php:280
 msgid ""
 "Your account is not confirmed yet. Please click the link in the mail we sent "
-"you. If you didn't get an eMail, ask a dispatcher."
+"you. To resend your verification E-Mail click "
 msgstr ""
-"Dein Benutzerkonto ist noch nicht aktiviert. Bitte klicke auf den Link in "
-"der E-Mail, die wir Dir gesendet haben, um Dein Benutzerkonto freizuschalten."
 
-#: includes/pages/guest_login.php:267
+#: includes/pages/guest_login.php:281
+msgid "here"
+msgstr ""
+
+#: includes/pages/guest_login.php:282
+msgid "If you didn't get an eMail, ask a dispatcher."
+msgstr ""
+
+#: includes/pages/guest_login.php:287
 msgid "Please enter a password."
 msgstr "Gib bitte ein Passwort ein."
 
-#: includes/pages/guest_login.php:271
+#: includes/pages/guest_login.php:291
 msgid ""
 "No user was found with that Nickname. Please try again. If you are still "
 "having problems, ask an Dispatcher."
@@ -1275,36 +1340,44 @@ msgstr ""
 "Es wurde kein Helfer mit diesem Benutzernamen gefunden. Probiere es bitte "
 "noch einmal. Wenn das Problem weiterhin besteht, frage einen Leiter."
 
-#: includes/pages/guest_login.php:275
+#: includes/pages/guest_login.php:295
 msgid "Please enter a nickname."
 msgstr "Gib bitte einen Benutzernamen an."
 
-#: includes/pages/guest_login.php:288
+#: includes/pages/guest_login.php:308
 msgid "Please sign up, if you want to help us!"
 msgstr "Bitte registriere Dich, wenn Du helfen möchtest!"
 
-#: includes/pages/guest_login.php:295
+#: includes/pages/guest_login.php:315
 msgid "Registration is disabled."
 msgstr "Registrierung ist vorübergehend abgeschaltet."
 
-#: includes/pages/guest_login.php:307
-msgid "I forgot my password"
-msgstr "Passwort vergessen"
-
-#: includes/pages/guest_login.php:309
+#: includes/pages/guest_login.php:330
 msgid "Please note: You have to activate cookies!"
 msgstr ""
 "Hinweis: Cookies müssen aktiviert sein, damit das Schichtsystem funktioniert!"
 
-#: includes/pages/guest_login.php:317 includes/pages/guest_login.php:338
+#: includes/pages/guest_login.php:340 includes/pages/guest_login.php:372
 msgid "Invalid confirmation token."
 msgstr "Ungültiger Bestätigungslink."
 
-#: includes/pages/guest_login.php:334
+#: includes/pages/guest_login.php:358
 msgid "Your account is confirmed now. You might want to log in:"
 msgstr ""
 "Vielen Dank für die Aktivierung deines Benutzerkontos! Du kannst Dich jetzt "
 "mit Deinem Benutzernamen und Passwort anmelden:"
+
+#: includes/pages/guest_login.php:361
+msgid "Your e-Mail address was successfully verified."
+msgstr ""
+
+#: includes/pages/guest_login.php:365
+msgid "---------------- DUMMY MSG ----------------------"
+msgstr ""
+
+#: includes/pages/guest_login.php:367
+msgid "E-Mail verified successful and introduction to Engelsystem"
+msgstr ""
 
 #: includes/pages/guest_privacy.php:3
 msgid "Privacy - Datenschutzbedingungen"
@@ -1365,7 +1438,7 @@ msgstr "Übertragung wurde mit einem Fehler abgebrochen."
 msgid "Wrong action."
 msgstr "Falsche Aktion."
 
-#: includes/pages/user_myshifts.php:4 includes/pages/user_shifts.php:298
+#: includes/pages/user_myshifts.php:4 includes/pages/user_shifts.php:302
 msgid "My shifts"
 msgstr "Meine Schichten"
 
@@ -1373,7 +1446,7 @@ msgstr "Meine Schichten"
 msgid "Key changed."
 msgstr "Key geändert."
 
-#: includes/pages/user_myshifts.php:27 includes/view/User_view.php:206
+#: includes/pages/user_myshifts.php:27 includes/view/User_view.php:207
 msgid "Reset API key"
 msgstr "API-Key zurücksetzen"
 
@@ -1458,7 +1531,7 @@ msgstr "Unvollständiger Aufruf, fehlende Fragen ID."
 msgid "No question found."
 msgstr "Keine Frage gefunden."
 
-#: includes/pages/user_settings.php:4 includes/view/User_view.php:203
+#: includes/pages/user_settings.php:4 includes/view/User_view.php:204
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -1474,146 +1547,138 @@ msgstr "Bitte gib Deinen geplanten Start der Verfügbarkeit an."
 msgid "Please enter your end of availability."
 msgstr "Bitte gib Dein Ende der Verfügbarkeit an."
 
-#: includes/pages/user_settings.php:118
+#: includes/pages/user_settings.php:126
 msgid "Settings saved."
 msgstr "Einstellungen gespeichert."
 
-#: includes/pages/user_settings.php:125
+#: includes/pages/user_settings.php:133
 msgid "-> not OK. Please try again."
 msgstr "-> Nicht OK. Bitte erneut versuchen."
 
-#: includes/pages/user_settings.php:133
+#: includes/pages/user_settings.php:141
 msgid "Failed setting password."
 msgstr "Konnte Passwort nicht speichern."
 
-#: includes/pages/user_settings.php:146
+#: includes/pages/user_settings.php:154
 msgid "Theme changed."
 msgstr "Aussehen geändert."
 
-#: includes/pages/user_settings.php:172
+#: includes/pages/user_settings.php:180
 msgid "Here you can change your user details."
 msgstr "Hier kannst Du Deine Details ändern."
 
-#: includes/pages/user_settings.php:177
+#: includes/pages/user_settings.php:185
 msgid "Planned begin of availability"
 msgstr "Geplanter Beginn der Verfügbarkeit"
 
-#: includes/pages/user_settings.php:180 includes/view/User_view.php:73
+#: includes/pages/user_settings.php:188 includes/view/User_view.php:73
 msgid "Gender"
 msgstr "Geschlecht"
 
-#: includes/pages/user_settings.php:182 includes/view/AngelTypes_view.php:132
+#: includes/pages/user_settings.php:190 includes/view/AngelTypes_view.php:132
 #: includes/view/AngelTypes_view.php:158 includes/view/AngelTypes_view.php:170
 msgid "DECT"
 msgstr "DECT"
 
-#: includes/pages/user_settings.php:186
+#: includes/pages/user_settings.php:194
 msgid "Jabber"
 msgstr "Jabber"
 
-#: includes/pages/user_settings.php:188
+#: includes/pages/user_settings.php:196
 msgid "Shirt size"
 msgstr "Westen-Größe"
 
-#: includes/pages/user_settings.php:189
+#: includes/pages/user_settings.php:197
 msgid "Please visit the angeltypes page to manage your angeltypes."
 msgstr "Bitte benutze die Helfer-Typ-Seite um deine Helfer-Typ zu verwalten."
 
-#: includes/pages/user_settings.php:195
+#: includes/pages/user_settings.php:203
 msgid "Here you can change your password."
 msgstr "Hier kannst Du Dein Passwort ändern."
 
-#: includes/pages/user_settings.php:196
+#: includes/pages/user_settings.php:204
 msgid "Old password:"
 msgstr "Altes Passwort:"
 
-#: includes/pages/user_settings.php:197
+#: includes/pages/user_settings.php:205
 msgid "New password:"
 msgstr "Neues Passwort (mind. 6 Zeichen):"
 
-#: includes/pages/user_settings.php:198
+#: includes/pages/user_settings.php:206
 msgid "Password confirmation:"
 msgstr "Passwort wiederholen:"
 
-#: includes/pages/user_settings.php:202
-msgid "Here you can choose your color settings:"
-msgstr "Hier kannst Du das Aussehen auswählen:"
-
-#: includes/pages/user_settings.php:203
-msgid "Color settings:"
-msgstr "Aussehen:"
-
-#: includes/pages/user_settings.php:207
+#: includes/pages/user_settings.php:215
 msgid "Here you can choose your language:"
 msgstr "Hier kannst Du Deine Sprache auswählen:"
 
-#: includes/pages/user_settings.php:208
+#: includes/pages/user_settings.php:216
 msgid "Language:"
 msgstr "Sprache:"
 
-#: includes/pages/user_shifts.php:43
+#: includes/pages/user_shifts.php:47
 msgid "Shift entry deleted."
 msgstr "Schicht-Eintrag gelöscht."
 
-#: includes/pages/user_shifts.php:45
+#: includes/pages/user_shifts.php:49
 msgid "Entry not found."
 msgstr "Eintrag nicht gefunden."
 
-#: includes/pages/user_shifts.php:110
+#: includes/pages/user_shifts.php:114
 msgid "Please select a room."
 msgstr "Bitte einen Raum wählen."
 
-#: includes/pages/user_shifts.php:117
+#: includes/pages/user_shifts.php:121
 msgid "Please select a shifttype."
 msgstr "Bitte einen Schichttyp wählen."
 
-#: includes/pages/user_shifts.php:124
+#: includes/pages/user_shifts.php:128
 msgid "Please enter a valid starting time for the shifts."
 msgstr "Bitte gib eine korrekte Startzeit für die Schichten ein."
 
-#: includes/pages/user_shifts.php:131
+#: includes/pages/user_shifts.php:135
 msgid "Please enter a valid ending time for the shifts."
 msgstr "Bitte gib eine korrekte Endzeit für die Schichten ein."
 
-#: includes/pages/user_shifts.php:136
+#: includes/pages/user_shifts.php:140
 msgid "The ending time has to be after the starting time."
 msgstr "Die Endzeit muss nach der Startzeit liegen."
 
-#: includes/pages/user_shifts.php:144
+#: includes/pages/user_shifts.php:148
 #, php-format
 msgid "Please check your input for needed angels of type %s."
 msgstr "Bitte prüfe deine Eingabe für benötigte Helfer des Typs %s."
 
-#: includes/pages/user_shifts.php:166
+#: includes/pages/user_shifts.php:170
 msgid "Shift updated."
 msgstr "Schicht aktualisiert."
 
-#: includes/pages/user_shifts.php:182
+#: includes/pages/user_shifts.php:186
 msgid "This page is much more comfortable with javascript."
 msgstr "Diese Seite ist mit JavaScript viel komfortabler."
 
-#: includes/pages/user_shifts.php:186 includes/view/ShiftEntry_view.php:27
+#: includes/pages/user_shifts.php:190 includes/view/ShiftEntry_view.php:27
 msgid "Location:"
 msgstr "Ort:"
 
-#: includes/pages/user_shifts.php:187
+#: includes/pages/user_shifts.php:191
 msgid "Start:"
 msgstr "Start:"
 
-#: includes/pages/user_shifts.php:188
+#: includes/pages/user_shifts.php:192
 msgid "End:"
 msgstr "Ende:"
 
-#: includes/pages/user_shifts.php:214
+#: includes/pages/user_shifts.php:218
 msgid "Shift deleted."
 msgstr "Schicht gelöscht."
 
-#: includes/pages/user_shifts.php:219
+#: includes/pages/user_shifts.php:223
 #, php-format
 msgid "Do you want to delete the shift %s from %s to %s?"
 msgstr "Möchtest Du die Schicht %s von %s bis %s löschen?"
 
-#: includes/pages/user_shifts.php:251
+#: includes/pages/user_shifts.php:255
 msgid ""
 "You are not allowed to sign up for this shift. Maybe shift is full or "
 "already running."
@@ -1621,31 +1686,31 @@ msgstr ""
 "Du darfst Dich nicht für diese Schicht eintragen. Vielleicht ist die Schicht "
 "voll oder sie läuft bereits."
 
-#: includes/pages/user_shifts.php:298
+#: includes/pages/user_shifts.php:302
 msgid "You are subscribed. Thank you!"
 msgstr "Du bist eingetragen. Danke!"
 
-#: includes/pages/user_shifts.php:307 includes/view/User_view.php:185
+#: includes/pages/user_shifts.php:311 includes/view/User_view.php:185
 msgid "Freeloader"
 msgstr "User mit verpassten Schichten"
 
-#: includes/pages/user_shifts.php:337
+#: includes/pages/user_shifts.php:341
 msgid "The administration has not configured any shifts yet."
 msgstr "Die Administratoren haben noch keine Schichten angelegt."
 
-#: includes/pages/user_shifts.php:344
+#: includes/pages/user_shifts.php:348
 msgid "The administration has not configured any locations yet."
 msgstr "Die Administratoren habe noch keine Orte eingerichtet."
 
-#: includes/pages/user_shifts.php:357
+#: includes/pages/user_shifts.php:361
 msgid "occupied"
 msgstr "belegt"
 
-#: includes/pages/user_shifts.php:361
+#: includes/pages/user_shifts.php:365
 msgid "free"
 msgstr "frei"
 
-#: includes/pages/user_shifts.php:366
+#: includes/pages/user_shifts.php:370
 msgid ""
 "The administration has not configured any angeltypes yet - or you are not "
 "subscribed to any angeltype."
@@ -1653,61 +1718,66 @@ msgstr ""
 "Die Administratoren haben noch keine Helfer-Typ konfiguriert - oder Du hast "
 "noch keine Helfer-Typ ausgewählt."
 
-#: includes/pages/user_shifts.php:620 includes/pages/user_shifts.php:759
+#: includes/pages/user_shifts.php:590 includes/pages/user_shifts.php:724
+#: includes/view/Shifts_view.php:115
+msgid "Shift Manager"
+msgstr ""
+
+#: includes/pages/user_shifts.php:632 includes/pages/user_shifts.php:779
 #, php-format
 msgid "%d helper needed"
 msgid_plural "%d helpers needed"
 msgstr[0] "%d Helfer benötigt"
 msgstr[1] "%d Helfer benötigt"
 
-#: includes/pages/user_shifts.php:640 includes/view/Shifts_view.php:22
+#: includes/pages/user_shifts.php:652 includes/view/Shifts_view.php:22
 msgid "Sign up"
 msgstr "Eintragen"
 
-#: includes/pages/user_shifts.php:643
+#: includes/pages/user_shifts.php:655
 msgid "ended"
 msgstr "vorbei"
 
-#: includes/pages/user_shifts.php:651 includes/pages/user_shifts.php:786
+#: includes/pages/user_shifts.php:663 includes/pages/user_shifts.php:806
 #: includes/view/Shifts_view.php:24
 #, php-format
 msgid "Become %s"
 msgstr "Werde ein %s"
 
-#: includes/pages/user_shifts.php:663 includes/pages/user_shifts.php:799
+#: includes/pages/user_shifts.php:675 includes/pages/user_shifts.php:819
 msgid "Add more angels"
 msgstr "Neue Helfer hinzufügen"
 
-#: includes/pages/user_shifts.php:807 includes/view/User_view.php:213
+#: includes/pages/user_shifts.php:827 includes/view/User_view.php:214
 msgid "Time"
 msgstr "Zeit"
 
-#: includes/pages/user_shifts.php:808
+#: includes/pages/user_shifts.php:828
 msgid "Entries"
 msgstr "Einträge"
 
-#: includes/pages/user_shifts.php:852
+#: includes/pages/user_shifts.php:872
 msgid "Occupancy"
 msgstr "Belegung"
 
-#: includes/pages/user_shifts.php:854
+#: includes/pages/user_shifts.php:874
 msgid "List view"
 msgstr "Listenansicht"
 
-#: includes/pages/user_shifts.php:856
+#: includes/pages/user_shifts.php:876
 msgid "iCal export"
 msgstr "iCal Export"
 
-#: includes/pages/user_shifts.php:856
+#: includes/pages/user_shifts.php:876
 #, php-format
 msgid "Export of shown shifts. <a href=\"%s\">iCal format</a>."
 msgstr "Exportiere Deine Schichten im <a href=\"%s\">iCal Format</a>."
 
-#: includes/pages/user_shifts.php:857
+#: includes/pages/user_shifts.php:877
 msgid "Filter"
 msgstr "Filter anwenden!"
 
-#: includes/pages/user_shifts.php:894
+#: includes/pages/user_shifts.php:914
 msgid ""
 "The tasks shown here are influenced by the preferences you defined in your "
 "settings!"
@@ -1715,7 +1785,7 @@ msgstr ""
 "Die Schichten, die hier angezeigt werden, sind von Deinen Einstellungen "
 "(Helfer-Typ/Aufgaben) abhängig!"
 
-#: includes/pages/user_shifts.php:894
+#: includes/pages/user_shifts.php:914
 msgid "Description of the jobs."
 msgstr "Beschreibung der Aufgaben."
 
@@ -1733,7 +1803,7 @@ msgstr ""
 msgid "Admin"
 msgstr "Admin"
 
-#: includes/sys_template.php:395
+#: includes/sys_template.php:393
 msgid "No data found."
 msgstr "Nichts gefunden."
 
@@ -1785,7 +1855,7 @@ msgstr ""
 "freigeschaltet werden (double-opt-in)."
 
 #: includes/view/AngelTypes_view.php:63 includes/view/AngelTypes_view.php:93
-#: includes/view/ShiftTypes_view.php:35 includes/view/Shifts_view.php:114
+#: includes/view/ShiftTypes_view.php:35 includes/view/Shifts_view.php:120
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -1940,13 +2010,13 @@ msgstr "erstellt am %s von %s"
 msgid "edited at %s by %s"
 msgstr "bearbeitet am %s von %s"
 
-#: includes/view/Shifts_view.php:74
+#: includes/view/Shifts_view.php:75
 msgid "This shift collides with one of your shifts."
 msgstr ""
 "Diese Schicht kollidiert leider mit Deinen anderen bereits belegten "
 "Schichten."
 
-#: includes/view/Shifts_view.php:75
+#: includes/view/Shifts_view.php:76
 msgid "You are signed up for this shift."
 msgstr "Du bist für diese Schicht eingetragen."
 
@@ -2105,35 +2175,39 @@ msgstr "T-Shirt"
 msgid "Status"
 msgstr "Status"
 
-#: includes/view/User_view.php:202
+#: includes/view/User_view.php:201
+msgid "resend verification token"
+msgstr ""
+
+#: includes/view/User_view.php:203
 msgid "Edit vouchers"
 msgstr "Gutschein(e) bearbeiten"
 
-#: includes/view/User_view.php:204
+#: includes/view/User_view.php:205
 msgid "iCal Export"
 msgstr "iCal Export"
 
-#: includes/view/User_view.php:205
+#: includes/view/User_view.php:206
 msgid "JSON Export"
 msgstr "JSON Export"
 
-#: includes/view/User_view.php:215
+#: includes/view/User_view.php:216
 msgid "Name &amp; workmates"
 msgstr "Name &amp; Kollegen"
 
-#: includes/view/User_view.php:216
+#: includes/view/User_view.php:217
 msgid "Comment"
 msgstr "Kommentar"
 
-#: includes/view/User_view.php:217
+#: includes/view/User_view.php:218
 msgid "Action"
 msgstr "Aktion"
 
-#: includes/view/User_view.php:219
+#: includes/view/User_view.php:220
 msgid "Your night shifts between 2 and 8 am count twice."
 msgstr "Nachtschichten zwischen 2 und 8 Uhr zählen doppelt."
 
-#: includes/view/User_view.php:220
+#: includes/view/User_view.php:221
 #, php-format
 msgid ""
 "Go to the <a href=\"%s\">shifts table</a> to sign yourself up for some "
@@ -2142,7 +2216,7 @@ msgstr ""
 "Bitte gehe zur <a href=\"%s\">Übersicht der freien Schichten</a> um Dich "
 "direkt für eine Schicht einzutragen."
 
-#: includes/view/User_view.php:230
+#: includes/view/User_view.php:231
 msgid ""
 "We will send you an e-mail with a password recovery link. Please use the "
 "email address you used for registration."
@@ -2151,19 +2225,34 @@ msgstr ""
 "zurücksetzen kannst. Bitte benutze die E-Mail Adresse, die Du bei der "
 "Anmeldung verwendet hast."
 
-#: includes/view/User_view.php:233
+#: includes/view/User_view.php:234
 msgid "Recover"
 msgstr "Wiederherstellen"
 
-#: includes/view/User_view.php:244
+#: includes/view/User_view.php:245
 msgid "Please enter a new password."
 msgstr "Gib bitte ein neues Passwort ein."
 
-#: public/index.php:173
+#: includes/view/User_view.php:260
+msgid ""
+"We will resend an e-mail including the verification link. Please use the "
+"email address you used for registration."
+msgstr ""
+
+#: includes/view/User_view.php:263
+msgid "Resend"
+msgstr ""
+
+#: includes/view/User_view.php:307
+#, php-format
+msgid " (eMail: <a href=\"mailto:%1$s\">%1$s</a>)"
+msgstr ""
+
+#: public/index.php:179
 msgid "No Access"
 msgstr "Kein Zugriff"
 
-#: public/index.php:174
+#: public/index.php:180
 msgid ""
 "You don't have permission to view this page. You probably have to sign in or "
 "register in order to gain access!"
@@ -2171,106 +2260,18 @@ msgstr ""
 "<big>Diese Seite kann leider nicht angezeigt werden. Bitte registriere Dich "
 "und logge Dich ein, um Zugriff zu dieser Seite zu erhalten.</big>"
 
-#: public/index.php:190
+#: public/index.php:198
 msgid "Select all"
 msgstr "Alle auswählen"
 
-#: public/index.php:192
+#: public/index.php:200
 msgid "All selected"
 msgstr "Alle"
 
-#: public/index.php:193
+#: public/index.php:201
 msgid "selected"
 msgstr "ausgewählt"
 
-#: public/index.php:194
+#: public/index.php:202
 msgid "None selected"
 msgstr "keine"
-
-#~ msgid "Angel registration successful!"
-#~ msgstr ""
-#~ "Registrierung erfolgreich! Wir haben Dir eine E-Mail mit einem "
-#~ "Bestätigungslink gesendet. Bitte bestätige Deine Registrierung und logge "
-#~ "Dich dann ein."
-
-#~ msgid "What can I do?"
-#~ msgstr "Was kann ich machen?"
-
-#~ msgid "Please read about the jobs you can do to help us."
-#~ msgstr ""
-#~ "Bitte informiere Dich über die Tätigkeiten bei denen Du uns helfen kannst."
-
-#~ msgid ""
-#~ "Please enter your planned date of departure on your settings page to give "
-#~ "us a feeling for teardown capacities."
-#~ msgstr ""
-#~ "Bitte gib ein Enddatum Deiner Verfügbarkeit an, damit wir besser Planen "
-#~ "können"
-
-#~ msgid ""
-#~ "You are not marked as available. Please contact the helper staff at your "
-#~ "arrival"
-#~ msgstr ""
-#~ "Du bist nicht als verfügbar markiert. Bitte melde Dich persönlich bei "
-#~ "Deiner Ankunft beim Schichtleiter oder dem Helfer-Team."
-
-#~ msgid "You need to specify a tshirt size in your settings!"
-#~ msgstr "Bitte eine Größe für die Helfer-Weste auswählen"
-
-#~ msgid ""
-#~ "You need to specify a DECT phone number in your settings! If you don't "
-#~ "have a DECT phone, just enter \"-\"."
-#~ msgstr ""
-#~ "You need to specify a DECT phone number in your settings! If you don't "
-#~ "have a DECT phone, just enter \"-\"."
-
-#~ msgid "Hometown"
-#~ msgstr "Wohnort"
-
-#~ msgid "Please keep me informed by e-mail (e.g. if my shifts change)"
-#~ msgstr ""
-#~ "Informiere mich per E-Mail bei Änderungen an meinen Schichten und "
-#~ "wichtigen Neuigkeiten."
-
-#~ msgid "What do you want to do?"
-#~ msgstr "Was möchtest Du machen?"
-
-#~ msgid "Description of job types"
-#~ msgstr "Beschreibung der Aufgaben"
-
-#~ msgid ""
-#~ "By completing this form you're registering as an angel. This script will "
-#~ "create you an account in the angel task sheduler."
-#~ msgstr ""
-#~ "<small><b><p>Hallo lieber Helfer und liebe Helferin,</p></b><p>wir freuen "
-#~ "uns, dass Du mit anpacken willst! Dieses Helfersystem ersetzt die "
-#~ "offiziellen Doodle-Listen, in die sich Freiwillige seit dem Sommer 2015 "
-#~ "eintragen, um Geflüchteten Menschen im Großraum München zu helfen.</"
-#~ "p><p>Bitte registriere Dich mit Deinem Benutzernamen und Deiner Email-"
-#~ "Adresse. Nur Dein Benutzername ist für die übrigen Mitglieder einsehbar."
-#~ "<br><small>Nur Schichtleiter, die eine Verschwiegenheitserklärung "
-#~ "unterzeichnet haben, können Deine übrigen Kontaktinformationen einsehen, "
-#~ "beispielsweise Deine Email-Adresse.</small></p></small>"
-
-#~ msgid "Use calendar view"
-#~ msgstr "Kalenderansicht verwenden"
-
-#~ msgid "Use list style"
-#~ msgstr "Listenansicht verwenden"
-
-#~ msgid "Use calendar style"
-#~ msgstr "Kalenderansicht"
-
-#~ msgid "<i class='fa fa-calendar'></i> Use calendar style"
-#~ msgstr "<i class='fa fa-calendar'></i> Fortlaufende Kalenderansicht"
-
-#~ msgid ""
-#~ "Export of shown shifts. <a href=\"%s\">iCal format</a> or <a href=\"%s"
-#~ "\">JSON format</a> available (please keep secret, otherwise <a href=\"%s"
-#~ "\">reset the api key</a>)."
-#~ msgstr ""
-#~ "Exportiere Deine Schichten im <a href=\"%s\">iCal Format</a>.<a href=\"%s"
-#~ "\" style=\"visibility:hidden;\">%s</a>"
-
-#~ msgid "Rights"
-#~ msgstr "Rechte"

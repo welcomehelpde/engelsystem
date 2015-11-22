@@ -213,8 +213,14 @@ function user_password_recovery_controller() {
 
 // Send verification email
 function user_send_verification_email($mail, $confirmationToken) {
+  global $customization;
+
   $confirmationTokenUrl = page_link_to_absolute('user_activate_account') . '&token=' . $confirmationToken;
-  engelsystem_email($mail, _('Please confirm your eMail-address'), sprintf(_('Hello %1$s! Thanks for signing up at Engelsystem. Please confirm your eMail-address by clicking the following link: %2$s'), $mail, $confirmationTokenUrl));
+  $signature = $customization['instance_name'];
+
+  $mailText = _('Hello %1$s! Thanks for signing up at Engelsystem. Please confirm your eMail-address by clicking the following link: %2$s %3$s');
+
+  engelsystem_email($mail, _('Please confirm your eMail-address'), sprintf($mailText, $mail, $confirmationTokenUrl, $signature));
 }
 
 function user_resend_verification_token() {  

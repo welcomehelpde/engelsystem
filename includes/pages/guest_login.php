@@ -334,7 +334,7 @@ function guest_login() {
 }
 
 function user_activate_account_controller () {
-  global $signup;
+  global $customization;
 
   if(!isset($_GET['token'])) {
     error(_("Invalid confirmation token."));
@@ -359,10 +359,8 @@ function user_activate_account_controller () {
 
     // send introductory eMail
     $msg = _('Your e-Mail address was successfully verified.');
-    if(file_exists($signup['doubleOptinMsg'])) {
-      $msg .= "\n" . file_get_contents($signup['doubleOptinMsg']);
-    } else {
-      $msg .= _('---------------- DUMMY MSG ----------------------');
+    if($customization['introduction_mail_content']) {
+      $msg .= "\n" . $customization['introduction_mail_content'];
     }
     engelsystem_email_to_user($checkResult[0], _('E-Mail verified successful and introduction to Engelsystem'), $msg);
 

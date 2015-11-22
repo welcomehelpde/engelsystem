@@ -54,8 +54,10 @@ require_once realpath(__DIR__ . '/../config/config.default.php');
 if (file_exists(realpath(__DIR__ . '/../config/config.php')))
   require_once realpath(__DIR__ . '/../config/config.php');
 
+require_once realpath(__DIR__ . '/../customization/settings.php');
+
 if ($maintenance_mode) {
-  $maintenanceImprint = file_get_contents('../templates/guest_imprint.html');
+  $maintenanceImprint = $customization['imprint_content'];
   $maintenancePage = file_get_contents(__DIR__ . '/../public/maintenance.html');
   $maintenancePage = str_replace('%imprint%', $maintenanceImprint, $maintenancePage);
   die($maintenancePage);

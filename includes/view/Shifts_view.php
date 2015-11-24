@@ -114,7 +114,7 @@ function Shift_view($shift, $shifttype, $room, $shift_admin, $angeltypes_source,
           div('col-sm-6', [
               !empty($shiftManagers) ? '<h2>' . _('Shift Manager') . '</h2>' : '',
               !empty($shiftManagers) ? implode('<br>', array_map(function ($manager) {
-                        return $manager['Vorname'] . ' ' . $manager['Name'] . ($manager['Handy'] ? ' (Handy: ' . $manager['Handy'] . ')' : '');
+                        return $manager['Vorname'] . ' ' . $manager['Name'];
                       }, $shiftManagers)) : '',
               
               '<h2>' . _('Description') . '</h2>',

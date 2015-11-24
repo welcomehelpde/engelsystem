@@ -43,7 +43,7 @@ function User_edit_vouchers_view($user) {
 
 function Users_view($users, $order_by, $arrived_count, $active_count, $force_active_count, $freeloads_count, $tshirts_count, $voucher_count) {
   foreach ($users as &$user) {
-    $user['Nick'] = User_Nick_render($user);
+    $user['Nick'] = '<a href="' . user_link($user) . '">' . $user['Nick'] . '</a>';
     $user['Gekommen'] = glyph_bool($user['Gekommen']);
     $user['Aktiv'] = glyph_bool($user['Aktiv']);
     $user['force_active'] = glyph_bool($user['force_active']);
@@ -70,7 +70,7 @@ function Users_view($users, $order_by, $arrived_count, $active_count, $force_act
           'Nick' => Users_table_header_link('Nick', _('Nick'), $order_by),
           'Vorname' => Users_table_header_link('Vorname', _('First Name'), $order_by),
           'Name' => Users_table_header_link('Name', _('Name'), $order_by),
-          'gender' => Users_table_header_link('gender', _('Gender'), $order_by),
+          'email' => Users_table_header_link('email', _('email'), $order_by),
           'Handy' => Users_table_header_link('Mobile', _('Mobile'), $order_by),
           'Telefon' => Users_table_header_link('Phone', _('Phone'), $order_by),
           'Gekommen' => Users_table_header_link('Gekommen', _('Available'), $order_by),

@@ -588,7 +588,7 @@ function view_user_shifts() {
               $shiftManagers = getShiftManagers($shift['SID']);
               if(!empty($shiftManagers)) {
                 $shifts_row .= _('Shift Manager') . ': ' . implode(', ', array_map(function ($manager) {
-                  return $manager['Vorname'] . ' ' . $manager['Name'] . ($manager['Handy'] ? ' (Handy: ' . $manager['Handy'] . ')' : '');
+                  return $manager['Vorname'] . ' ' . $manager['Name'];
                 }, $shiftManagers));
               }
 
@@ -723,7 +723,7 @@ function view_user_shifts() {
       if(!empty($shiftManagers)) {
         $shift_row['entries'] .= '<br>' . _('Shift Manager')  . ': ';
         $shift_row['entries'] .= implode(', ', array_map(function ($manager) {
-          return $manager['Vorname'] . ' ' . $manager['Name'] . ($manager['Handy'] ? ' (Handy: ' . $manager['Handy'] . ')' : '');
+          return $manager['Vorname'] . ' ' . $manager['Name'];
         }, $shiftManagers));
       }
 

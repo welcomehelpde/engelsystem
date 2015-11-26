@@ -160,6 +160,30 @@ function admin_user() {
         }
         break;
       
+      // In this case we are able to remove one single group from a user
+      case 'remove_group':
+        if ($id != $user['UID']) {
+          $my_highest_group = sql_select("SELECT * FROM `UserGroups` WHERE `uid`='" . sql_escape($user['UID']) . "' ORDER BY `group_id`");
+          $his_highest_group = sql_select("SELECT * FROM `UserGroups` WHERE `uid`='" . sql_escape($id) . "' ORDER BY `group_id`");
+          
+          if (count($my_highest_group) > 0 && (count($his_highest_group) == 0 || ($my_highest_group[0]['group_id'] <= $his_highest_group[0]['group_id']))) {
+            // Validate untrusted REQUEST Param
+            if(preg_match("/^[0-9\-]+$/", $_REQUEST['group_id'])) {
+              // Request is now trusted
+              $group_id = $_REQUEST['group_id'];
+              sql_query("DELETE FROM `UserGroups` WHERE `uid`='" . sql_escape($id) . "' and group_id = '" . sql_escape($group_id) . "'");
+              $html .= success("Benutzer erfolgreich aus der Gruppe entfernt!", true);
+            } else {
+              $html .= error("Ungültige Gruppen ID übergeben.", true);
+            }
+          } else {
+            $html .= error("Du kannst keine Engel mit mehr Rechten bearbeiten.", true);
+          }
+        } else {
+          $html .= error("Du kannst Deine eigenen Rechte nicht bearbeiten.", true);
+      }
+      break;
+      
       case 'delete':
         if ($user['UID'] != $id) {
           $user_source = sql_select("SELECT `Nick`, `UID` FROM `User` WHERE `UID` = '" . sql_escape($id) . "' LIMIT 1");

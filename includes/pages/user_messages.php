@@ -18,14 +18,18 @@ function user_messages() {
   global $user;
 
   if (! isset($_REQUEST['action'])) {
-    $users = sql_select("SELECT * FROM `User` WHERE NOT `UID`='" . sql_escape($user['UID']) . "' ORDER BY `Nick`");
+    $users = sql_select("SELECT * FROM `User` WHERE NOT `UID`='" . sql_escape($user['UID']) . "' ORDER BY `Nick`,`Vorname`");
 
     $to_select_data = array(
         "" => _("Select recipient...")
     );
 
-    foreach ($users as $u)
-      $to_select_data[$u['UID']] = $u['Nick'];
+    foreach ($users as $u) {
+      // An Email Adress in the Selection looks like sending an email, but its no
+      // so lets forget email for a moment to hide in the select form
+      $u['email'] = '';
+      $to_select_data[$u['UID']] = User_Nick_render($u);
+    }
 
     $to_select = html_select_key('to', 'to', $to_select_data, '');
 

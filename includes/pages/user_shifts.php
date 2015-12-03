@@ -304,11 +304,14 @@ function user_shifts() {
     }
 
     if (in_array('user_shifts_admin', $privileges)) {
-      $users = sql_select("SELECT *, (SELECT count(*) FROM `ShiftEntry` WHERE `freeloaded`=1 AND `ShiftEntry`.`UID`=`User`.`UID`) AS `freeloaded` FROM `User` ORDER BY `Nick`");
+      $users = sql_select("SELECT *, (SELECT count(*) FROM `ShiftEntry` WHERE `freeloaded`=1 AND `ShiftEntry`.`UID`=`User`.`UID`) AS `freeloaded` FROM `User` ORDER BY `Nick`, `Vorname`");
       $users_select = array();
 
-      foreach ($users as $usr)
-        $users_select[$usr['UID']] = $usr['Nick'] . ($usr['freeloaded'] == 0 ? "" : " (" . _("Freeloader") . ")");
+      foreach ($users as $usr) {
+        // We dont want to show the email, so throw it away
+        $usr['email'] = '';
+        $users_select[$usr['UID']] = User_Nick_render($usr) . ($usr['freeloaded'] == 0 ? "" : " (" . _("Freeloader") . ")");
+      }
       $user_text = html_select_key('user_id', 'user_id', $users_select, $user['UID']);
 
       $angeltypes_source = sql_select("SELECT * FROM `AngelTypes` ORDER BY `name`");

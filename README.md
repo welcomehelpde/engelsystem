@@ -17,6 +17,11 @@
  * Es muss eine MySQL-Datenbank angelegt werden und ein User existieren, der alle Rechte auf dieser Datenbank besitzt.
  * Es muss die db/install.sql importiert/ausgeführt werden, eventuell auch die update.php.
  * `config/config-dist.php` nach `config/config.php` kopieren und eigenen Datenbank- und SMTP-Zugang eintragen
+ * 
+ * den Ordner 'customization-dist' zu 'customization' kopieren, und die konfigfiles Parameter darin einstellen / anpassen
+   nach Organisation, Standort, Bedarf. Ein Startseite Logo kann hier verknüpft werden, und Infofiles für die anmeldungsinfo 
+   - Logodatei (jpg oder gif) klein wegen mobilem zugriff !
+  
  * Engelsystem im Browser aufrufen, Anmeldung mit admin:asdfasdf vornehmen und Admin-Passwort ändern.
 
 Das Engelsystem ist jetzt einsatzbereit.

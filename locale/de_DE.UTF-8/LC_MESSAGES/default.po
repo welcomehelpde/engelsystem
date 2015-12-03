@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Helfersystem 2.0\n"
-"POT-Creation-Date: 2015-11-22 17:55+0100\n"
-"PO-Revision-Date: 2015-11-22 17:57+0100\n"
+"POT-Creation-Date: 2015-11-29 10:36+0100\n"
+"PO-Revision-Date: 2015-11-29 10:36+0100\n"
 "Last-Translator: Andreas Tichon <at@welcomehelp.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -61,7 +61,7 @@ msgid "view"
 msgstr "ansehen"
 
 #: includes/controller/angeltypes_controller.php:209
-#: includes/pages/admin_free.php:65 includes/pages/admin_groups.php:23
+#: includes/pages/admin_free.php:65 includes/pages/admin_groups.php:27
 #: includes/pages/admin_rooms.php:21 includes/view/AngelTypes_view.php:84
 #: includes/view/ShiftTypes_view.php:52 includes/view/ShiftTypes_view.php:63
 #: includes/view/Shifts_view.php:78 includes/view/User_view.php:157
@@ -337,7 +337,7 @@ msgid "Please enter your e-mail."
 msgstr "Bitte gib Deine E-Mail-Adresse ein."
 
 #: includes/controller/users_controller.php:201
-#: includes/controller/users_controller.php:282
+#: includes/controller/users_controller.php:279
 msgid "Password recovery"
 msgstr "Passwort wiederherstellen"
 
@@ -366,22 +366,22 @@ msgstr ""
 " \n"
 "%3$s"
 
-#: includes/controller/users_controller.php:224
+#: includes/controller/users_controller.php:223
 msgid "Please confirm your eMail-address"
 msgstr "Bitte bestätige Deine E-Mail Adresse."
 
-#: includes/controller/users_controller.php:243
-#: includes/controller/users_controller.php:254
+#: includes/controller/users_controller.php:240
+#: includes/controller/users_controller.php:251
 msgid ""
 "Verification E-Mail was send again to your E-Mail address. If you still "
 "don't receive it, please check your spam folder and ask a Dispatcher."
 msgstr ""
 
-#: includes/controller/users_controller.php:267
+#: includes/controller/users_controller.php:264
 msgid "Verification E-Mail Could not be send. Please ask a Dispatcher."
 msgstr ""
 
-#: includes/controller/users_controller.php:289
+#: includes/controller/users_controller.php:286
 msgid "Requesting additional verification token"
 msgstr ""
 
@@ -574,7 +574,7 @@ msgstr "Alle Schichten anzeigen"
 #: includes/pages/admin_active.php:171 includes/pages/admin_arrive.php:130
 #: includes/pages/admin_arrive.php:131 includes/pages/admin_free.php:72
 #: includes/pages/admin_free.php:81 includes/pages/admin_log.php:25
-#: includes/pages/admin_log.php:26 public/index.php:199
+#: includes/pages/admin_log.php:26 public/index.php:202
 msgid "Search"
 msgstr "Suche"
 
@@ -736,9 +736,9 @@ msgstr "Handy"
 msgid "Phone"
 msgstr "Telefon"
 
-#: includes/pages/admin_free.php:90 includes/pages/guest_login.php:184
-#: includes/pages/user_settings.php:192 includes/view/User_view.php:233
-#: includes/view/User_view.php:262
+#: includes/pages/admin_free.php:90 includes/pages/admin_groups.php:131
+#: includes/pages/guest_login.php:184 includes/pages/user_settings.php:192
+#: includes/view/User_view.php:233 includes/view/User_view.php:262
 msgid "E-Mail"
 msgstr "E-Mail"
 
@@ -746,7 +746,16 @@ msgstr "E-Mail"
 msgid "Grouprights"
 msgstr "Gruppenrechte"
 
-#: includes/pages/admin_groups.php:29 includes/pages/admin_import.php:118
+#: includes/pages/admin_groups.php:7
+#, php-format
+msgid "Members of \"%s\""
+msgstr "Mitglieder von \"%s\""
+
+#: includes/pages/admin_groups.php:28
+msgid "show members"
+msgstr "Mitglieder anzeigen"
+
+#: includes/pages/admin_groups.php:34 includes/pages/admin_import.php:118
 #: includes/pages/admin_import.php:122 includes/pages/admin_rooms.php:159
 #: includes/pages/admin_rooms.php:240 includes/view/AngelTypes_view.php:60
 #: includes/view/AngelTypes_view.php:191 includes/view/ShiftTypes_view.php:33
@@ -754,11 +763,11 @@ msgstr "Gruppenrechte"
 msgid "Name"
 msgstr "Name"
 
-#: includes/pages/admin_groups.php:30
+#: includes/pages/admin_groups.php:35
 msgid "Privileges"
 msgstr "Privilegien"
 
-#: includes/pages/admin_groups.php:53 includes/pages/admin_news.php:32
+#: includes/pages/admin_groups.php:59 includes/pages/admin_news.php:32
 #: includes/pages/admin_questions.php:35 includes/pages/admin_rooms.php:213
 #: includes/pages/admin_shifts.php:257 includes/pages/user_messages.php:62
 #: includes/pages/user_news.php:106 includes/pages/user_news.php:160
@@ -770,9 +779,25 @@ msgstr "Privilegien"
 msgid "Save"
 msgstr "Speichern"
 
-#: includes/pages/admin_groups.php:54
+#: includes/pages/admin_groups.php:60
 msgid "Edit group"
 msgstr "Gruppe bearbeiten"
+
+#: includes/pages/admin_groups.php:124 includes/view/AngelTypes_view.php:123
+msgid "remove"
+msgstr "entfernen"
+
+#: includes/pages/admin_groups.php:129
+msgid "Vorname"
+msgstr ""
+
+#: includes/pages/admin_groups.php:130
+msgid "Nachname"
+msgstr ""
+
+#: includes/pages/admin_groups.php:132
+msgid "Gruppe"
+msgstr ""
 
 #: includes/pages/admin_import.php:4 includes/pages/admin_rooms.php:164
 #: includes/pages/admin_rooms.php:241
@@ -1144,7 +1169,7 @@ msgstr ""
 "Bitte benutze die Helfer-Typ-Seite um die Helfer-Typen des Users zu "
 "verwalten."
 
-#: includes/pages/admin_user.php:216
+#: includes/pages/admin_user.php:240
 msgid "Edit user"
 msgstr "User bearbeiten"
 
@@ -1357,7 +1382,7 @@ msgid "Please note: You have to activate cookies!"
 msgstr ""
 "Hinweis: Cookies müssen aktiviert sein, damit das Schichtsystem funktioniert!"
 
-#: includes/pages/guest_login.php:340 includes/pages/guest_login.php:372
+#: includes/pages/guest_login.php:340 includes/pages/guest_login.php:370
 msgid "Invalid confirmation token."
 msgstr "Ungültiger Bestätigungslink."
 
@@ -1372,10 +1397,6 @@ msgid "Your e-Mail address was successfully verified."
 msgstr ""
 
 #: includes/pages/guest_login.php:365
-msgid "---------------- DUMMY MSG ----------------------"
-msgstr ""
-
-#: includes/pages/guest_login.php:367
 msgid "E-Mail verified successful and introduction to Engelsystem"
 msgstr ""
 
@@ -1571,7 +1592,7 @@ msgstr "Hier kannst Du Deine Details ändern."
 msgid "Planned begin of availability"
 msgstr "Geplanter Beginn der Verfügbarkeit"
 
-#: includes/pages/user_settings.php:188 includes/view/User_view.php:73
+#: includes/pages/user_settings.php:188
 msgid "Gender"
 msgstr "Geschlecht"
 
@@ -1880,10 +1901,6 @@ msgstr "bestätigen"
 msgid "deny"
 msgstr "ablehnen"
 
-#: includes/view/AngelTypes_view.php:123
-msgid "remove"
-msgstr "entfernen"
-
 #: includes/view/AngelTypes_view.php:129
 msgid "Coordinators"
 msgstr "Koordinatoren"
@@ -2095,6 +2112,10 @@ msgstr "Neuer User"
 msgid "First Name"
 msgstr "Vorname"
 
+#: includes/view/User_view.php:73
+msgid "email"
+msgstr ""
+
 #: includes/view/User_view.php:76 includes/view/User_view.php:187
 msgid "Available"
 msgstr "Verfügbar"
@@ -2260,18 +2281,21 @@ msgstr ""
 "<big>Diese Seite kann leider nicht angezeigt werden. Bitte registriere Dich "
 "und logge Dich ein, um Zugriff zu dieser Seite zu erhalten.</big>"
 
-#: public/index.php:198
+#: public/index.php:201
 msgid "Select all"
 msgstr "Alle auswählen"
 
-#: public/index.php:200
+#: public/index.php:203
 msgid "All selected"
 msgstr "Alle"
 
-#: public/index.php:201
+#: public/index.php:204
 msgid "selected"
 msgstr "ausgewählt"
 
-#: public/index.php:202
+#: public/index.php:205
 msgid "None selected"
 msgstr "keine"
+
+#~ msgid "showmembers"
+#~ msgstr "Mitglieder anzeigen"

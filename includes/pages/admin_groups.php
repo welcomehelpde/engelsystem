@@ -3,6 +3,10 @@ function admin_groups_title() {
   return _("Grouprights");
 }
 
+function admin_groupmembers_title($groupname) {
+  return sprintf(_('Members of "%s"'), $groupname);
+}
+
 function admin_groups() {
   global $user;
   
@@ -20,7 +24,8 @@ function admin_groups() {
       $groups_table[] = array(
           'name' => $group['Name'],
           'privileges' => join(', ', $privileges_html),
-          'actions' => button(page_link_to('admin_groups') . '&action=edit&id=' . $group['UID'], _("edit"), 'btn-xs') 
+          'actions' => button(page_link_to('admin_groups') . '&action=edit&id=' . $group['UID'], _("edit"), 'btn-xs'), 
+          'action2' => button(page_link_to('admin_groups') . '&action=showmembers&id=' . $group['UID'], _("show members"), 'btn-xs')
       );
     }
     
@@ -28,7 +33,8 @@ function admin_groups() {
         table(array(
             'name' => _("Name"),
             'privileges' => _("Privileges"),
-            'actions' => '' 
+            'actions' => '' ,
+            'action2' => '' 
         ), $groups_table) 
     ));
   } else {
@@ -84,6 +90,53 @@ function admin_groups() {
           redirect(page_link_to("admin_groups"));
         } else
           return error("No Group found.", true);
+        break;
+        
+      case 'showmembers':
+        if (isset($_REQUEST['id']) && preg_match("/^-[0-9]{1,11}$/", $_REQUEST['id']))
+          $id = $_REQUEST['id'];
+        else
+          return error("Incomplete call, missing Groups ID.", true);
+          
+        // Lets get the humanreadable Groupname for title and coloumn
+        $groupinfo = sql_select("SELECT * FROM `Groups` where `UID` = '" . sql_escape($id) . "' limit 1");
+        if (count($groupinfo) > 0)
+          $groupinfo = $groupinfo[0];
+        else
+          return error("No Group found.", true);
+        
+        $members = sql_select("
+        SELECT g.`name` as `gname`, ug.`group_id`, u.`UID`, u.`email`, u.`Vorname`, u.`Name`, u.`UID`
+        FROM UserGroups ug 
+          JOIN User u on (u.uid = ug.uid) 
+          JOIN Groups g on (g.UID = ug.group_id) 
+        WHERE ug.group_id = '" . sql_escape($id) . "'"
+        );
+        
+        if (count($members) > 0) {
+          // list($members) = $members;
+          foreach($members as $member) {
+            $members_table[] = array(
+              'fname' => $member['Vorname'],
+              'lname' => $member['Name'],
+              'email' => $member['email'],
+              'group' => $member['gname'],
+              'actions' => button(page_link_to('admin_user') . '&action=remove_group&id=' . $member['UID'] . '&group_id=' . sql_escape($id), _("remove"), 'btn-xs')
+            );
+          }
+
+          $html .= page_with_title(admin_groupmembers_title($groupinfo['Name']), array(table(array(
+            'fname' => _("Vorname"),
+            'lname' => _("Nachname"),
+            'email' => _("E-Mail"),
+            'group' => _("Gruppe"),
+            'actions' => '' 
+        ), $members_table) 
+    ));
+        
+        
+        } else
+          return error("No Members in group.", true);
         break;
     }
   }

@@ -14,6 +14,7 @@ function users_controller() {
   
   switch ($_REQUEST['action']) {
     default:
+    case 'csv':
     case 'list':
       return users_list_controller();
     case 'view':
@@ -29,6 +30,10 @@ function users_controller() {
 
 function users_link() {
   return page_link_to('users');
+}
+
+function users_link_csv() {
+  return page_link_to('users').'&action=csv';
 }
 
 function user_link($user) {
@@ -112,7 +117,7 @@ function user_controller() {
  */
 function users_list_controller() {
   global $privileges;
-  
+
   if (! in_array('admin_user', $privileges))
     redirect(page_link_to(''));
   
@@ -126,11 +131,22 @@ function users_list_controller() {
   
   foreach ($users as &$user)
     $user['freeloads'] = count(ShiftEntries_freeloaded_by_user($user));
-  
-  return array(
+
+  if($_REQUEST['action'] == "csv") {
+    header('Content-Type: text/csv; charset=utf-8');
+    header('Content-Disposition: attachment; filename=data.csv');
+    echo "Nick, Name, Vorname, Telefon, DECT, Handy, E-Mail\n";
+    foreach ($users as &$user) {
+      $extracted = array($user['Nick'], $user['Name'], $user['Vorname'], $user['Telefon'], $user['DECT'], $user['Handy'], $user['email']);
+      echo implode(",", $extracted)."\n";
+    }
+    die();
+  } else {
+    return array(
       _('All users'),
       Users_view($users, $order_by, User_arrived_count(), User_active_count(), User_force_active_count(), ShiftEntries_freeleaded_count(), User_tshirts_count(), User_got_voucher_count()) 
-  );
+    );
+  }
 }
 
 /**

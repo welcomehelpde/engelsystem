@@ -64,7 +64,8 @@ function Users_view($users, $order_by, $arrived_count, $active_count, $force_act
   return page_with_title(_('All users'), array(
       msg(),
       buttons(array(
-          button(page_link_to('register'), glyph('plus') . _('New user')) 
+          button(page_link_to('register'), glyph('plus') . _('New user')),
+          button(users_link_csv(), glyph('plus') . _('Export as csv')) 
       )),
       table(array(
           'Nick' => Users_table_header_link('Nick', _('Nick'), $order_by),

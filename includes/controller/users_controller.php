@@ -135,9 +135,9 @@ function users_list_controller() {
   if($_REQUEST['action'] == "csv") {
     header('Content-Type: text/csv; charset=utf-8');
     header('Content-Disposition: attachment; filename=data.csv');
-    echo _('Nick').','._('Name').','._('First Name').','._('Phone').','._('Mobile').','._('E-mail').','._('Additional Info')."\n";
+    echo "'"._('Nick')."','"._('Name')."','"._('First Name')."','"._('Phone')."','"._('Mobile')."','"._('E-mail')."','"._('Additional Info')."'\n";
     foreach ($users as &$user) {
-      $extracted = array($user['Nick'], $user['Name'], $user['Vorname'], $user['Telefon'], $user['Handy'], $user['email'], $user['kommentar']);
+      $extracted = array("'".$user['Nick']."'", "'".$user['Name']."'", "'".$user['Vorname']."'", "'".$user['Telefon']."'", "'".$user['Handy']."'", "'".$user['email']."'", "'".$user['kommentar']."'");
       echo implode(",", $extracted)."\n";
     }
     die();

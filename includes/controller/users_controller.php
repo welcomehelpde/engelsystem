@@ -134,12 +134,17 @@ function users_list_controller() {
 
   if($_REQUEST['action'] == "csv") {
     header('Content-Type: text/csv; charset=utf-8');
-    header('Content-Disposition: attachment; filename=data.csv');
-    echo "'"._('Nick')."','"._('Name')."','"._('First Name')."','"._('Phone')."','"._('Mobile')."','"._('E-mail')."','"._('Additional Info')."'\n";
+    header('Content-Disposition: attachment; filename=engelsystem_users_'.date('Y-m-d').'.csv');
+
+    $csv = fopen('php://output', 'w');
+    fputcsv($csv, array(_('Nick'), _('Name'), _('First Name'), _('Phone'), _('Mobile'), _('E-mail'), _('Additional Info')));
+
     foreach ($users as &$user) {
-      $extracted = array("'".$user['Nick']."'", "'".$user['Name']."'", "'".$user['Vorname']."'", "'".$user['Telefon']."'", "'".$user['Handy']."'", "'".$user['email']."'", "'".$user['kommentar']."'");
-      echo implode(",", $extracted)."\n";
+        fputcsv($csv, array($user['Nick'], $user['Name'], $user['Vorname'], $user['Telefon'], $user['Handy'], $user['email'], $user['kommentar']));
     }
+
+    fclose($csv);
+
     die();
   } else {
     return array(

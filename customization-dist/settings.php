@@ -30,4 +30,7 @@ $customization = array(
   // (Optional) Add a custom analytics code (You might use an extra file
   // and `file_get_contents`)
   'analytics_code' => null,
+
+  // Define if the ip address used for registration should be logged or not
+  'log_registration_ip' => false,
 );

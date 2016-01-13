@@ -45,6 +45,7 @@ require_once realpath(__DIR__ . '/../includes/helper/graph_helper.php');
 require_once realpath(__DIR__ . '/../includes/helper/internationalization_helper.php');
 require_once realpath(__DIR__ . '/../includes/helper/message_helper.php');
 require_once realpath(__DIR__ . '/../includes/helper/error_helper.php');
+require_once realpath(__DIR__ . '/../includes/helper/ip_helper.php');
 
 require_once realpath(__DIR__ . '/../includes/helper/session_helper.php');
 

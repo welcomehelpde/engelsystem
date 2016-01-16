@@ -18,7 +18,7 @@ function user_activate_account_title() {
 
 // Engel registrieren
 function guest_register() {
-  global $default_theme, $genders;
+  global $default_theme, $genders, $customization;
   
   $msg = "";
   $nick = "";
@@ -159,7 +159,12 @@ function guest_register() {
         sql_query("INSERT INTO `UserAngelTypes` SET `user_id`='" . sql_escape($user_id) . "', `angeltype_id`='" . sql_escape($selected_angel_type_id) . "'");
         $user_angel_types_info[] = $angel_types[$selected_angel_type_id];
       }
-      engelsystem_log("User " . $nick . " signed up as: " . join(", ", $user_angel_types_info));
+      
+      $signUpLogStr = 'User "' . $nick . '" signed up';
+      if(isset($customization['log_registration_ip']) && $customization['log_registration_ip'] === true) {
+        $signUpLogStr .= ' with the IP address ' . getUserIP();
+      }
+      engelsystem_log($signUpLogStr);
 
       user_send_verification_email($mail, $confirmationToken);      
             
